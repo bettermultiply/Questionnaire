@@ -6,10 +6,13 @@
 <hibernate-configuration>
     <session-factory>
         <property name="connection.driver_class">org.h2.Driver</property>
-        <property name="connection.url">jdbc:h2:mem:test;DB_CLOSE_DELAY=-1</property>
+        <property name="connection.url">jdbc:h2:mem:testdb</property>
+        <property name="connection.username">sa</property>
+        <property name="connection.password"></property>
         <property name="dialect">org.hibernate.dialect.H2Dialect</property>
         <property name="show_sql">true</property>
-        <property name="hbm2ddl.auto">create</property>
+        <property name="current_session_context_class">thread</property>
+        <property name="hbm2ddl.auto">create-drop</property>
 <!--        <mapping class="HiberDemo.Employee"/>-->
 
         <property name="hibernate.c3p0.acquire_increment">4</property>
@@ -18,6 +21,8 @@
         <property name="hibernate.c3p0.min_size">8</property>
         <property name="hibernate.c3p0.max_statements">16</property>
 
+<!--        register entity relation mapping file-->
+        <mapping resource="Manager.hbm.xml"/>
 
     </session-factory>
 </hibernate-configuration>
