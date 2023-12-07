@@ -4,53 +4,35 @@ package questionnaire.database;
 import java.util.Set;
 
 public class QuestionnaireResult {
-    private Table parentTable;
+
+    private QuestionnaireTable parentTable;
     // many-to-one: multiple result relates to one table.
     // and many-to-many:
 
-    private Set<QMultipleChoose> multipleChooses;
-    private Set<QSingleChoose> singleChooses;
-    private Set<QText> texts;
+    private Set<QuestionType> results;
 
     public QuestionnaireResult() {
     }
 
-    public QuestionnaireResult(Table parentTable, Set<QMultipleChoose> multipleChooses, Set<QSingleChoose> singleChooses, Set<QText> texts) {
+    public QuestionnaireResult(QuestionnaireTable parentTable, Set<QuestionType> multipleChooses) {
         this.parentTable = parentTable;
-        this.multipleChooses = multipleChooses;
-        this.singleChooses = singleChooses;
-        this.texts = texts;
+        this.results = multipleChooses;
     }
 
-    public Set<QMultipleChoose> getMultipleChooses() {
-        return multipleChooses;
+    public Set<QuestionType> getChooses() {
+        return results;
     }
 
-    public void setMultipleChooses(Set<QMultipleChoose> multipleChooses) {
-        this.multipleChooses = multipleChooses;
+    public void setChooses(Set<QuestionType> results) {
+        this.results = results;
     }
 
-    public Set<QSingleChoose> getSingleChooses() {
-        return singleChooses;
-    }
 
-    public void setSingleChooses(Set<QSingleChoose> singleChooses) {
-        this.singleChooses = singleChooses;
-    }
-
-    public Set<QText> getTexts() {
-        return texts;
-    }
-
-    public void setTexts(Set<QText> texts) {
-        this.texts = texts;
-    }
-
-    public Table getParentTable() {
+    public QuestionnaireTable getParentTable() {
         return parentTable;
     }
 
-    public void setParentTable(Table parentTable) {
+    public void setParentTable(QuestionnaireTable parentTable) {
         this.parentTable = parentTable;
     }
 }
