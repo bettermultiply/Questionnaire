@@ -5,29 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b260499e-6fd2-4e06-a5e9-7b82de17fd2d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/questionnaire/database/QuestionnaireTable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/questionnaire/database/Choice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/questionnaire/database/Choice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/questionnaire/database/ChosenResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/questionnaire/database/ChosenResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/questionnaire/database/CommonUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/questionnaire/database/CommonUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/questionnaire/database/QChoose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/questionnaire/database/QChoose.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/questionnaire/database/QChooseResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/questionnaire/database/QChooseResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/questionnaire/database/QText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/questionnaire/database/QText.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/questionnaire/database/QTextResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/questionnaire/database/QTextResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/questionnaire/database/QuestionType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/questionnaire/database/QuestionType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/questionnaire/database/QuestionnaireResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/questionnaire/database/QuestionnaireResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/questionnaire/database/Table.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Choice.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Choice.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ChosenResult.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ChosenResult.hbm.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/CommonUser.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/CommonUser.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Manager.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Manager.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/QChoose.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/QChoose.hbm.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/QChooseResult.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/QChooseResult.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/QTextResult.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/QTextResult.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/QuestionnaireResult.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/QuestionnaireResult.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Table.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/QuestionnaireTable.hbm.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +50,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "database",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "C:/Users/11483/Desktop/Web/Questionnaire/questionnaire/src/main/webapp/WEB-INF/lib",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -150,7 +131,7 @@
       <workItem from="1701829501726" duration="1284000" />
       <workItem from="1701840481049" duration="1360000" />
       <workItem from="1701853864787" duration="9181000" />
-      <workItem from="1701887352905" duration="16848000" />
+      <workItem from="1701887352905" duration="17548000" />
     </task>
     <servers />
   </component>

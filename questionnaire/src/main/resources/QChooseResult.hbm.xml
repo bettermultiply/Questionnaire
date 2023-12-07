@@ -11,7 +11,7 @@
 <!--        <many-to-one name="parentQ" class="questionnaire.database."-->
         <set name="chosenOrders" table="chosen_result">
             <key column="belongs" />
-            <one-to-many class="questionnaire.database.QuestionnaireTable" />
+            <one-to-many class="questionnaire.database.ChosenResult" />
         </set>
     </class>
 </hibernate-mapping>

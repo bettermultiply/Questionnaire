@@ -29,12 +29,12 @@
         <mapping resource="Manager.hbm.xml"/>
         <mapping resource="QChooseResult.hbm.xml"/>
         <mapping resource="ChosenResult.hbm.xml"/>
-        <mapping resource="CommonUser.hbm.xml" />
+<!--        <mapping resource="CommonUser.hbm.xml" />-->
         <mapping resource="QuestionnaireTable.hbm.xml" />
-        <mapping resource="QuestionnaireResult.hbm.xml" />
-        <mapping resource="QTextResult.hbm.xml" />
-        <mapping resource="QText.hbm.xml" />
-        <mapping resource="QChoose.hbm.xml" />
-        <mapping resource="Choice.hbm.xml" />
+<!--        <mapping resource="QuestionnaireResult.hbm.xml" />-->
+<!--        <mapping resource="QTextResult.hbm.xml" />-->
+<!--        <mapping resource="QText.hbm.xml" />-->
+<!--        <mapping resource="QChoose.hbm.xml" />-->
+<!--        <mapping resource="Choice.hbm.xml" />-->
     </session-factory>
 </hibernate-configuration>
