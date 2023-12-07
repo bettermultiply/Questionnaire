@@ -8,8 +8,8 @@
             <column name="id"/>
             <generator class="identity"></generator>
         </id>
-        <property name="name" type="java.lang.String">
-            <column name="name"></column>
+        <property name="userName" type="java.lang.String">
+            <column name="username"></column>
         </property>
 
 
