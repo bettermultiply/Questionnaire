@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b260499e-6fd2-4e06-a5e9-7b82de17fd2d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/CommonUser.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/CommonUser.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/QChooseResult.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/QChooseResult.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
-    </list>
+    <list default="true" id="b260499e-6fd2-4e06-a5e9-7b82de17fd2d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -131,7 +126,7 @@
       <workItem from="1701829501726" duration="1284000" />
       <workItem from="1701840481049" duration="1360000" />
       <workItem from="1701853864787" duration="9181000" />
-      <workItem from="1701887352905" duration="17548000" />
+      <workItem from="1701887352905" duration="17854000" />
     </task>
     <servers />
   </component>
