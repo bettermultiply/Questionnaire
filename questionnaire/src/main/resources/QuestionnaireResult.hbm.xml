@@ -3,5 +3,14 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-
+    <class name="questionnaire.database.QuestionnaireResult" table="questionnaire_result">
+        <id name="resultId" column="id" type="java.lang.Integer" >
+            <generator class="identity" />
+        </id>
+        <many-to-one name="parentTable" column="belongs" class="questionnaire.database.QuestionnaireTable" />
+        <set name="results" table="question_type_result">
+            <key column="belongs" />
+            <one-to-many class="questionnaire.database.QuestionTypeResult" />
+        </set>
+    </class>
 </hibernate-mapping>

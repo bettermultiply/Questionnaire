@@ -3,12 +3,11 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="questionnaire.database.ChosenResult" table="chosen_result">
-        <id name="orders" type="java.lang.Integer">
-            <column name="orders" />
+    <class name="questionnaire.database.ChoiceResult" table="choice_result">
+        <id name="choiceResultId" type="java.lang.Integer" column="id">
             <generator class="identity" />
         </id>
-
+        <many-to-one name="modelChoice" class="questionnaire.database.Choice" column="model" />
         <many-to-one name="parentChosenResult" class="questionnaire.database.QChooseResult" column="belongs"/>
     </class>
 </hibernate-mapping>

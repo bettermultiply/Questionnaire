@@ -1,31 +1,46 @@
 package questionnaire.database;
 
+import java.util.List;
+import java.util.Set;
 import java.util.Vector;
 
 public class QChoose extends QuestionType{
-
-    private Integer qChooseId;
-
-    private String description;
 
     /**
      * multiple or single;
      */
     private Boolean chooseType;
 
-
-
-    private Vector<Choice> choices;
+    private List<Choice> choices;
 
     public QChoose() {
         super();
     }
 
-    public QChoose(Integer id, String description, QuestionnaireTable parentTable, Integer order, Integer qChooseId, String description1, Boolean chooseType, Vector<Choice> choices) {
-        super(id, description, parentTable, order);
-        this.qChooseId = qChooseId;
-        this.description = description1;
+    public QChoose(Boolean chooseType, List<Choice> choices) {
         this.chooseType = chooseType;
+        this.choices = choices;
+    }
+
+    public QChoose(Integer questionId, String description, QuestionnaireTable parentTable, Set<QuestionTypeResult> results, Boolean chooseType, List<Choice> choices) {
+        super(questionId, description, parentTable, results);
+        this.chooseType = chooseType;
+        this.choices = choices;
+    }
+
+    public Boolean getChooseType() {
+        return chooseType;
+    }
+
+    public void setChooseType(Boolean chooseType) {
+        this.chooseType = chooseType;
+    }
+
+    public List<Choice> getChoices() {
+        return choices;
+    }
+
+    public void setChoices(List<Choice> choices) {
         this.choices = choices;
     }
 }

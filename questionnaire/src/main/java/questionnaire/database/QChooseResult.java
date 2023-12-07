@@ -5,39 +5,24 @@ import javax.persistence.OneToMany;
 import java.util.Set;
 import java.util.Vector;
 
-public class QChooseResult{
+public class QChooseResult extends QuestionTypeResult{
 
-    private Integer chooseResultId;
 
-//    private QChoose parentQ;
-
-    private Set<ChosenResult> chosenOrders;
+    private Set<ChoiceResult> results;
 
     public QChooseResult() {
     }
 
-    public Set<ChosenResult> getChosenOrders() {
-        return chosenOrders;
+    public QChooseResult(Integer resultId, QuestionType modelType, QuestionnaireResult parentResult, Set<ChoiceResult> results) {
+        super(resultId, modelType, parentResult);
+        this.results = results;
     }
 
-    public void setChosenOrders(Set<ChosenResult> chosenOrders) {
-        this.chosenOrders = chosenOrders;
+    public Set<ChoiceResult> getResults() {
+        return results;
     }
 
-    public Integer getChooseResultId() {
-        return chooseResultId;
+    public void setResults(Set<ChoiceResult> results) {
+        this.results = results;
     }
-
-    public void setChooseResultId(Integer chooseResultId) {
-        this.chooseResultId = chooseResultId;
-    }
-
-//    public QChoose getParentQ() {
-//        return parentQ;
-//    }
-//
-//    public void setParentQ(QChoose parentQ) {
-//        this.parentQ = parentQ;
-//    }
-
 }

@@ -3,5 +3,15 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-
+    <class name="questionnaire.database.Choice" table="choice">
+        <id name="choiceId" type="java.lang.Integer" column="id" >
+            <generator class="identity" />
+        </id>
+        <property name="choiceContent" type="java.lang.String" column="choice_content" />
+        <many-to-one name="parentQ" column="belongs" class="questionnaire.database.QChoose" />
+        <set name="results" table="choice_result">
+            <key column="model" />
+            <one-to-many class="questionnaire.database.ChoiceResult" />
+        </set>
+    </class>
 </hibernate-mapping>

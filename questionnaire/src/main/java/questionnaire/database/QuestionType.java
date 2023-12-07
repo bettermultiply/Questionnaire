@@ -1,34 +1,39 @@
 package questionnaire.database;
 
+import java.util.Set;
+
 public class QuestionType {
 
-    private Integer id;
+    private Integer questionId;
 
     private String description;
 
     private QuestionnaireTable parentTable;
 
+    private Set<QuestionTypeResult> results;
+
     /**
      * the order of the question
      */
-    private Integer order;
+    //it's useless now for we can add index directly in the table TODO but how can we know which choice is chosen?
+//    private Integer order;
 
     public QuestionType() {
     }
 
-    public QuestionType(Integer id, String description, QuestionnaireTable parentTable, Integer order) {
-        this.id = id;
+    public QuestionType(Integer questionId, String description, QuestionnaireTable parentTable, Set<QuestionTypeResult> results) {
+        this.questionId = questionId;
         this.description = description;
         this.parentTable = parentTable;
-        this.order = order;
+        this.results = results;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getQuestionId() {
+        return questionId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setQuestionId(Integer questionId) {
+        this.questionId = questionId;
     }
 
     public String getDescription() {
@@ -47,11 +52,11 @@ public class QuestionType {
         this.parentTable = parentTable;
     }
 
-    public Integer getOrder() {
-        return order;
+    public Set<QuestionTypeResult> getResults() {
+        return results;
     }
 
-    public void setOrder(Integer order) {
-        this.order = order;
+    public void setResults(Set<QuestionTypeResult> results) {
+        this.results = results;
     }
 }
