@@ -2,7 +2,7 @@ package questionnaire.database;
 
 public class QuestionTypeResult {
 
-    private Integer resultId;
+    private String resultId;
 
     private QuestionType modelType;
 
@@ -11,17 +11,17 @@ public class QuestionTypeResult {
     public QuestionTypeResult() {
     }
 
-    public QuestionTypeResult(Integer resultId, QuestionType modelType, QuestionnaireResult parentResult) {
+    public QuestionTypeResult(String resultId, QuestionType modelType, QuestionnaireResult parentResult) {
         this.resultId = resultId;
         this.modelType = modelType;
         this.parentResult = parentResult;
     }
 
-    public Integer getResultId() {
+    public String getResultId() {
         return resultId;
     }
 
-    public void setResultId(Integer resultId) {
+    public void setResultId(String resultId) {
         this.resultId = resultId;
     }
 

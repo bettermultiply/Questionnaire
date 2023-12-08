@@ -6,7 +6,7 @@ import java.util.Set;
 
 public class QuestionnaireResult {
 
-    private Integer resultId;
+    private String resultId;
 
     private QuestionnaireTable parentTable;
     // many-to-one: multiple result relates to one table.
@@ -17,7 +17,7 @@ public class QuestionnaireResult {
     public QuestionnaireResult() {
     }
 
-    public QuestionnaireResult(Integer resultId, QuestionnaireTable parentTable, Set<QuestionTypeResult> results) {
+    public QuestionnaireResult(String resultId, QuestionnaireTable parentTable, Set<QuestionTypeResult> results) {
         this.resultId = resultId;
         this.parentTable = parentTable;
         this.results = results;
@@ -31,11 +31,11 @@ public class QuestionnaireResult {
         this.results = results;
     }
 
-    public Integer getResultId() {
+    public String getResultId() {
         return resultId;
     }
 
-    public void setResultId(Integer resultId) {
+    public void setResultId(String resultId) {
         this.resultId = resultId;
     }
 

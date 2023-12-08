@@ -3,7 +3,7 @@ package questionnaire.database;
 public class ChoiceResult {
 
 
-    private Integer choiceResultId;
+    private String choiceResultId;
 
     private Choice modelChoice;
     private QChooseResult parentChosenResult;
@@ -11,7 +11,7 @@ public class ChoiceResult {
     public ChoiceResult() {
     }
 
-    public ChoiceResult(Choice modelChoice, QChooseResult parentChosenResult, Integer choiceResultId) {
+    public ChoiceResult(Choice modelChoice, QChooseResult parentChosenResult, String choiceResultId) {
         this.modelChoice = modelChoice;
         this.parentChosenResult = parentChosenResult;
         this.choiceResultId = choiceResultId;
@@ -33,11 +33,11 @@ public class ChoiceResult {
         this.parentChosenResult = parentChosenResult;
     }
 
-    public Integer getChoiceResultId() {
+    public String getChoiceResultId() {
         return choiceResultId;
     }
 
-    public void setChoiceResultId(Integer choiceResultId) {
+    public void setChoiceResultId(String choiceResultId) {
         this.choiceResultId = choiceResultId;
     }
 }

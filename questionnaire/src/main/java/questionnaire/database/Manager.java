@@ -1,10 +1,10 @@
 package questionnaire.database;
 
 public class Manager {
-    private Integer id;
+    private String id;
     private String username;
 
-    public Manager(Integer id, String userName){
+    public Manager(String id, String userName){
         this.id = id;
         this.username = userName;
     }
@@ -21,11 +21,11 @@ public class Manager {
         this.username = name;
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 }

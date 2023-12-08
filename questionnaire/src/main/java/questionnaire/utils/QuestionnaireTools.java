@@ -42,11 +42,22 @@ public class QuestionnaireTools {
         }
     }
 
-    public static List<QuestionnaireTable> readQuestionnaire(Integer parentid){
+
+    public static List<QuestionnaireTable> readOneQuestionnaire(String parentid){
+        String hql = "FROM QuestionnaireTable where belongs=" + parentid;
+        return readQuestionnaire(hql);
+    }
+
+    //TODO how to protect the method to only the manager can use it ? Maybe no need to do that
+    public static List<QuestionnaireTable> readAllQuestionnaires(){
+        String hql = "FROM QuestionnaireTable";
+        return readQuestionnaire(hql);
+    }
+
+    private static List<QuestionnaireTable> readQuestionnaire(String hql){
         List<QuestionnaireTable> tables = null;
         try(Session session = SessionFactorySource.getSessionFactory().openSession()){
             session.beginTransaction();
-            String hql = "FROM Choice where belongs=" + String.valueOf(parentid);
             tables = session.createQuery(hql).list();
             session.getTransaction().commit();
         } catch (HibernateException e) {
@@ -55,4 +66,6 @@ public class QuestionnaireTools {
 
         return tables;
     }
+
+
 }

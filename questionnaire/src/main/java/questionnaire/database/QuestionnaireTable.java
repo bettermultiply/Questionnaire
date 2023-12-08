@@ -5,7 +5,7 @@ import java.util.Set;
 
 public class QuestionnaireTable {
 
-    private Integer tableId;
+    private String tableId;
 
     private String tableName;
 
@@ -29,7 +29,7 @@ public class QuestionnaireTable {
     public QuestionnaireTable() {
     }
 
-    public QuestionnaireTable(Integer tableId, String tableName, Boolean isChecked, CommonUser user, Set<QuestionnaireResult> results, List<QuestionType> questions) {
+    public QuestionnaireTable(String tableId, String tableName, Boolean isChecked, CommonUser user, Set<QuestionnaireResult> results, List<QuestionType> questions) {
         this.tableId = tableId;
         this.tableName = tableName;
         this.isChecked = isChecked;
@@ -38,11 +38,11 @@ public class QuestionnaireTable {
         this.questions = questions;
     }
 
-    public Integer getTableId() {
+    public String getTableId() {
         return tableId;
     }
 
-    public void setTableId(Integer tableId) {
+    public void setTableId(String tableId) {
         this.tableId = tableId;
     }
 

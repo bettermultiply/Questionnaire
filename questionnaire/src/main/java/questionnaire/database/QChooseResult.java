@@ -13,7 +13,7 @@ public class QChooseResult extends QuestionTypeResult{
     public QChooseResult() {
     }
 
-    public QChooseResult(Integer resultId, QuestionType modelType, QuestionnaireResult parentResult, Set<ChoiceResult> results) {
+    public QChooseResult(String resultId, QuestionType modelType, QuestionnaireResult parentResult, Set<ChoiceResult> results) {
         super(resultId, modelType, parentResult);
         this.results = results;
     }

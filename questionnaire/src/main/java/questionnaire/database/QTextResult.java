@@ -7,7 +7,7 @@ public class QTextResult extends QuestionTypeResult{
     public QTextResult() {
     }
 
-    public QTextResult(Integer resultId, QuestionType modelType, QuestionnaireResult parentResult) {
+    public QTextResult(String resultId, QuestionType modelType, QuestionnaireResult parentResult) {
         super(resultId, modelType, parentResult);
     }
 

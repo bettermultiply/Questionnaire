@@ -4,8 +4,8 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
     <class name="questionnaire.database.QuestionTypeResult" table="question_type_result">
-        <id name="resultId" column="id" type="java.lang.Integer" >
-            <generator class="identity" />
+        <id name="resultId" column="id" type="java.lang.String" >
+            <generator class="uuid" />
         </id>
         <discriminator column="specificType" type="java.lang.String" />
         <many-to-one name="parentResult" column="belongs" class="questionnaire.database.QuestionType" />

@@ -4,8 +4,8 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
     <class name="questionnaire.database.Choice" table="choice">
-        <id name="choiceId" type="java.lang.Integer" column="id" >
-            <generator class="identity" />
+        <id name="choiceId" type="java.lang.String" column="id" >
+            <generator class="uuid" />
         </id>
         <property name="choiceContent" type="java.lang.String" column="choice_content" />
         <many-to-one name="parentQ" column="belongs" class="questionnaire.database.QChoose" />

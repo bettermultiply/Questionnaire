@@ -25,9 +25,9 @@ public class TestController {
         Session session;
         session = SessionFactorySource.getSessionFactory().openSession();
         session.beginTransaction();
-        QChoose choose = new QChoose(1, "test", null, null, true, null);
+        QChoose choose = new QChoose("1", "test", null, null, true, null);
 //        ChoiceResult result = new ChoiceResult()
-        Choice choice = new Choice(choose, "Hello BetMul");
+        Choice choice = new Choice(choose, "Hello BetMul", "");
 //        List<Choice> list = new ArrayList<Choice>();
 //        list.add(choice);
 //        choose.setChoices(list);

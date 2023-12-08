@@ -41,11 +41,11 @@ public class ChoiceTools {
         }
     }
 
-    public static List<Choice> readChoice(Integer parentid){
+    public static List<Choice> readChoice(String parentid){
         List<Choice> choices = null;
         try(Session session = SessionFactorySource.getSessionFactory().openSession()){
             session.beginTransaction();
-            String hql = "FROM Choice where belongs=" + String.valueOf(parentid);
+            String hql = "FROM Choice where belongs=" + parentid;
             choices = session.createQuery(hql).list();
             session.getTransaction().commit();
         } catch (HibernateException e) {

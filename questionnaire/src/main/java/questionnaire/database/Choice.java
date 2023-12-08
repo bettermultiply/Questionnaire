@@ -5,7 +5,7 @@ import java.util.Set;
 public class Choice {
 
 
-    private Integer choiceId;
+    private String choiceId;
     /**
      * mark which QType the choice belong to;
      */
@@ -19,10 +19,10 @@ public class Choice {
     public Choice() {
     }
 
-    public Choice(QChoose parentQ, String choiceContent) {
+    public Choice(QChoose parentQ, String choiceContent, String choiceId) {
         this.parentQ = parentQ;
         this.choiceContent = choiceContent;
-        this.choiceId = choiceContent.hashCode();
+        this.choiceId = choiceId;
     }
 
     public QChoose getParentQ() {
@@ -41,11 +41,11 @@ public class Choice {
         this.choiceContent = choiceContent;
     }
 
-    public Integer getChoiceId() {
+    public String getChoiceId() {
         return choiceId;
     }
 
-    public void setChoiceId(Integer choiceId) {
+    public void setChoiceId(String choiceId) {
         this.choiceId = choiceId;
     }
 

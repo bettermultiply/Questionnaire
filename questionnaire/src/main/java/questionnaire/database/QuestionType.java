@@ -4,7 +4,7 @@ import java.util.Set;
 
 public class QuestionType {
 
-    private Integer questionId;
+    private String questionId;
 
     private String description;
 
@@ -21,18 +21,18 @@ public class QuestionType {
     public QuestionType() {
     }
 
-    public QuestionType(Integer questionId, String description, QuestionnaireTable parentTable, Set<QuestionTypeResult> results) {
+    public QuestionType(String questionId, String description, QuestionnaireTable parentTable, Set<QuestionTypeResult> results) {
         this.questionId = questionId;
         this.description = description;
         this.parentTable = parentTable;
         this.results = results;
     }
 
-    public Integer getQuestionId() {
+    public String getQuestionId() {
         return questionId;
     }
 
-    public void setQuestionId(Integer questionId) {
+    public void setQuestionId(String questionId) {
         this.questionId = questionId;
     }
 

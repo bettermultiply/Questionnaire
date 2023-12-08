@@ -42,11 +42,11 @@ public class QuestionTools {
         }
     }
 
-    public static List<QuestionType> readQuestion(Integer parentid){
+    public static List<QuestionType> readQuestion(String parentid){
         List<QuestionType> questions = null;
         try(Session session = SessionFactorySource.getSessionFactory().openSession()){
             session.beginTransaction();
-            String hql = "FROM Choice where belongs=" + String.valueOf(parentid);
+            String hql = "FROM QuestionType where belongs=" + parentid;
             questions = session.createQuery(hql).list();
             session.getTransaction().commit();
         } catch (HibernateException e) {

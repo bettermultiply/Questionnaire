@@ -22,7 +22,7 @@ public class QChoose extends QuestionType{
         this.choices = choices;
     }
 
-    public QChoose(Integer questionId, String description, QuestionnaireTable parentTable, Set<QuestionTypeResult> results, Boolean chooseType, List<Choice> choices) {
+    public QChoose(String questionId, String description, QuestionnaireTable parentTable, Set<QuestionTypeResult> results, Boolean chooseType, List<Choice> choices) {
         super(questionId, description, parentTable, results);
         this.chooseType = chooseType;
         this.choices = choices;
