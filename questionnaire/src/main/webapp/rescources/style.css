@@ -1,0 +1,30 @@
+/*上部标识样式*/
+.jumbotron{
+    background: #4a9fe9;
+}
+/*头部右移动*/
+.header-right{
+    position: relative;
+    right: -20px;
+    top: 25px;
+}
+/* 头部左移动*/
+.header-left{
+    position: relative;
+    left: -40px;
+    top: 55px;
+}
+/* 字体大小*/
+.size{
+    font-size: large;
+}
+/*中间位置*/
+.center {
+    line-height: 150px;
+    height: 40px;
+    text-align: center;
+}
+.image-size{
+    height: 300px;
+}
+
