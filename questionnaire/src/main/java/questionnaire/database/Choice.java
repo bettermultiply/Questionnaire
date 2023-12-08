@@ -19,10 +19,10 @@ public class Choice {
     public Choice() {
     }
 
-    public Choice(QChoose parentQ, String choiceContent, Integer choiceId) {
+    public Choice(QChoose parentQ, String choiceContent) {
         this.parentQ = parentQ;
         this.choiceContent = choiceContent;
-        this.choiceId = choiceId;
+        this.choiceId = choiceContent.hashCode();
     }
 
     public QChoose getParentQ() {

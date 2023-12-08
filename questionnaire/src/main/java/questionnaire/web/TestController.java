@@ -6,12 +6,13 @@ import org.hibernate.cfg.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import questionnaire.database.ChoiceResult;
-import questionnaire.database.QChooseResult;
-import questionnaire.database.QuestionType;
-import questionnaire.database.QuestionTypeResult;
+import questionnaire.database.*;
+import questionnaire.utils.ChoiceTools;
+import questionnaire.utils.SessionFactorySource;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Controller
@@ -22,31 +23,21 @@ public class TestController {
     @RequestMapping(method = RequestMethod.GET)
     public String HomeDataInit() throws HibernateException {
         Session session;
-        Configuration config = new Configuration().configure();
-        session = config.buildSessionFactory().openSession();
-        QChooseResult result = new QChooseResult();
-        result.setResultId(1);
-        Set<ChoiceResult> orders = new HashSet<ChoiceResult>();
-        ChoiceResult r1 = new ChoiceResult();
-        r1.setChoiceResultId(1);
-        ChoiceResult r2 = new ChoiceResult();
-        r2.setChoiceResultId(2);
-        ChoiceResult r3 = new ChoiceResult();
-        r3.setChoiceResultId(3);
-        orders.add(r1);
-        orders.add(r2);
-        orders.add(r3);
+        session = SessionFactorySource.getSessionFactory().openSession();
+        session.beginTransaction();
+        QChoose choose = new QChoose(1, "test", null, null, true, null);
+//        ChoiceResult result = new ChoiceResult()
+        Choice choice = new Choice(choose, "Hello BetMul");
+//        List<Choice> list = new ArrayList<Choice>();
+//        list.add(choice);
+//        choose.setChoices(list);
+        session.save(choose);
+//        session.save(choice);
+        session.getTransaction().commit();
 
-        result.setResults(orders);
-
-        session.save(result);
-        session.save(r1);
-        session.save(r2);
-        session.save(r3);
-        session.beginTransaction().commit();
-
-
-        System.out.println("ok");
+        ChoiceTools.createChoice(choice);
+        List<Choice> newchoice = ChoiceTools.readChoice(choose.getQuestionId());
+        System.out.println(newchoice.isEmpty());
         session.close();
         return "welcome";
     }
