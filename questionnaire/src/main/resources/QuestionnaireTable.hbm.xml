@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="questionnaire.database.QuestionnaireTable" table="questionnaire_table">
+        <id name="tableId" type="java.lang.String" column="id">
+            <generator class="uuid" />
+        </id>
+        <property name="isChecked" type="java.lang.Boolean" column="is_checked" />
+        
+        <many-to-one name="user" class="questionnaire.database.CommonUser" column="belongs" />
+
+        <list name="questions" table="question_type" inverse="false" cascade="all">
+            <key column="belongs" />
+            <index column="question_index" type="java.lang.Integer" />
+            <one-to-many class="questionnaire.database.QuestionType" />
+        </list>
+        
+        <set name="results" table="questionnaire_result">
+            <key column="belongs" />
+            <one-to-many class="questionnaire.database.QuestionnaireResult" />
+        </set>
+    </class>
+
+</hibernate-mapping>

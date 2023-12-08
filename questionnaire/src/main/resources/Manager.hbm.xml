@@ -4,12 +4,10 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
     <class name="questionnaire.database.Manager" table="manager">
-        <id name="id" type="java.lang.Integer">
-            <column name="id"/>
-            <generator class="identity"></generator>
+        <id name="id" type="java.lang.Integer" column="id">
+            <generator class="uuid" />
         </id>
-        <property name="name" type="java.lang.String">
-            <column name="name"></column>
-        </property>
+        <property name="userName" type="java.lang.String" column="username" />
+
     </class>
 </hibernate-mapping>

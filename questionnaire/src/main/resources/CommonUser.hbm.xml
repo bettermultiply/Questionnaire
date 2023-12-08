@@ -3,5 +3,16 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
+    <class name="questionnaire.database.CommonUser" table="common_user">
+        <id name="userId" type="java.lang.String" column="user_id">
+            <generator class="uuid" />
+        </id>
+        <property name="userName" type="java.lang.String" column="user_name" />
+        <property name="password" type="java.lang.String" column="password" />
 
+        <set name="questionnaireTables" table="questionnaire_table">
+            <key column="belongs" />
+            <one-to-many class="questionnaire.database.QuestionnaireTable" />
+        </set>
+    </class>
 </hibernate-mapping>

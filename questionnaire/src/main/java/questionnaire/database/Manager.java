@@ -1,31 +1,31 @@
 package questionnaire.database;
 
 public class Manager {
-    private Integer id;
-    private String name;
+    private String id;
+    private String username;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Manager(Integer id, String name){
+    public Manager(String id, String userName){
         this.id = id;
-        this.name = name;
+        this.username = userName;
     }
 
     public Manager() {
 
     }
 
-    public Integer getId() {
+    public String getUserName() {
+        return username;
+    }
+
+    public void setUserName(String name) {
+        this.username = name;
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 }

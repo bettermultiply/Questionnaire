@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="4037893e-a9be-488e-b455-740867d25595" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/antlr-2.7.6.jar" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
@@ -28,6 +29,16 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/welcome.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/welcome.jsp" afterDir="false" />
+=======
+    <list default="true" id="b260499e-6fd2-4e06-a5e9-7b82de17fd2d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/questionnaire/utils/ChoiceTools.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/questionnaire/utils/QuestionTools.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/questionnaire/utils/QuestionnaireTools.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/questionnaire/utils/SessionFactorySource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/questionnaire/database/Choice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/questionnaire/database/Choice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/questionnaire/web/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/questionnaire/web/TestController.java" afterDir="false" />
+>>>>>>> b9e6cb5bfbe1a5a670f10502df51184270bc1c66
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +49,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -66,25 +78,43 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
+<<<<<<< HEAD
     "last_opened_file_path": "C:/Users/韩莹/Questionnaire-main/Questionnaire/questionnaire",
+=======
+    "last_opened_file_path": "C:/Users/11483/Desktop/Web/Questionnaire/questionnaire/src/main/webapp/WEB-INF/lib",
+>>>>>>> b9e6cb5bfbe1a5a670f10502df51184270bc1c66
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+<<<<<<< HEAD
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
+=======
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+>>>>>>> b9e6cb5bfbe1a5a670f10502df51184270bc1c66
     "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+<<<<<<< HEAD
       <recent name="C:\Users\韩莹\Questionnaire-main\Questionnaire\questionnaire\src\main\webapp" />
       <recent name="C:\Users\韩莹\Questionnaire-main\Questionnaire\questionnaire\src\main\webapp\WEB-INF" />
       <recent name="C:\Users\韩莹\Questionnaire-main\Questionnaire\questionnaire\src\main\webapp\rescources" />
       <recent name="C:\Users\韩莹\Questionnaire-main\Questionnaire\questionnaire\src\main\webapp\WEB-INF\views" />
       <recent name="C:\Users\韩莹\Questionnaire-main\Questionnaire\questionnaire\src\main\webapp\rescources\images" />
+=======
+      <recent name="C:\Users\11483\Desktop\Web\Questionnaire\questionnaire\src\main\webapp\WEB-INF\views" />
+      <recent name="C:\Users\11483\Desktop\Web\Questionnaire\questionnaire\src\main\webapp\WEB-INF\lib" />
+      <recent name="C:\Users\11483\Desktop\Web\Questionnaire\questionnaire\src\main\webapp" />
+      <recent name="C:\Users\11483\Desktop\Web\Questionnaire\questionnaire\src\main\webapp\WEB-INF" />
+>>>>>>> b9e6cb5bfbe1a5a670f10502df51184270bc1c66
     </key>
   </component>
   <component name="RunManager" selected="Smart Tomcat.as">
@@ -146,6 +176,7 @@
       <created>1701928047106</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
+<<<<<<< HEAD
       <updated>1701928047106</updated>
       <workItem from="1701928049160" duration="894000" />
       <workItem from="1701929001148" duration="278000" />
@@ -153,6 +184,20 @@
       <workItem from="1702033468843" duration="4107000" />
       <workItem from="1702038044960" duration="9000" />
       <workItem from="1702042344713" duration="1251000" />
+=======
+      <updated>1701787176203</updated>
+      <workItem from="1701787177877" duration="4659000" />
+      <workItem from="1701791855516" duration="712000" />
+      <workItem from="1701792590581" duration="1828000" />
+      <workItem from="1701829501726" duration="1284000" />
+      <workItem from="1701840481049" duration="1360000" />
+      <workItem from="1701853864787" duration="9181000" />
+      <workItem from="1701887352905" duration="18038000" />
+      <workItem from="1701940491250" duration="227000" />
+      <workItem from="1701940727793" duration="855000" />
+      <workItem from="1701955293797" duration="10348000" />
+      <workItem from="1702014268179" duration="10892000" />
+>>>>>>> b9e6cb5bfbe1a5a670f10502df51184270bc1c66
     </task>
     <servers />
   </component>

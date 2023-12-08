@@ -1,0 +1,17 @@
+<!--<?xml version="1.0"?>-->
+<!--<!DOCTYPE hibernate-mapping PUBLIC-->
+<!--        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"-->
+<!--        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">-->
+<!--<hibernate-mapping>-->
+<!--    <class name="questionnaire.database.QChooseResult" table="q_choose_result">-->
+<!--        <id name="chooseResultId" type="java.lang.Integer" column="choose_result_id">-->
+<!--&lt;!&ndash;            what is the label mean?&ndash;&gt;-->
+<!--            <generator class="identity" />-->
+<!--        </id>-->
+<!--&lt;!&ndash;        <many-to-one name="parentQ" class="questionnaire.database."&ndash;&gt;-->
+<!--        <set name="" table="chosen_result">-->
+<!--            <key column="belongs" />-->
+<!--            <one-to-many class="questionnaire.database.ChosenResult" />-->
+<!--        </set>-->
+<!--    </class>-->
+<!--</hibernate-mapping>-->

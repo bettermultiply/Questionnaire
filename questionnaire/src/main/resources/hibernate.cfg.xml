@@ -12,7 +12,11 @@
         <property name="dialect">org.hibernate.dialect.H2Dialect</property>
         <property name="show_sql">true</property>
         <property name="current_session_context_class">thread</property>
-        <property name="hbm2ddl.auto">create-drop</property>
+        <!-- update means that create only when table not exist-->
+<!--        create means drop and create -->
+<!--        create-drop means drop on session close-->
+        <property name="hbm2ddl.auto">update</property>
+
 <!--        <mapping class="HiberDemo.Employee"/>-->
 
         <property name="hibernate.c3p0.acquire_increment">4</property>
@@ -23,6 +27,16 @@
 
 <!--        register entity relation mapping file-->
         <mapping resource="Manager.hbm.xml"/>
-
+<!--        <mapping resource="QChooseResult.hbm.xml"/>-->
+        <mapping resource="ChoiceResult.hbm.xml"/>
+        <mapping resource="CommonUser.hbm.xml" />
+        <mapping resource="QuestionnaireTable.hbm.xml" />
+        <mapping resource="QuestionnaireResult.hbm.xml" />
+<!--        <mapping resource="QTextResult.hbm.xml" />-->
+<!--        <mapping resource="QText.hbm.xml" />-->
+        <mapping resource="QChoose.hbm.xml" />
+        <mapping resource="Choice.hbm.xml" />
+        <mapping resource="QuestionType.hbm.xml" />
+        <mapping resource="QuestionTypeResult.hbm.xml" />
     </session-factory>
 </hibernate-configuration>
