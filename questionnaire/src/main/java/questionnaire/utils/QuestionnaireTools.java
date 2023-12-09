@@ -21,10 +21,10 @@ public class QuestionnaireTools {
 
     }
 
-    public static void deleteQuestionnaire(Integer id){
+    public static void deleteQuestionnaire(String id){
         try(Session session = SessionFactorySource.getSessionFactory().openSession()){
+            QuestionnaireTable table = readOneQuestionnaire(id);
             session.beginTransaction();
-            QuestionnaireTable table = (QuestionnaireTable) session.load(QuestionnaireTable.class, id);
             session.delete(table);
             session.getTransaction().commit();
         } catch (HibernateException e) {
@@ -42,10 +42,10 @@ public class QuestionnaireTools {
         }
     }
 
-
-    public static List<QuestionnaireTable> readOneQuestionnaire(String parentid){
-        String hql = "FROM QuestionnaireTable where belongs=" + parentid;
-        return readQuestionnaire(hql);
+    // TODO fix
+    public static QuestionnaireTable readOneQuestionnaire(String parentid){
+        String hql = "FROM QuestionnaireTable where belongs='" + parentid + "'";
+        return readQuestionnaire(hql).get(0);
     }
 
     //TODO how to protect the method to only the manager can use it ? Maybe no need to do that

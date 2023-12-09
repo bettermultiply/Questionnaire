@@ -7,9 +7,11 @@
         <id name="tableId" type="java.lang.String" column="id">
             <generator class="uuid" />
         </id>
-        <property name="isChecked" type="java.lang.Boolean" column="is_checked" />
+        <property name="isChecked" type="java.lang.Boolean" >
+            <column name="is_checked" default="false" />
+        </property>
         
-        <many-to-one name="user" class="questionnaire.database.CommonUser" column="belongs" />
+        <many-to-one name="user" class="questionnaire.database.CommonUser" column="belongs"/>
 
         <list name="questions" table="question_type" inverse="false" cascade="all">
             <key column="belongs" />
