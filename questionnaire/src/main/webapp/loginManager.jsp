@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>登录</title>
+    <title>管理员登陆</title>
     <style>
         #a {
             width:50%;
@@ -19,7 +19,6 @@
     <br>
     密码:<input type="password"name="password"/>
     <br>
-
     <input type="submit" value="login"/>
     </form>
 </div>

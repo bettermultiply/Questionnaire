@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>注册</title>
+    <title>用户注册</title>
     <style>
         #a {
             width:50%;
