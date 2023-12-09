@@ -20,7 +20,6 @@
 }
 /*中间位置*/
 .center {
-<<<<<<< HEAD
     line-height: 150px;
     height: 40px;
     text-align: center;
@@ -28,14 +27,13 @@
 .image-size{
     height: 300px;
 }
-
-=======
-    line-height: 250px;
-    height: 40px;
-    text-align: center;
-}
 .center a{
     position: relative;
-
 }
->>>>>>> b9e6cb5bfbe1a5a670f10502df51184270bc1c66
+.out{
+    background-color: white;
+}
+.over {
+    background-color: #9f9b9b;
+}
+

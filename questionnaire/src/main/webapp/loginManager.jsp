@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>用户注册</title>
+    <title>管理员登陆</title>
     <style>
         #a {
             width:50%;
@@ -14,16 +14,12 @@
 <body>
 <div id="a">
     <form>
-    <h1>用户注册界面</h1>
-    用户名:<input type="text" name="id"/>
+    <h1>管理员登录界面</h1>
+    账号:<input type="text" name="id"/>
     <br>
-    密码:<input type="password" name="password"/>
+    密码:<input type="password"name="password"/>
     <br>
-    邮件:<input type="email" name="email"/>
-    <br>
-    电话号码：<input type="tel" name="tel"/>
-    <br>
-    <input type="submit" value="register"/>
+    <input type="submit" value="login"/>
     </form>
 </div>
 </body>
