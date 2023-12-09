@@ -4,6 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
+    <list default="true" id="4037893e-a9be-488e-b455-740867d25595" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/antlr-2.7.6.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/loginManager.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/loginUser.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/manager.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/register.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/rescources/images/0001.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/rescources/images/logo0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/rescources/images/logo1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/rescources/images/logo2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/rescources/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.0.46/conf/catalina.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.0.46/conf/catalina.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.0.46/conf/context.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.0.46/conf/logging.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.0.46/conf/server.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.0.46/conf/tomcat-users.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.0.46/conf/tomcat-users.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.0.46/conf/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/welcome.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/welcome.jsp" afterDir="false" />
+=======
     <list default="true" id="b260499e-6fd2-4e06-a5e9-7b82de17fd2d" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/src/main/java/questionnaire/utils/ChoiceTools.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/questionnaire/utils/QuestionTools.java" afterDir="false" />
@@ -12,6 +38,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/questionnaire/database/Choice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/questionnaire/database/Choice.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/questionnaire/web/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/questionnaire/web/TestController.java" afterDir="false" />
+>>>>>>> b9e6cb5bfbe1a5a670f10502df51184270bc1c66
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,10 +67,7 @@
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 5
 }</component>
-  <component name="ProjectId" id="2Z7xyeBt4wjM8JJRQBKR9WOKFQV" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="2ZCZVUUpHJY47uXpxc1wihqrRAG" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -54,44 +78,53 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
+<<<<<<< HEAD
+    "last_opened_file_path": "C:/Users/韩莹/Questionnaire-main/Questionnaire/questionnaire",
+=======
     "last_opened_file_path": "C:/Users/11483/Desktop/Web/Questionnaire/questionnaire/src/main/webapp/WEB-INF/lib",
+>>>>>>> b9e6cb5bfbe1a5a670f10502df51184270bc1c66
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+<<<<<<< HEAD
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+=======
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
+>>>>>>> b9e6cb5bfbe1a5a670f10502df51184270bc1c66
     "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\11483\Desktop\Web\Questionnaire\questionnaire\src\main\webapp\WEB-INF\lib" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+<<<<<<< HEAD
+      <recent name="C:\Users\韩莹\Questionnaire-main\Questionnaire\questionnaire\src\main\webapp" />
+      <recent name="C:\Users\韩莹\Questionnaire-main\Questionnaire\questionnaire\src\main\webapp\WEB-INF" />
+      <recent name="C:\Users\韩莹\Questionnaire-main\Questionnaire\questionnaire\src\main\webapp\rescources" />
+      <recent name="C:\Users\韩莹\Questionnaire-main\Questionnaire\questionnaire\src\main\webapp\WEB-INF\views" />
+      <recent name="C:\Users\韩莹\Questionnaire-main\Questionnaire\questionnaire\src\main\webapp\rescources\images" />
+=======
       <recent name="C:\Users\11483\Desktop\Web\Questionnaire\questionnaire\src\main\webapp\WEB-INF\views" />
       <recent name="C:\Users\11483\Desktop\Web\Questionnaire\questionnaire\src\main\webapp\WEB-INF\lib" />
       <recent name="C:\Users\11483\Desktop\Web\Questionnaire\questionnaire\src\main\webapp" />
       <recent name="C:\Users\11483\Desktop\Web\Questionnaire\questionnaire\src\main\webapp\WEB-INF" />
+>>>>>>> b9e6cb5bfbe1a5a670f10502df51184270bc1c66
     </key>
   </component>
-  <component name="RunManager" selected="Smart Tomcat.Rikki">
-    <configuration name="All in generated-requests" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http">
-      <method v="2" />
-    </configuration>
-    <configuration name="generated-requests | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" requestIdentifier="#1" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="Rikki" type="com.poratu.idea.plugins.tomcat">
+  <component name="RunManager" selected="Smart Tomcat.as">
+    <configuration name="Unnamed" type="com.poratu.idea.plugins.tomcat" nameIsGenerated="true">
       <predefined_log_file enabled="true" id="Tomcat Localhost Log" />
       <predefined_log_file enabled="true" id="Tomcat Access Log" />
       <predefined_log_file id="Tomcat Catalina Log" />
       <predefined_log_file id="Tomcat Manager Log" />
       <predefined_log_file id="Tomcat Host Manager Log" />
-      <option name="catalinaBase" value="C:\Users\11483\.SmartTomcat\questionnaire\questionnaire" />
+      <option name="catalinaBase" value="C:\Users\韩莹\.SmartTomcat\questionnaire\questionnaire" />
       <option name="contextPath" value="/questionnaire" />
       <option name="docBase" value="$PROJECT_DIR$/src/main/webapp" />
       <option name="extraClassPath" value="" />
@@ -108,25 +141,50 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="as" type="com.poratu.idea.plugins.tomcat">
+      <predefined_log_file enabled="true" id="Tomcat Localhost Log" />
+      <predefined_log_file enabled="true" id="Tomcat Access Log" />
+      <predefined_log_file id="Tomcat Catalina Log" />
+      <predefined_log_file id="Tomcat Manager Log" />
+      <predefined_log_file id="Tomcat Host Manager Log" />
+      <option name="catalinaBase" value="C:\Users\韩莹\.SmartTomcat\questionnaire\questionnaire" />
+      <option name="contextPath" value="/questionnaire" />
+      <option name="docBase" value="$PROJECT_DIR$/src/main/webapp" />
+      <option name="extraClassPath" value="" />
+      <option name="tomcatInfo">
+        <TomcatInfo>
+          <option name="name" value="Apache Tomcat/8.0.46 (2)" />
+          <option name="path" value="$PROJECT_DIR$/../../Questionnaire-main/apache-tomcat-8.0.46" />
+          <option name="version" value="8.0.46.0" />
+        </TomcatInfo>
+      </option>
+      <option name="vmOptions" value="" />
+      <module name="questionnaire" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="HTTP Request.All in generated-requests" />
-      <item itemvalue="HTTP Request.generated-requests | #1" />
-      <item itemvalue="Smart Tomcat.Rikki" />
+      <item itemvalue="Smart Tomcat.as" />
+      <item itemvalue="Smart Tomcat.Unnamed" />
     </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="HTTP Request.generated-requests | #1" />
-        <item itemvalue="HTTP Request.All in generated-requests" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b260499e-6fd2-4e06-a5e9-7b82de17fd2d" name="Changes" comment="" />
-      <created>1701787176203</created>
+      <changelist id="4037893e-a9be-488e-b455-740867d25595" name="Changes" comment="" />
+      <created>1701928047106</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
+<<<<<<< HEAD
+      <updated>1701928047106</updated>
+      <workItem from="1701928049160" duration="894000" />
+      <workItem from="1701929001148" duration="278000" />
+      <workItem from="1701929291972" duration="9387000" />
+      <workItem from="1702033468843" duration="4107000" />
+      <workItem from="1702038044960" duration="9000" />
+      <workItem from="1702042344713" duration="1251000" />
+=======
       <updated>1701787176203</updated>
       <workItem from="1701787177877" duration="4659000" />
       <workItem from="1701791855516" duration="712000" />
@@ -139,6 +197,7 @@
       <workItem from="1701940727793" duration="855000" />
       <workItem from="1701955293797" duration="10348000" />
       <workItem from="1702014268179" duration="10892000" />
+>>>>>>> b9e6cb5bfbe1a5a670f10502df51184270bc1c66
     </task>
     <servers />
   </component>
