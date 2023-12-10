@@ -18,10 +18,9 @@
     账号:<input type="text" name="id"/>
     <br>
     密码:<input type="password"name="password"/>
-    <br>
-    <input type="submit" value="login"/>
     </form>
 </div>
+<a href="managerAccount.jsp"><button>登录</button></a>
 </body>
 </html>
 
