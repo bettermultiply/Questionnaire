@@ -5,16 +5,19 @@ public class ChoiceResult {
 
     private String choiceResultId;
 
+    private Integer cOrder;
+
     private Choice modelChoice;
     private QChooseResult parentChosenResult;
 
     public ChoiceResult() {
     }
 
-    public ChoiceResult(Choice modelChoice, QChooseResult parentChosenResult, String choiceResultId) {
+    public ChoiceResult(String choiceResultId, Integer order, Choice modelChoice, QChooseResult parentChosenResult) {
+        this.choiceResultId = choiceResultId;
+        this.cOrder = order;
         this.modelChoice = modelChoice;
         this.parentChosenResult = parentChosenResult;
-        this.choiceResultId = choiceResultId;
     }
 
     public Choice getModelChoice() {
@@ -23,6 +26,14 @@ public class ChoiceResult {
 
     public void setModelChoice(Choice modelChoice) {
         this.modelChoice = modelChoice;
+    }
+
+    public Integer getcOrder() {
+        return cOrder;
+    }
+
+    public void setcOrder(Integer cOrder) {
+        this.cOrder = cOrder;
     }
 
     public QChooseResult getParentChosenResult() {

@@ -8,6 +8,7 @@
             <generator class="uuid" />
         </id>
         <discriminator column="specificType" type="java.lang.String" />
+        <property name="questionType" type="java.lang.Boolean" column="questiontype" />
         <many-to-one name="parentResult" column="tableId" class="questionnaire.database.QuestionType" />
         <many-to-one name="modelType" class="questionnaire.database.QuestionType" column="model" />
         <subclass name="questionnaire.database.QTextResult" discriminator-value="text" >

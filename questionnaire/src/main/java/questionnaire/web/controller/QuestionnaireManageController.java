@@ -8,11 +8,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import questionnaire.database.CommonUser;
+import questionnaire.database.QuestionType;
 import questionnaire.database.QuestionnaireTable;
+import questionnaire.utils.QuestionTools;
 import questionnaire.web.dao.QuestionnaireDao;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequestMapping("/questionnaire")
@@ -68,11 +71,12 @@ public class QuestionnaireManageController {
         return "userHome";
     }
 
-    @RequestMapping(value = "/statistics.d", method = RequestMethod.GET)
-    public String getStaticsPage(@RequestParam(value = "pageId", required = true) String pageId, HttpSession session){
+    @RequestMapping(value = "/statistics.do", method = RequestMethod.POST)
+    public String getStaticsPage(@RequestParam("questionnaireId") String tableId, @RequestParam("questionnaireName") String tableName, Model model){
 
-
-
+        List<QuestionType> questions = QuestionTools.readQuestion(tableId);
+        model.addAttribute("questions", questions);
+        model.addAttribute("tableName", tableName);
         return "statistics";
     }
 

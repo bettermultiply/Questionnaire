@@ -9,6 +9,9 @@ public class Choice {
     /**
      * mark which QType the choice belong to;
      */
+
+    private Integer cOrder;
+
     private QChoose parentQ;
 
     private String choiceContent;
@@ -19,10 +22,12 @@ public class Choice {
     public Choice() {
     }
 
-    public Choice(QChoose parentQ, String choiceContent, String choiceId) {
+    public Choice(String choiceId, Integer order, QChoose parentQ, String choiceContent, Set<ChoiceResult> results) {
+        this.choiceId = choiceId;
+        this.cOrder = order;
         this.parentQ = parentQ;
         this.choiceContent = choiceContent;
-        this.choiceId = choiceId;
+        this.results = results;
     }
 
     public QChoose getParentQ() {
@@ -47,6 +52,14 @@ public class Choice {
 
     public void setChoiceId(String choiceId) {
         this.choiceId = choiceId;
+    }
+
+    public Integer getcOrder() {
+        return cOrder;
+    }
+
+    public void setcOrder(Integer cOrder) {
+        this.cOrder = cOrder;
     }
 
     public Set<ChoiceResult> getResults() {

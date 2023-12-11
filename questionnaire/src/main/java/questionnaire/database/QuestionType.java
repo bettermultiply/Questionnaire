@@ -8,6 +8,11 @@ public class QuestionType {
 
     private String description;
 
+    /**
+     * if type is true then the type is text
+     */
+    private Boolean questionType;
+
     private QuestionnaireTable parentTable;
 
     private Set<QuestionTypeResult> results;
@@ -21,8 +26,9 @@ public class QuestionType {
     public QuestionType() {
     }
 
-    public QuestionType(String questionId, String description, QuestionnaireTable parentTable, Set<QuestionTypeResult> results) {
+    public QuestionType(String questionId, String description,Boolean questionType, QuestionnaireTable parentTable, Set<QuestionTypeResult> results) {
         this.questionId = questionId;
+        this.questionType = questionType;
         this.description = description;
         this.parentTable = parentTable;
         this.results = results;
@@ -42,6 +48,14 @@ public class QuestionType {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Boolean getQuestionType() {
+        return questionType;
+    }
+
+    public void setQuestionType(Boolean questionType) {
+        this.questionType = questionType;
     }
 
     public QuestionnaireTable getParentTable() {

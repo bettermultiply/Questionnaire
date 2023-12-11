@@ -2,11 +2,14 @@ package questionnaire.database;
 
 public class Manager {
     private String id;
-    private String username;
+    private String userName;
 
-    public Manager(String id, String userName){
+    private String password;
+
+    public Manager(String id, String userName, String password){
         this.id = id;
-        this.username = userName;
+        this.userName = userName;
+        this.password = password;
     }
 
     public Manager() {
@@ -14,11 +17,11 @@ public class Manager {
     }
 
     public String getUserName() {
-        return username;
+        return userName;
     }
 
     public void setUserName(String name) {
-        this.username = name;
+        this.userName = name;
     }
 
     public String getId() {
@@ -27,5 +30,13 @@ public class Manager {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

@@ -4,6 +4,11 @@ public class QuestionTypeResult {
 
     private String resultId;
 
+    /**
+     * if type is true then the type is text
+     */
+    private Boolean questionType;
+
     private QuestionType modelType;
 
     private QuestionnaireResult parentResult;
@@ -11,10 +16,11 @@ public class QuestionTypeResult {
     public QuestionTypeResult() {
     }
 
-    public QuestionTypeResult(String resultId, QuestionType modelType, QuestionnaireResult parentResult) {
+    public QuestionTypeResult(String resultId, QuestionType modelType, QuestionnaireResult parentResult, Boolean questionType) {
         this.resultId = resultId;
         this.modelType = modelType;
         this.parentResult = parentResult;
+        this.questionType = questionType;
     }
 
     public String getResultId() {
@@ -23,6 +29,14 @@ public class QuestionTypeResult {
 
     public void setResultId(String resultId) {
         this.resultId = resultId;
+    }
+
+    public Boolean getQuestionType() {
+        return questionType;
+    }
+
+    public void setQuestionType(Boolean questionType) {
+        this.questionType = questionType;
     }
 
     public QuestionType getModelType() {

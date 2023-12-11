@@ -16,7 +16,7 @@
             <column name="is_published" default="false" />
         </property>
         
-        <many-to-one name="user" class="questionnaire.database.CommonUser" column="userId" lazy="false"/>
+        <many-to-one name="user" class="questionnaire.database.CommonUser" column="userId" lazy="false" cascade="all"/>
 
         <list name="questions" table="question_type" inverse="false" cascade="all" lazy="false">
             <key column="tableId" />

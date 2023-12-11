@@ -7,6 +7,7 @@
         <id name="choiceResultId" type="java.lang.String" column="id">
             <generator class="uuid" />
         </id>
+        <property name="cOrder" type="java.lang.Integer" column="corder" />
         <many-to-one name="modelChoice" class="questionnaire.database.Choice" column="model" />
         <many-to-one name="parentChosenResult" class="questionnaire.database.QChooseResult" column="questionresultId"/>
     </class>

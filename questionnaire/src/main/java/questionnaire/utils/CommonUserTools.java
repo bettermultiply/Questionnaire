@@ -2,6 +2,7 @@ package questionnaire.utils;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import questionnaire.database.Choice;
 import questionnaire.database.CommonUser;
 import questionnaire.database.QuestionType;
 import questionnaire.database.QuestionnaireTable;
@@ -9,6 +10,17 @@ import questionnaire.database.QuestionnaireTable;
 import java.util.List;
 
 public class CommonUserTools {
+
+    public static void createCommonUser(CommonUser commonUser){
+        try (Session session = SessionFactorySource.getSessionFactory().openSession()){
+            session.beginTransaction();
+            session.save(commonUser);
+            session.getTransaction().commit();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+        }
+
+    }
 
     public static CommonUser readOneUser(String userName){
         List<CommonUser> users = null;

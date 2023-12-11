@@ -7,9 +7,10 @@
         <id name="choiceId" type="java.lang.String" column="id" >
             <generator class="uuid" />
         </id>
+        <property name="cOrder" type="java.lang.Integer" column="corder" />
         <property name="choiceContent" type="java.lang.String" column="choice_content" />
-        <many-to-one name="parentQ" column="questionId" class="questionnaire.database.QChoose" />
-        <set name="results" table="choice_result">
+        <many-to-one name="parentQ" column="questionId" class="questionnaire.database.QChoose" cascade="all"/>
+        <set name="results" table="choice_result" cascade="all">
             <key column="model" />
             <one-to-many class="questionnaire.database.ChoiceResult" />
         </set>

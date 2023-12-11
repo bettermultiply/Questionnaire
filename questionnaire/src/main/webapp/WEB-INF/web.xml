@@ -6,4 +6,10 @@
 
   <display-name>Archetype Created Web Application</display-name>
 
+  <jsp-config>
+    <taglib>
+      <taglib-uri>ques</taglib-uri>
+      <taglib-location>/WEB-INF/tld/questionnaire.tld</taglib-location>
+    </taglib>
+  </jsp-config>
 </web-app>

@@ -13,8 +13,8 @@ public class QChooseResult extends QuestionTypeResult{
     public QChooseResult() {
     }
 
-    public QChooseResult(String resultId, QuestionType modelType, QuestionnaireResult parentResult, Set<ChoiceResult> results) {
-        super(resultId, modelType, parentResult);
+    public QChooseResult(String resultId, QuestionType modelType, QuestionnaireResult parentResult, Boolean questionType, Set<ChoiceResult> results) {
+        super(resultId, modelType, parentResult, questionType);
         this.results = results;
     }
 

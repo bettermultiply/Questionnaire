@@ -7,8 +7,9 @@ public class QTextResult extends QuestionTypeResult{
     public QTextResult() {
     }
 
-    public QTextResult(String resultId, QuestionType modelType, QuestionnaireResult parentResult) {
-        super(resultId, modelType, parentResult);
+    public QTextResult(String resultId, QuestionType modelType, QuestionnaireResult parentResult, Boolean questionType, String answer) {
+        super(resultId, modelType, parentResult, questionType);
+        this.answer = answer;
     }
 
     public String getAnswer() {
