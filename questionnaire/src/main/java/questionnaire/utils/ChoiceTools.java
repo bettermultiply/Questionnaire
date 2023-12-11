@@ -45,7 +45,7 @@ public class ChoiceTools {
         List<Choice> choices = null;
         try(Session session = SessionFactorySource.getSessionFactory().openSession()){
             session.beginTransaction();
-            String hql = "FROM Choice where belongs=" + parentid;
+            String hql = "FROM Choice where questionId=" + parentid;
             choices = session.createQuery(hql).list();
             session.getTransaction().commit();
         } catch (HibernateException e) {

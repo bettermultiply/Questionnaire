@@ -11,7 +11,7 @@
         <property name="password" type="java.lang.String" column="password" />
 
         <set name="questionnaireTables" table="questionnaire_table">
-            <key column="belongs" />
+            <key column="userId" />
             <one-to-many class="questionnaire.database.QuestionnaireTable" />
         </set>
     </class>

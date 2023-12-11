@@ -8,7 +8,7 @@
             <generator class="uuid" />
         </id>
         <property name="choiceContent" type="java.lang.String" column="choice_content" />
-        <many-to-one name="parentQ" column="belongs" class="questionnaire.database.QChoose" />
+        <many-to-one name="parentQ" column="questionId" class="questionnaire.database.QChoose" />
         <set name="results" table="choice_result">
             <key column="model" />
             <one-to-many class="questionnaire.database.ChoiceResult" />

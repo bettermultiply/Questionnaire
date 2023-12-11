@@ -42,13 +42,19 @@ public class QuestionnaireTools {
         }
     }
 
-    // TODO fix
-    public static QuestionnaireTable readOneQuestionnaire(String parentid){
-        String hql = "FROM QuestionnaireTable where belongs='" + parentid + "'";
+    //读取单一问卷信息
+    public static QuestionnaireTable readOneQuestionnaire(String id){
+        String hql = "FROM QuestionnaireTable where id='" + id + "'";
         return readQuestionnaire(hql).get(0);
     }
 
-    //TODO how to protect the method to only the manager can use it ? Maybe no need to do that
+    //读取单个用户的所有问卷
+    public static List<QuestionnaireTable> readOneUerQuestionnaire(String parentid){
+        String hql = "FROM QuestionnaireTable where userId='" + parentid + "'";
+        return readQuestionnaire(hql);
+    }
+
+    //读取所有问卷
     public static List<QuestionnaireTable> readAllQuestionnaires(){
         String hql = "FROM QuestionnaireTable";
         return readQuestionnaire(hql);

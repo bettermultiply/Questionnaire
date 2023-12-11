@@ -8,6 +8,6 @@
             <generator class="uuid" />
         </id>
         <many-to-one name="modelChoice" class="questionnaire.database.Choice" column="model" />
-        <many-to-one name="parentChosenResult" class="questionnaire.database.QChooseResult" column="belongs"/>
+        <many-to-one name="parentChosenResult" class="questionnaire.database.QChooseResult" column="questionresultId"/>
     </class>
 </hibernate-mapping>

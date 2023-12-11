@@ -7,20 +7,25 @@
         <id name="tableId" type="java.lang.String" column="id">
             <generator class="uuid" />
         </id>
+        <property name="tableName" type="java.lang.String" />
         <property name="isChecked" type="java.lang.Boolean" >
             <column name="is_checked" default="false" />
         </property>
+
+        <property name="isPublished" type="java.lang.Boolean" >
+            <column name="is_published" default="false" />
+        </property>
         
-        <many-to-one name="user" class="questionnaire.database.CommonUser" column="belongs"/>
+        <many-to-one name="user" class="questionnaire.database.CommonUser" column="userId"/>
 
         <list name="questions" table="question_type" inverse="false" cascade="all">
-            <key column="belongs" />
+            <key column="tableId" />
             <index column="question_index" type="java.lang.Integer" />
             <one-to-many class="questionnaire.database.QuestionType" />
         </list>
         
         <set name="results" table="questionnaire_result">
-            <key column="belongs" />
+            <key column="tableId" />
             <one-to-many class="questionnaire.database.QuestionnaireResult" />
         </set>
     </class>

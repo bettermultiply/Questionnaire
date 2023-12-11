@@ -7,9 +7,9 @@
         <id name="resultId" column="id" type="java.lang.String" >
             <generator class="uuid" />
         </id>
-        <many-to-one name="parentTable" column="belongs" class="questionnaire.database.QuestionnaireTable" />
+        <many-to-one name="parentTable" column="tableId" class="questionnaire.database.QuestionnaireTable" />
         <set name="results" table="question_type_result">
-            <key column="belongs" />
+            <key column="resultId" />
             <one-to-many class="questionnaire.database.QuestionTypeResult" />
         </set>
     </class>

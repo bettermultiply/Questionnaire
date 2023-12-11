@@ -9,7 +9,7 @@
         </id>
         <discriminator column="specificType" type="java.lang.String" />
         <property name="description" type="java.lang.String" column="description" />
-        <many-to-one name="parentTable" class="questionnaire.database.QuestionnaireTable" column="belongs" />
+        <many-to-one name="parentTable" class="questionnaire.database.QuestionnaireTable" column="tableId" />
         <set name="results" table="question_type_result">
             <key column="model" />
             <one-to-many class="questionnaire.database.QuestionTypeResult" />
@@ -18,7 +18,7 @@
         <subclass name="questionnaire.database.QChoose" discriminator-value="choose" >
             <property name="chooseType" type="java.lang.Boolean" column="choose_type" />
             <list name="choices" table="choice" inverse="false" cascade="all">
-                <key column="belongs" />
+                <key column="questionId" />
                 <index column="choice_index" type="java.lang.Integer" />
                 <one-to-many class="questionnaire.database.Choice" />
             </list>
