@@ -4,7 +4,7 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
     <class name="questionnaire.database.Manager" table="manager">
-        <id name="id" type="java.lang.Integer" column="id">
+        <id name="id" type="java.lang.String" column="id">
             <generator class="uuid" />
         </id>
         <property name="userName" type="java.lang.String" column="username" />
