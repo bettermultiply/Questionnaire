@@ -52,3 +52,35 @@ function functionmanager(){
 function functionchange(){
     alert("修改成功！");
 }
+
+$(".change").click(function() {
+    $('.changePage').show();
+})
+
+$(".cancel").click(function() {
+    $('.changePage').hide();
+    $("#div_body").append("<p class='status'>钣金<img onclick='delRow(this)'  src='img/delete.png'/></p>")
+})
+$(".save").click(function() {
+    $('#changePage').hide();
+})
+
+/* 删除 */
+function delRow(obj) {
+    $(obj).parent().remove();
+    alert("删除成功")
+}
+
+/*账户注销*/
+function LogOut(){
+    alert("注销成功！");
+    window.open('home.jsp');
+}
+
+/*用户账户修改*/
+function  changeUser(){
+    alert("修改成功！");
+    //想设置成返回原页面，奈何实力有限
+    window.open('managerUser.jsp');
+}
+

@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="statistics" content="width=device-width, initial-scale=1">
     <title>统计数据</title>
-    <link rel="stylesheet" href="<c:url value="/css/bootstrap.min.css"/>">
-    <link rel="stylesheet" href="<c:url value="/css/statistics.css"/>">
+    <link rel="stylesheet" href="<c:url value="/rescources/css/bootstrap.min.css"/>">
+    <link rel="stylesheet" href="<c:url value="/rescources/css/statistics.css"/>">
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -117,9 +117,9 @@
         </div>
     </footer>
 </div>
-<script src="<c:url value="/js/echarts.min.js"/>"></script>
-<script src="<c:url value="/js/jquery.min.js"/>"></script>
-<script src="<c:url value="/js/bootstrap.min.js"/>"></script>
+<script src="<c:url value="/rescources/js/echarts.min.js"/>"></script>
+<script src="<c:url value="/rescources/js/jquery.min.js"/>"></script>
+<script src="<c:url value="/rescources/js/bootstrap.min.js"/>"></script>
 <script type="text/javascript">
 
     // var button = document.getElementById('button-0');
