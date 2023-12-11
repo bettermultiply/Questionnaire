@@ -60,9 +60,9 @@ public class QuestionnaireDesignController {
         switch (addType) {
             case "radio": {
                 QuestionnaireTable questionnaireTable = questionnaireDao.getOneQuestionnaire(questionnaireId);
-                QChoose qChoose = new QChoose(null, "新的单选题", questionnaireTable, null, false, new ArrayList<>());
-                Choice choice1 = new Choice(null, qChoose, "选项一");
-                Choice choice2 = new Choice(null, qChoose, "选项二");
+                QChoose qChoose = new QChoose(null, "新的单选题", false,questionnaireTable, null, false, new ArrayList<>());
+                Choice choice1 = new Choice(null, 1, qChoose, "选项一", null);
+                Choice choice2 = new Choice(null, 2, qChoose, "选项二", null);
                 qChoose.getChoices().add(choice1);
                 qChoose.getChoices().add(choice2);
                 qChoose.setQuestionType(false);
@@ -73,10 +73,10 @@ public class QuestionnaireDesignController {
             }
             case "checkbox": {
                 QuestionnaireTable questionnaireTable = questionnaireDao.getOneQuestionnaire(questionnaireId);
-                QChoose qChoose = new QChoose(null, "新的多选题", questionnaireTable, null, true, new ArrayList<>());
-                Choice choice1 = new Choice(null, qChoose, "选项一");
-                Choice choice2 = new Choice(null, qChoose, "选项二");
-                Choice choice3 = new Choice(null, qChoose, "选项三");
+                QChoose qChoose = new QChoose(null, "新的多选题", false, questionnaireTable, null, true, new ArrayList<>());
+                Choice choice1 = new Choice(null, 1, qChoose, "选项一", null);
+                Choice choice2 = new Choice(null, 2, qChoose, "选项二", null);
+                Choice choice3 = new Choice(null, 3, qChoose, "选项三", null);
                 qChoose.getChoices().add(choice1);
                 qChoose.getChoices().add(choice2);
                 qChoose.getChoices().add(choice3);

@@ -22,19 +22,14 @@ public class Choice {
     public Choice() {
     }
 
-<<<<<<< HEAD
+
     public Choice(String choiceId, Integer order, QChoose parentQ, String choiceContent, Set<ChoiceResult> results) {
         this.choiceId = choiceId;
         this.cOrder = order;
         this.parentQ = parentQ;
         this.choiceContent = choiceContent;
         this.results = results;
-=======
-    public Choice(String choiceId, QChoose parentQ, String choiceContent) {
-        this.choiceId = choiceId;
-        this.parentQ = parentQ;
-        this.choiceContent = choiceContent;
->>>>>>> d1bd3ef087b94cdf193946a391948fce7a016779
+
     }
 
     public QChoose getParentQ() {

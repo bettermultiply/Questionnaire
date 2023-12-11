@@ -74,7 +74,7 @@
                 <div class="col-md-10">
                     <p><c:out value="${question.description}" /></p>
 <%--                    <a href="#">--%>
-                        <img class="icon" src="<c:url value="/rescources/images/icons/comment-question.svg"/>" alt="link svg">
+                        <img class="icon" src="<c:url value="/resources/images/icons/comment-question.svg"/>" alt="link svg">
 <%--                    </a>--%>
                 </div>
                 <div class="col-md-2 questionnaire-option">
@@ -156,66 +156,12 @@
         </div>
     </footer>
 </div>
-<<<<<<< HEAD
-<script src="<c:url value="/rescources/js/echarts.min.js"/>"></script>
-<script src="<c:url value="/rescources/js/jquery.min.js"/>"></script>
-<script src="<c:url value="/rescources/js/bootstrap.min.js"/>"></script>
-<script src="<c:url value="/rescources/js/echarts-wordcloud.min.js"/>"></script>
-<script src="<c:url value="/rescources/buildEchart.js"/>"></script>
-=======
+
 <script src="<c:url value="/resources/js/echarts.min.js"/>"></script>
 <script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
 <script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
-<script type="text/javascript">
+<script src="<c:url value="/resources/js/echarts-wordcloud.min.js"/>"></script>
+<script src="<c:url value="/resources/buildEchart.js"/>"></script>
 
-    // var button = document.getElementById('button-0');
-    // button.click();
-    document.addEventListener('DOMContentLoaded', function() {
-        var button = document.getElementById('button-0');
-        button.click();
-    });
-    $(function(){
-        $("#collapse-chart").on("shown.bs.collapse",function(){
-            helloEchart();
-        });
-    });
-    $(function(){
-        $("#collapse-chart").on("hidden.bs.collapse",function(){
-            var myChart = echarts.init(document.getElementById('chart-0'));
-            myChart.dispose();
-        });
-    });
-    // 基于准备好的dom，初始化echarts实例
-    function helloEchart() {
-        var myChart = echarts.init(document.getElementById('chart-0'));
-
-        // 指定图表的配置项和数据
-        var option = {
-            title: {
-                text: 'ECharts 入门示例'
-            },
-            tooltip: {},
-            legend: {
-                data: ['销量']
-            },
-            xAxis: {
-                data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
-            },
-            yAxis: {},
-            series: [
-                {
-                    name: '销量',
-                    type: 'bar',
-                    data: [5, 20, 36, 10, 10, 20]
-                }
-            ]
-        };
-
-        // 使用刚指定的配置项和数据显示图表。
-        myChart.setOption(option);
-    };
-
-</script>
->>>>>>> d1bd3ef087b94cdf193946a391948fce7a016779
 </body>
 </html>

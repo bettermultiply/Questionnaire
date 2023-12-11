@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>首页</title>
-    <link rel="stylesheet" href="<c:url value="/rescources/css/bootstrap.min.css"/>">
-    <link rel="stylesheet" href="<c:url value="/rescources/css/userHome.css"/>">
+    <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css"/>">
+    <link rel="stylesheet" href="<c:url value="/resources/css/userHome.css"/>">
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -21,7 +21,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <img class="logo-img" src="<c:url value="/rescources/images/logo2.png"/>" alt="图片加载失败">
+            <img class="logo-img" src="<c:url value="/resources/images/logo2.png"/>" alt="图片加载失败">
             <a class="navbar-brand" href="#">Questionnaire</a>
         </div>
 
@@ -81,12 +81,12 @@
                     <c:choose>
                         <c:when test="${questionnaire.isChecked}">
                             <a href="<c:url value="/answer/"/>${questionnaire.tableId}">
-                                <img class="icon" src="<c:url value="/rescources/images/icons/link-icon.svg"/>" alt="link svg">
+                                <img class="icon" src="<c:url value="/resources/images/icons/link-icon.svg"/>" alt="link svg">
                             </a>
                         </c:when>
                         <c:otherwise>
                             <a href="#">
-                                <img class="icon" src="<c:url value="/rescources/images/icons/link-icon.svg"/>" alt="link svg">
+                                <img class="icon" src="<c:url value="/resources/images/icons/link-icon.svg"/>" alt="link svg">
                             </a>
                         </c:otherwise>
                     </c:choose>
@@ -97,7 +97,7 @@
                         <input type="hidden" name="questionnaireId" value="${questionnaire.tableId}">
                         <input type="hidden" name="questionnaireName" value="${questionnaire.tableName}">
                         <button type="submit" class="btn btn-primary">
-                            <img class="icon" src="<c:url value="/rescources/images/icons/statistics-icon.svg"/>"
+                            <img class="icon" src="<c:url value="/resources/images/icons/statistics-icon.svg"/>"
                                  alt="statistics icon">
                             <span>数据统计</span>
                         </button>
@@ -105,7 +105,7 @@
                     <form class="questionnaire-form" method="post" action="<c:url value="/questionnaire/delete.do"/>">
                         <input type="hidden" name="questionnaireId" value="${questionnaire.tableId}">
                         <button type="submit" class="btn btn-primary">
-                            <img class="icon" src="<c:url value="/rescources/images/icons/delete-icon.svg"/>"
+                            <img class="icon" src="<c:url value="/resources/images/icons/delete-icon.svg"/>"
                                  alt="delete icon">
                             <span>删除问卷</span>
                         </button>
@@ -113,7 +113,7 @@
                     <form class="questionnaire-form" method="post" action="<c:url value="/questionnaire/modify.do"/>">
                         <input type="hidden" name="questionnaireId" value="${questionnaire.tableId}">
                         <button type="submit" class="btn btn-primary">
-                            <img class="icon" src="<c:url value="/rescources/images/icons/edit-icon.svg"/>"
+                            <img class="icon" src="<c:url value="/resources/images/icons/edit-icon.svg"/>"
                                  alt="edit icon">
                             <span>修改问卷</span>
                         </button>
@@ -158,7 +158,7 @@
     <footer>
         <div class="col-md-4 col-md-offset-4">
             <p>Questionnaire</p>
-            <p>Make with BootStrap<img class="icon" src="<c:url value="/rescources/images/icons/Bootstrap.svg"/>"
+            <p>Make with BootStrap<img class="icon" src="<c:url value="/resources/images/icons/Bootstrap.svg"/>"
                                        alt="bootstrap icon"></p>
             <p>© Group One</p>
         </div>
@@ -169,7 +169,7 @@
     <div class="add-questionnaire-form-contain">
         <div class="popup-title">
             <span>新建问卷</span>
-            <img class="icon close-icon" src="<c:url value="/rescources/images/icons/close-icon.svg"/>" alt="close icon"
+            <img class="icon close-icon" src="<c:url value="/resources/images/icons/close-icon.svg"/>" alt="close icon"
                  onclick="closePopup(document.getElementById('add-questionnaire-popup'))">
         </div>
         <hr>
@@ -188,8 +188,8 @@
 </div>
 
 
-<script src="<c:url value="/rescources/js/jquery.min.js"/>"></script>
-<script src="<c:url value="/rescources/js/bootstrap.min.js"/>"></script>
-<script src="<c:url value="/rescources/userHome.js"/>"></script>
+<script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
+<script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
+<script src="<c:url value="/resources/userHome.js"/>"></script>
 </body>
 </html>
