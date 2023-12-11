@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>用户登录</title>
+    <title>更改信息</title>
     <link rel="stylesheet" href="<c:url value="/rescources/css/bootstrap.min.css"/>">
     <link rel="stylesheet" href="<c:url value="/rescources/css/home.css"/>">
     <link href="<c:url value="/rescources/css/font-awesome.min.css"/>" rel="stylesheet" type="text/css">
@@ -26,6 +26,14 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">UserName<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="viewMe.jsp">个人信息</a></li>
+                        <li><a onclick="LogOut()">注销登录</a></li>
+                    </ul>
+                </li>
                 <li>
                     <a href=" " target="_blank">
                         <span class="glyphicon glyphicon-question-sign"></span>
@@ -36,42 +44,57 @@
         </div>
     </div>
 </nav>
-
-<br><br><br>
-
+<br><br><br><br>
 <div class="container">
-    <div class="row">
-        <div class="col-md-offset-3 col-md-6">
-            <div class="card card-body">
-                <h1 class="text-center mb-3">User Login</h1>
-                <form action="/" method="post">
-                    <div class="form-group">
-                        <label for="UserName">UerName</label>
-                        <input
-                                type="text"
-                                id="UserName"
-                                name="UserName"
-                                class="form-control"
-                                placeholder="Enter UerName"
-                        />
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input
-                                type="password"
-                                id="password"
-                                name="password"
-                                class="form-control"
-                                placeholder="Enter Password"
-                        />
-                    </div>
-                    <a class="btn btn-primary btn-block" href="homeForUser.jsp" role="button">
-                        Login
-                    </a>
-                </form>
+    <form class="form-horizontal custom-form" role="form">
+        <div class="form-group">
+            <div class="col-sm-1"></div>
+            <label for="firstname" class="col-sm-2 control-label">姓</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control custom-input" id="firstname" placeholder="请输入姓">
             </div>
         </div>
-    </div>
+        <div class="form-group">
+            <div class="col-sm-1"></div>
+            <label for="lastname" class="col-sm-2 control-label">名</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control custom-input" id="lastname" placeholder="请输入名">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-1"></div>
+            <label for="username" class="col-sm-2 control-label">用户名</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control custom-input" id="username" placeholder="请输入用户名">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-1"></div>
+            <label for="password" class="col-sm-2 control-label">密码</label>
+            <div class="col-sm-6">
+                <input type="password" class="form-control custom-input" id="password" placeholder="请输入密码">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-1"></div>
+            <label for="telephone" class="col-sm-2 control-label">电话号码</label>
+            <div class="col-sm-6">
+                <input type="tel" class="form-control custom-input" id="telephone" placeholder="请输入电话号码">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-1"></div>
+            <label for="email" class="col-sm-2 control-label">邮箱</label>
+            <div class="col-sm-6">
+                <input type="email" class="form-control custom-input" id="email" placeholder="请输入邮箱">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-5">
+                <button type="submit" class="btn btn-default" onclick="changeUser()">确定</button>
+            </div>
+        </div>
+    </form>
 </div>
 
 <div class="container-fluid footer">

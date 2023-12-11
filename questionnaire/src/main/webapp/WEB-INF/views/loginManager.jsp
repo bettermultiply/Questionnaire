@@ -1,12 +1,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>首页</title>
+    <title>管理员登录</title>
     <link rel="stylesheet" href="<c:url value="/rescources/css/bootstrap.min.css"/>">
     <link rel="stylesheet" href="<c:url value="/rescources/css/home.css"/>">
     <link href="<c:url value="/rescources/css/font-awesome.min.css"/>" rel="stylesheet" type="text/css">
@@ -30,22 +29,50 @@
                 <li>
                     <a href=" " target="_blank">
                         <span class="glyphicon glyphicon-question-sign"></span>
-                        <strong class="size" >帮助文档</strong>
+                        <strong class="size">帮助文档</strong>
                     </a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
-    <h1 class="center">SurveyEase,让问卷创建更简单</h1>
-    <h4 class="center">轻松定制在线问卷，收集信息，智能分析</h4>
-    <br><br><br>
-    <div style="text-align: center">
-        <a class="btn btn-info" href="register.jsp" role="button">用户注册</a><br><br>
-        <a class="btn btn-info" href="loginUser.jsp" role="button">用户登录</a><br><br>
-        <a class="btn btn-info" href="loginManager.jsp" role="button">管理员登录</a><br><br>
-        <img src="../../rescources/images/0001.png" alt="" class="image-size">
+
+<br><br><br>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-3 col-md-6">
+            <div class="card card-body">
+                <h1 class="text-center mb-3">Manager Login</h1>
+                <form action="/" method="post">
+                    <div class="form-group">
+                        <label for="ManagerName">ManagerName</label>
+                        <input
+                                type="text"
+                                id="ManagerName"
+                                name="ManagerName"
+                                class="form-control"
+                                placeholder="Enter ManagerName"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                class="form-control"
+                                placeholder="Enter Password"
+                        />
+                    </div>
+                    <a class="btn btn-primary btn-block" href="managerAccount.jsp" role="button">
+                        Login
+                    </a>
+                </form>
+            </div>
+        </div>
     </div>
+</div>
 
 <div class="container-fluid footer">
     <footer>
@@ -56,9 +83,10 @@
         </div>
     </footer>
 </div>
+
 </body>
 <span>
-    <script src="<c:url value="/rescources/js/jquery.min.js"/>"></script>
+     <script src="<c:url value="/rescources/js/jquery.min.js"/>"></script>
     <script src="<c:url value="/rescources/js/bootstrap.min.js"/>"></script>
     <script src="<c:url value="/rescources/js/metisMenu.min.js"/>"></script>
     <script src="<c:url value="/rescources/js/raphael.min.js"/>"></script>
@@ -68,4 +96,3 @@
     <script src="<c:url value="/rescources/bootstrap-table-1.14.1/bootstrap-table.min.js"/>"></script>
     <script src="<c:url value="/rescources/managerAccount.js"/>"></script>
 </span>
-</html>
