@@ -13,4 +13,11 @@ public interface QuestionDao {
      * @return 问卷的问题列表
      */
     List<QuestionType> readQuestion(String questionnaireId);
+
+    /**
+     * 添加新问题
+     *
+     * @param questionType 新问题
+     */
+    void createQuestion(QuestionType questionType);
 }
