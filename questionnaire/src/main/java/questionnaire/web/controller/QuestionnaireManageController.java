@@ -3,6 +3,7 @@ package questionnaire.web.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,7 +24,7 @@ public class QuestionnaireManageController {
     private QuestionnaireDao questionnaireDao;
 
     /**
-     * 获取问卷页面
+     * 获取默认问卷页面
      *
      * @param session HttpSession
      * @param model Model
@@ -31,12 +32,40 @@ public class QuestionnaireManageController {
      */
     @RequestMapping(method = RequestMethod.GET)
     public String getQuestionnairePage(HttpSession session, Model model){
+        int page = 0;
         String userId = ((CommonUser)session.getAttribute("commonUser")).getUserId();
         ArrayList<QuestionnaireTable> questionnaireTables = (ArrayList<QuestionnaireTable>)
                 questionnaireDao.getAllQuestionnaires(userId);
-        model.addAttribute("allQuestionnaire", questionnaireTables);
+        int totalPage = questionnaireTables.size() / 8;
+        model.addAttribute("allQuestionnaire", questionnaireTables.subList(0,
+                Math.min(questionnaireTables.size(), 8)));
+        model.addAttribute("totalPage", totalPage);
+        model.addAttribute("currentPage", page);
 
-        return "QuestionnaireTest";
+        return "userHome";
+    }
+
+    /**
+     * 获取某一页的问卷页面
+     *
+     * @param session HttpSession
+     * @param model Model
+     * @return 问卷列表的JSP页面
+     */
+    @RequestMapping(value = "/{page}", method = RequestMethod.GET)
+    public String getQuestionnairePage(@PathVariable("page") Integer page, HttpSession session, Model model){
+        String userId = ((CommonUser)session.getAttribute("commonUser")).getUserId();
+        ArrayList<QuestionnaireTable> questionnaireTables = (ArrayList<QuestionnaireTable>)
+                questionnaireDao.getAllQuestionnaires(userId);
+        int totalPage = questionnaireTables.size() / 8;
+        int beginItem = 8 * page;
+        int endItem = beginItem + 8;
+        model.addAttribute("allQuestionnaire", questionnaireTables.subList(beginItem,
+                Math.min(endItem, questionnaireTables.size())));
+        model.addAttribute("totalPage", totalPage);
+        model.addAttribute("currentPage", page);
+
+        return "userHome";
     }
 
     /**
@@ -49,7 +78,7 @@ public class QuestionnaireManageController {
     public String deleteQuestionnaire(@RequestParam("questionnaireId") String questionnaireId){
         questionnaireDao.deleteQuestionnaire(questionnaireId);
 
-        return "QuestionnaireTest";
+        return "userHome";
     }
 
     /**
@@ -74,7 +103,7 @@ public class QuestionnaireManageController {
     public String addQuestionnaire(@RequestParam("tableName") String tableName, HttpSession session){
         String questionnaireId;
         CommonUser commonUser = (CommonUser) session.getAttribute("commonUser");
-        QuestionnaireTable questionnaireTable = new QuestionnaireTable(null, tableName, false, commonUser, null, null);
+        QuestionnaireTable questionnaireTable = new QuestionnaireTable(null, tableName, false, false, commonUser, null, null);
         questionnaireId = questionnaireDao.addQuestionnaire(questionnaireTable);
 
         return "redirect:/questionnaire/design/" + questionnaireId;

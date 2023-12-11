@@ -1,8 +1,11 @@
 package questionnaire.web.dao;
 
+import questionnaire.database.Choice;
+import questionnaire.database.QuestionType;
 import questionnaire.database.QuestionnaireTable;
 
 import java.util.List;
+import java.util.Map;
 
 public interface QuestionnaireDao {
     /**
@@ -11,6 +14,14 @@ public interface QuestionnaireDao {
      * @return 该用户发布的所有的问卷
      */
     List<QuestionnaireTable> getAllQuestionnaires(String userId);
+
+    /**
+     * 根据问卷ID查询对应的问卷信息
+     *
+     * @param questionnaireId 问卷ID
+     * @return 对应的问卷对象
+     */
+    QuestionnaireTable getOneQuestionnaire(String questionnaireId);
 
     /**
      * 根据问卷的ID删除对应的问卷
@@ -27,4 +38,11 @@ public interface QuestionnaireDao {
      */
     String addQuestionnaire(QuestionnaireTable questionnaireTable);
 
+    /**
+     * 获取问卷的问题列表和对应的问题选项
+     *
+     * @param questionnaireId 问卷ID
+     * @return 问卷的问题列表和对应的问题选项
+     */
+    List<QuestionType> getAllQuestionsAndChoices(String questionnaireId);
 }

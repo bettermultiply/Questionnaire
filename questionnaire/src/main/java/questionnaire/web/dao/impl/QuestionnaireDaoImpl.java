@@ -3,6 +3,7 @@ package questionnaire.web.dao.impl;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
+import questionnaire.database.QuestionType;
 import questionnaire.database.QuestionnaireTable;
 import questionnaire.utils.SessionFactorySource;
 import questionnaire.web.dao.QuestionnaireDao;
@@ -24,6 +25,15 @@ public class QuestionnaireDaoImpl implements QuestionnaireDao {
      * {@inheritDoc}
      */
     @Override
+    public QuestionnaireTable getOneQuestionnaire(String questionnaireId) {
+        String hql = "FROM QuestionnaireTable where id='" + questionnaireId + "'";
+        return readQuestionnaire(hql).get(0);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public void deleteQuestionnaire(String questionnaireId) {
         try(Session session = SessionFactorySource.getSessionFactory().openSession()){
             session.beginTransaction();
@@ -35,6 +45,9 @@ public class QuestionnaireDaoImpl implements QuestionnaireDao {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String addQuestionnaire(QuestionnaireTable questionnaireTable) {
         String questionnaireId = null;
@@ -47,6 +60,14 @@ public class QuestionnaireDaoImpl implements QuestionnaireDao {
         }
 
         return questionnaireId;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public List<QuestionType> getAllQuestionsAndChoices(String questionnaireId) {
+        return null;
     }
 
     private List<QuestionnaireTable> readQuestionnaire(String hql){
