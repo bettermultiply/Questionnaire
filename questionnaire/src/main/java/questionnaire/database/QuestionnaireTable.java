@@ -14,6 +14,8 @@ public class QuestionnaireTable {
      */
     private Boolean isChecked;
 
+    private Boolean isPublished;
+
     /**
      * which commonUser the table belongs to;
      */
@@ -44,6 +46,14 @@ public class QuestionnaireTable {
 
     public void setTableId(String tableId) {
         this.tableId = tableId;
+    }
+
+    public Boolean getIsPublished() {
+        return isPublished;
+    }
+
+    public void setIsPublished(Boolean published) {
+        isPublished = published;
     }
 
     public String getTableName() {

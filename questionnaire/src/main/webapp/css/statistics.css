@@ -54,7 +54,25 @@ body{
 
 .questionnaire-info {
     background-color: #ffffff;
+    margin-bottom: 0%;
+}
+
+.question-chart {
     margin-bottom: 1%;
+}
+
+.chart-margin {
+    width: 100%;
+    align-content: center;
+    aspect-ratio: 20/9;
+}
+
+.chart {
+    padding-top: 2%;
+    margin: auto;
+    width: 90%;
+    height: 100%;
+    padding-bottom: 0;
 }
 
 .questionnaire-info > div {
