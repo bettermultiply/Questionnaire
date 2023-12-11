@@ -31,10 +31,11 @@ public class QuestionnaireTable {
     public QuestionnaireTable() {
     }
 
-    public QuestionnaireTable(String tableId, String tableName, Boolean isChecked, CommonUser user, Set<QuestionnaireResult> results, List<QuestionType> questions) {
+    public QuestionnaireTable(String tableId, String tableName, Boolean isChecked, Boolean isPublished, CommonUser user, Set<QuestionnaireResult> results, List<QuestionType> questions) {
         this.tableId = tableId;
         this.tableName = tableName;
         this.isChecked = isChecked;
+        this.isPublished = isPublished;
         this.user = user;
         this.results = results;
         this.questions = questions;

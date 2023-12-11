@@ -1,0 +1,223 @@
+body{
+    background-color: #f7f7f7;
+}
+
+.logo-img {
+    height: 36px;
+    margin-top: 7px;
+    margin-left: 20px;
+    margin-right: 10px;
+    float: left;
+}
+
+.navbar{
+    background-color: #ffffff;
+}
+
+.navbar-header > .navbar-brand {
+    color: #000000;
+}
+
+.navbar-collapse > .selections {
+    margin-left: 3%;
+}
+
+.design-part {
+    min-height: 100vh;
+}
+
+.questionList-title {
+    color: #000;
+    font-family: "Adobe Garamond", serif;
+    font-size: 25px;
+    line-height: 45px;
+    text-align: center;
+    width: 110px;
+    border-bottom: 2px solid black;
+    margin-bottom: 10%;
+}
+
+.addQuestion{
+    width: 130px;
+    font-size: 18px;
+    margin-bottom: 10%;
+    float: right;
+}
+
+.addQuestion > span {
+    margin-right: 5%;
+}
+
+.questionList {
+    margin-top: 2%;
+}
+
+.question-info  button  span {
+    vertical-align: middle;
+    font-size: 14px;
+}
+
+.question-info {
+    background-color: #ffffff;
+    margin-bottom: 1%;
+}
+
+.question-info > div {
+    height: 60px;
+    font-family: "Adobe Garamond", serif;
+    font-size: 20px;
+    line-height: 60px;
+    padding-left: 1%;
+}
+
+.question-info > div > p {
+    display: inline-block;
+}
+
+.question-info > div > a >img {
+    margin-left: 1%;
+}
+
+.question-type {
+    margin-left: 2%;
+}
+
+.question-form {
+    display: inline-block;
+    margin-left: 2%;
+    margin-bottom: 2%;
+    float: right;
+}
+
+.option-info {
+    margin-left: 4%;
+}
+
+.option-info > p {
+    display: inline-block;
+}
+
+.check-button {
+    margin-top: 2%;
+}
+
+.check-button button {
+    font-size: 18px;
+}
+
+.popup {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: none;
+}
+
+.modify-title-form-contain {
+    width: 400px;
+    height: 225px;
+    margin: 175px auto;
+    padding: 20px;
+    background-color: #fefefe;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.modify-title-form-contain > div > span {
+    font-size: 20px;
+}
+
+.close-icon {
+    float: right;
+}
+
+.add-question-form-contain{
+    width: 400px;
+    height: 225px;
+    margin: 175px auto;
+    padding: 20px;
+    background-color: #fefefe;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.add-form > button {
+    display: block;
+    margin: 2% auto;
+}
+
+.modify-question-form-contain{
+    width: 400px;
+    height: 225px;
+    margin: 175px auto;
+    padding: 20px;
+    background-color: #fefefe;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.add-option-form-contain {
+    width: 400px;
+    height: 225px;
+    margin: 175px auto;
+    padding: 20px;
+    background-color: #fefefe;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.modify-option-form-contain {
+    width: 400px;
+    height: 225px;
+    margin: 175px auto;
+    padding: 20px;
+    background-color: #fefefe;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
+
+.footer {
+    background-color: #2a2730;
+}
+
+.footer {
+    margin-top: 6%;
+}
+
+footer > div > p {
+    color: #ffffff;
+    text-align: center;
+}
+
+footer p:nth-child(1) {
+    margin-top: 5%;
+    line-height: 30px;
+    font-size: 18px;
+}
+
+footer p:nth-child(2) {
+    line-height: 30px;
+    font-size: 18px;
+}
+
+footer p:nth-child(3) {
+    line-height: 30px;
+    font-size: 18px;
+}
+
+footer p:nth-child(2) > img {
+    vertical-align: middle;
+    margin-left: 1%;
+    width: 25px;
+    height: 25px;
+}
