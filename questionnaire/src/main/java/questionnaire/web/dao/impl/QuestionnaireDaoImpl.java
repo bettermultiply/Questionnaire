@@ -17,7 +17,25 @@ public class QuestionnaireDaoImpl implements QuestionnaireDao {
      */
     @Override
     public List<QuestionnaireTable> getAllQuestionnaires(String userId) {
-        String hql = "FROM QuestionnaireTable";
+        String hql = "FROM QuestionnaireTable where userId='" + userId + "'";
+        return readQuestionnaire(hql);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public List<QuestionnaireTable> getCheckedQuestionnaire(String userId) {
+        String hql = "FROM QuestionnaireTable where userId='" + userId + "'" + "AND is_checked=1";
+        return readQuestionnaire(hql);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public List<QuestionnaireTable> getUncheckedQuestionnaire(String userId) {
+        String hql = "FROM QuestionnaireTable where userId='" + userId + "'" + "AND is_checked=0";
         return readQuestionnaire(hql);
     }
 
@@ -60,6 +78,20 @@ public class QuestionnaireDaoImpl implements QuestionnaireDao {
         }
 
         return questionnaireId;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void updateQuestionnaire(QuestionnaireTable questionnaireTable) {
+        try(Session session = SessionFactorySource.getSessionFactory().openSession()){
+            session.beginTransaction();
+            session.update(questionnaireTable);
+            session.getTransaction().commit();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+        }
     }
 
     /**

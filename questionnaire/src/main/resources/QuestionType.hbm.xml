@@ -8,6 +8,7 @@
             <generator class="uuid" />
         </id>
         <discriminator column="specificType" type="java.lang.String" />
+        <property name="questionType" type="java.lang.Boolean" column="questionType" />
         <property name="description" type="java.lang.String" column="description" />
         <many-to-one name="parentTable" class="questionnaire.database.QuestionnaireTable" column="tableId" />
         <set name="results" table="question_type_result">

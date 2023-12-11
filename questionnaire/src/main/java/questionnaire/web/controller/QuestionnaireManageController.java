@@ -37,6 +37,7 @@ public class QuestionnaireManageController {
         ArrayList<QuestionnaireTable> questionnaireTables = (ArrayList<QuestionnaireTable>)
                 questionnaireDao.getAllQuestionnaires(userId);
         int totalPage = questionnaireTables.size() / 8;
+        model.addAttribute("type", "all"); // 设置该页面显示所有问卷
         model.addAttribute("allQuestionnaire", questionnaireTables.subList(0,
                 Math.min(questionnaireTables.size(), 8)));
         model.addAttribute("totalPage", totalPage);
@@ -60,6 +61,7 @@ public class QuestionnaireManageController {
         int totalPage = questionnaireTables.size() / 8;
         int beginItem = 8 * page;
         int endItem = beginItem + 8;
+        model.addAttribute("type", "all"); // 设置该页面显示所有问卷
         model.addAttribute("allQuestionnaire", questionnaireTables.subList(beginItem,
                 Math.min(endItem, questionnaireTables.size())));
         model.addAttribute("totalPage", totalPage);
@@ -115,5 +117,99 @@ public class QuestionnaireManageController {
         questionnaireId = questionnaireDao.addQuestionnaire(questionnaireTable);
 
         return "redirect:/questionnaire/design/" + questionnaireId;
+    }
+
+    /**
+     * 获取用户所有已审核的问卷
+     *
+     * @param session HttpSession
+     * @param model Model
+     * @return 用户所有已审核问卷的页面
+     */
+    @RequestMapping(value = "/checked", method = RequestMethod.GET)
+    public String getCheckedQuestionnairePage(HttpSession session, Model model){
+        int page = 0;
+        CommonUser commonUser = (CommonUser) session.getAttribute("commonUser");
+        ArrayList<QuestionnaireTable> questionnaireTables =
+                (ArrayList<QuestionnaireTable>) questionnaireDao.getCheckedQuestionnaire(commonUser.getUserId());
+        int totalPage = questionnaireTables.size() / 8;
+        model.addAttribute("type", "checked"); // 设置该页面显示所有已审核的问卷
+        model.addAttribute("allQuestionnaire", questionnaireTables.subList(0,
+                Math.min(questionnaireTables.size(), 8)));
+        model.addAttribute("totalPage", totalPage);
+        model.addAttribute("currentPage", page);
+
+        return "userHome";
+    }
+
+    /**
+     * 获取用户所有已审核的问卷分页
+     *
+     * @param session HttpSession
+     * @param model Model
+     * @return 用户所有已审核问卷分页的分页
+     */
+    @RequestMapping(value = "/checked/{page}", method = RequestMethod.GET)
+    public String getCheckedQuestionnairePage(@PathVariable("page") Integer page, HttpSession session, Model model){
+        CommonUser commonUser = (CommonUser)session.getAttribute("commonUser");
+        ArrayList<QuestionnaireTable> questionnaireTables = (ArrayList<QuestionnaireTable>)
+                questionnaireDao.getCheckedQuestionnaire(commonUser.getUserId());
+        int totalPage = questionnaireTables.size() / 8;
+        int beginItem = 8 * page;
+        int endItem = beginItem + 8;
+        model.addAttribute("type", "checked"); // 设置该页面显示所有问卷
+        model.addAttribute("allQuestionnaire", questionnaireTables.subList(beginItem,
+                Math.min(endItem, questionnaireTables.size())));
+        model.addAttribute("totalPage", totalPage);
+        model.addAttribute("currentPage", page);
+
+        return "userHome";
+    }
+
+    /**
+     * 获取用户所有未审核的问卷
+     *
+     * @param session HttpSession
+     * @param model Model
+     * @return 用户所有已审核问卷的页面
+     */
+    @RequestMapping(value = "/unchecked", method = RequestMethod.GET)
+    public String getUncheckedQuestionnairePage(HttpSession session, Model model){
+        int page = 0;
+        CommonUser commonUser = (CommonUser) session.getAttribute("commonUser");
+        ArrayList<QuestionnaireTable> questionnaireTables =
+                (ArrayList<QuestionnaireTable>) questionnaireDao.getUncheckedQuestionnaire(commonUser.getUserId());
+        int totalPage = questionnaireTables.size() / 8;
+        model.addAttribute("type", "unchecked"); // 设置该页面显示所有未审核的问卷
+        model.addAttribute("allQuestionnaire", questionnaireTables.subList(0,
+                Math.min(questionnaireTables.size(), 8)));
+        model.addAttribute("totalPage", totalPage);
+        model.addAttribute("currentPage", page);
+
+        return "userHome";
+    }
+
+    /**
+     * 获取用户所有未审核的问卷分页
+     *
+     * @param session HttpSession
+     * @param model Model
+     * @return 用户所有已审核问卷的分页
+     */
+    @RequestMapping(value = "/unchecked/{page}", method = RequestMethod.GET)
+    public String getUncheckedQuestionnairePage(@PathVariable("page") Integer page, HttpSession session, Model model){
+        CommonUser commonUser = (CommonUser)session.getAttribute("commonUser");
+        ArrayList<QuestionnaireTable> questionnaireTables = (ArrayList<QuestionnaireTable>)
+                questionnaireDao.getUncheckedQuestionnaire(commonUser.getUserId());
+        int totalPage = questionnaireTables.size() / 8;
+        int beginItem = 8 * page;
+        int endItem = beginItem + 8;
+        model.addAttribute("type", "unchecked"); // 设置该页面显示所有问卷
+        model.addAttribute("allQuestionnaire", questionnaireTables.subList(beginItem,
+                Math.min(endItem, questionnaireTables.size())));
+        model.addAttribute("totalPage", totalPage);
+        model.addAttribute("currentPage", page);
+
+        return "userHome";
     }
 }
