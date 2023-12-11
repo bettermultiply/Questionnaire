@@ -9,9 +9,15 @@ public class QuestionType {
     private String description;
 
     /**
+<<<<<<< HEAD
      * if type is true then the type is text
      */
     private Boolean questionType;
+=======
+     * if type is true and the type is text
+     */
+    private boolean questionType;
+>>>>>>> d1bd3ef087b94cdf193946a391948fce7a016779
 
     private QuestionnaireTable parentTable;
 
@@ -50,11 +56,19 @@ public class QuestionType {
         this.description = description;
     }
 
+<<<<<<< HEAD
     public Boolean getQuestionType() {
         return questionType;
     }
 
     public void setQuestionType(Boolean questionType) {
+=======
+    public boolean getQuestionType() {
+        return questionType;
+    }
+
+    public void setQuestionType(boolean questionType) {
+>>>>>>> d1bd3ef087b94cdf193946a391948fce7a016779
         this.questionType = questionType;
     }
 

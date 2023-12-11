@@ -34,4 +34,15 @@ public class CommonUserTools {
         }
         return users.get(0);
     }
+
+    public static CommonUser registerCommonUser(CommonUser cUser){
+        try(Session session = SessionFactorySource.getSessionFactory().openSession()){
+            session.beginTransaction();
+            session.save(cUser);
+            session.getTransaction().commit();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+        }
+        return  cUser;
+    }
 }

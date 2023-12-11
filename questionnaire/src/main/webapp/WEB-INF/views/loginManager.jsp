@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>管理员登录</title>
-    <link rel="stylesheet" href="<c:url value="/rescources/css/bootstrap.min.css"/>">
-    <link rel="stylesheet" href="<c:url value="/rescources/css/home.css"/>">
-    <link href="<c:url value="/rescources/css/font-awesome.min.css"/>" rel="stylesheet" type="text/css">
-    <link href="<c:url value="/rescources/style.css"/>" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css"/>">
+    <link rel="stylesheet" href="<c:url value="/resources/css/home.css"/>">
+    <link href="<c:url value="/resources/css/font-awesome.min.css"/>" rel="stylesheet" type="text/css">
+    <link href="<c:url value="/resources/style.css"/>" rel="stylesheet" type="text/css">
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -22,7 +22,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <img class="logo-img" src="<c:url value="/rescources/images/logo2.png"/>" alt="图片加载失败">
+            <img class="logo-img" src="<c:url value="/resources/images/logo2.png"/>" alt="图片加载失败">
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
@@ -44,13 +44,13 @@
         <div class="col-md-offset-3 col-md-6">
             <div class="card card-body">
                 <h1 class="text-center mb-3">Manager Login</h1>
-                <form action="/" method="post">
+                <form  method="post">
                     <div class="form-group">
                         <label for="ManagerName">ManagerName</label>
                         <input
                                 type="text"
                                 id="ManagerName"
-                                name="ManagerName"
+                                name="userName"
                                 class="form-control"
                                 placeholder="Enter ManagerName"
                         />
@@ -65,9 +65,7 @@
                                 placeholder="Enter Password"
                         />
                     </div>
-                    <a class="btn btn-primary btn-block" href="managerAccount.jsp" role="button">
-                        Login
-                    </a>
+                    <input class="btn btn-primary btn-block" role="button" type="submit" value="Login" />
                 </form>
             </div>
         </div>
@@ -78,7 +76,7 @@
     <footer>
         <div class="col-md-4 col-md-offset-4">
             <p>Questionnaire</p>
-            <p>Make with BootStrap<img class="icon" src="<c:url value="/rescources/images/icons/Bootstrap.svg"/>" alt="bootstrap icon"></p>
+            <p>Make with BootStrap<img class="icon" src="<c:url value="/resources/images/icons/Bootstrap.svg"/>" alt="bootstrap icon"></p>
             <p>© Group One</p>
         </div>
     </footer>
@@ -86,13 +84,13 @@
 
 </body>
 <span>
-     <script src="<c:url value="/rescources/js/jquery.min.js"/>"></script>
-    <script src="<c:url value="/rescources/js/bootstrap.min.js"/>"></script>
-    <script src="<c:url value="/rescources/js/metisMenu.min.js"/>"></script>
-    <script src="<c:url value="/rescources/js/raphael.min.js"/>"></script>
-    <script src="<c:url value="/rescources/js/morris.min.js"/>"></script>
-    <script src="<c:url value="/rescources/js/morris-data.js"/>"></script>
-    <script src="<c:url value="/rescources/js/startmin.js"/>"></script>
-    <script src="<c:url value="/rescources/bootstrap-table-1.14.1/bootstrap-table.min.js"/>"></script>
-    <script src="<c:url value="/rescources/managerAccount.js"/>"></script>
+     <script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
+    <script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
+    <script src="<c:url value="/resources/js/metisMenu.min.js"/>"></script>
+    <script src="<c:url value="/resources/js/raphael.min.js"/>"></script>
+    <script src="<c:url value="/resources/js/morris.min.js"/>"></script>
+    <script src="<c:url value="/resources/js/morris-data.js"/>"></script>
+    <script src="<c:url value="/resources/js/startmin.js"/>"></script>
+    <script src="<c:url value="/resources/bootstrap-table-1.14.1/bootstrap-table.min.js"/>"></script>
+    <script src="<c:url value="/resources/managerAccount.js"/>"></script>
 </span>

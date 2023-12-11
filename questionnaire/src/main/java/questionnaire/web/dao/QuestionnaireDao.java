@@ -11,9 +11,26 @@ public interface QuestionnaireDao {
     /**
      * 根据用户的ID获取该用户发布的所有的问卷列表，包括已审核的和未审核的问卷
      *
+     * @param userId 用户ID
      * @return 该用户发布的所有的问卷
      */
     List<QuestionnaireTable> getAllQuestionnaires(String userId);
+
+    /**
+     * 根据用户的ID获取该用户发布的所有已审核的问卷列表
+     *
+     * @param userId 用户ID
+     * @return 该用户发布的所有已审核的问卷列表
+     */
+    List<QuestionnaireTable> getCheckedQuestionnaire(String userId);
+
+    /**
+     * 根据用户的ID获取该用户发布的所有未审核的问卷列表
+     *
+     * @param userId 用户ID
+     * @return 该用户发布的所有未审核的问卷列表
+     */
+    List<QuestionnaireTable> getUncheckedQuestionnaire(String userId);
 
     /**
      * 根据问卷ID查询对应的问卷信息
@@ -37,6 +54,13 @@ public interface QuestionnaireDao {
      * @return 新增问卷的ID
      */
     String addQuestionnaire(QuestionnaireTable questionnaireTable);
+
+    /**
+     * 更新问卷的信息
+     *
+     * @param questionnaireTable 新的问卷信息
+     */
+    void updateQuestionnaire(QuestionnaireTable questionnaireTable);
 
     /**
      * 获取问卷的问题列表和对应的问题选项

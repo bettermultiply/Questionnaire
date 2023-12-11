@@ -25,4 +25,18 @@ public class questionDaoImpl implements QuestionDao {
 
         return questions;
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void createQuestion(QuestionType questionType) {
+        try (Session session = SessionFactorySource.getSessionFactory().openSession()){
+            session.beginTransaction();
+            session.save(questionType);
+            session.getTransaction().commit();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+        }
+    }
 }
