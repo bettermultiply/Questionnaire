@@ -93,7 +93,8 @@
                 </div>
                 <div class="col-md-6 questionnaire-option">
 
-                    <form class="questionnaire-form" method="post" action="">
+                    <form class="questionnaire-form" method="post" action="<c:url value="/questionnaire/statistics.do"/>">
+                        <input type="hidden" name="questionnaireId" value="${questionnaire.tableId}">
                         <button type="submit" class="btn btn-primary">
                             <img class="icon" src="<c:url value="/rescources/images/icons/statistics-icon.svg"/>"
                                  alt="statistics icon">

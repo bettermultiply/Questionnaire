@@ -68,6 +68,14 @@ public class QuestionnaireManageController {
         return "userHome";
     }
 
+    @RequestMapping(value = "/statistics.d", method = RequestMethod.GET)
+    public String getStaticsPage(@RequestParam(value = "pageId", required = true) String pageId, HttpSession session){
+
+
+
+        return "statistics";
+    }
+
     /**
      * 删除单个问卷
      *

@@ -27,11 +27,6 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-<%--            <ul class="nav navbar-nav selections">--%>
-<%--                <li class="active"><a href="#">所有问卷<span class="sr-only">(current)</span></a></li>--%>
-<%--                <li><a href="#">未审核问卷<span class="sr-only">(current)</span></a></li>--%>
-<%--                <li><a href="#">已审核问卷<span class="sr-only">(current)</span></a></li>--%>
-<%--            </ul>--%>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -120,6 +115,7 @@
 <script src="<c:url value="/rescources/js/echarts.min.js"/>"></script>
 <script src="<c:url value="/rescources/js/jquery.min.js"/>"></script>
 <script src="<c:url value="/rescources/js/bootstrap.min.js"/>"></script>
+<script src="<c:url value="/rescources/js/echarts-wordcloud.min.js"/>"></script>
 <script type="text/javascript">
 
     // var button = document.getElementById('button-0');
@@ -167,7 +163,81 @@
 
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
-    };
+    }
+
+    var chart = echarts.init(document.getElementById('chart-1'));
+    var JosnList = [
+        {name: "龙头镇", value: "111"},
+        {name: "大埔镇", value: "222"},
+        {name: "太平镇", value: "458"},
+        {name: "沙埔镇", value: "445"},
+        {name: "东泉镇", value: "456"},
+        {name: "凤山镇", value: "647"},
+        {name: "六塘镇", value: "189"},
+        {name: "冲脉镇", value: "864"},
+        {name: "寨隆镇", value: "652"},
+        {name: "龙头镇", value: "111"},
+        {name: "大埔镇", value: "222"},
+        {name: "太平镇", value: "458"},
+        {name: "沙埔镇", value: "445"},
+        {name: "东泉镇", value: "456"},
+        {name: "凤山镇", value: "647"},
+        {name: "六塘镇", value: "189"},
+        {name: "冲脉镇", value: "864"},
+        {name: "寨隆镇", value: "652"},
+        {name: "龙头镇", value: "111"},
+        {name: "大埔镇", value: "222"},
+        {name: "太平镇", value: "458"},
+        {name: "沙埔镇", value: "445"},
+        {name: "东泉镇", value: "456"},
+        {name: "凤山镇", value: "647"},
+        {name: "六塘镇", value: "189"},
+        {name: "冲脉镇", value: "864"},
+        {name: "寨隆镇", value: "652"},
+        {name: "龙头镇", value: "111"},
+        {name: "大埔镇", value: "222"},
+        {name: "太平镇", value: "458"},
+        {name: "沙埔镇", value: "445"},
+        {name: "东泉镇", value: "456"},
+        {name: "凤山镇", value: "647"},
+        {name: "六塘镇", value: "189"},
+        {name: "冲脉镇", value: "864"},
+        {name: "寨隆镇", value: "652"},
+    ];
+    var option = {
+        tooltip: {
+            show: true
+        },
+        series: [{
+            name: '项目分析',
+            type: 'wordCloud',
+            sizeRange: [10, 50],//文字范围
+            //文本旋转范围，文本将通过rotationStep45在[-90,90]范围内随机旋转
+            rotationRange: [-45, 90],
+            rotationStep: 45,
+            textRotation: [0, 45, 90, -45],
+            //形状
+            shape: 'circle',
+            textStyle: {
+                normal: {
+                    color: function() {//文字颜色的随机色
+                        return 'rgb(' + [
+                            Math.round(Math.random() * 250),
+                            Math.round(Math.random() * 250),
+                            Math.round(Math.random() * 250)
+                        ].join(',') + ')';
+                    }
+                },
+                //悬停上去的字体的阴影设置
+                emphasis: {
+                    shadowBlur: 10,
+                    shadowColor: '#333'
+                }
+            },
+            data: JosnList
+        }]
+    }
+    chart.setOption(option)
 
 </script>
 </body>

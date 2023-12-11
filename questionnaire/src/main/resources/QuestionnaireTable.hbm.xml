@@ -16,9 +16,9 @@
             <column name="is_published" default="false" />
         </property>
         
-        <many-to-one name="user" class="questionnaire.database.CommonUser" column="userId"/>
+        <many-to-one name="user" class="questionnaire.database.CommonUser" column="userId" lazy="false"/>
 
-        <list name="questions" table="question_type" inverse="false" cascade="all">
+        <list name="questions" table="question_type" inverse="false" cascade="all" lazy="false">
             <key column="tableId" />
             <index column="question_index" type="java.lang.Integer" />
             <one-to-many class="questionnaire.database.QuestionType" />

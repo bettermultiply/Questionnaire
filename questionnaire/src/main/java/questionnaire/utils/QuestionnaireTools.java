@@ -48,9 +48,31 @@ public class QuestionnaireTools {
         return readQuestionnaire(hql).get(0);
     }
 
+    /**
+     * 获取某个用户所有未审核的问卷
+     * @param parentId
+     * @return
+     */
+    public static List<QuestionnaireTable> readOneUserUncheckedQuestionnaires(String parentId){
+        String hql = "FROM QuestionnaireTable where userId='" + parentId + "'" + "AND is_checked=0";
+        return readQuestionnaire(hql);
+    }
+
+
+    /**
+     * 获取所有某个用户所有已审核的问卷
+     * @param parentId  所属表 id
+     * @return
+     */
+    public static List<QuestionnaireTable> readOneUserCheckedQuestionnaires(String parentId){
+        String hql = "FROM QuestionnaireTable where userId='" + parentId + "'" + "AND is_checked=1";
+        return readQuestionnaire(hql);
+    }
+
+
     //读取单个用户的所有问卷
-    public static List<QuestionnaireTable> readOneUerQuestionnaire(String parentid){
-        String hql = "FROM QuestionnaireTable where userId='" + parentid + "'";
+    public static List<QuestionnaireTable> readOneUerQuestionnaire(String parentId){
+        String hql = "FROM QuestionnaireTable where userId='" + parentId + "'";
         return readQuestionnaire(hql);
     }
 

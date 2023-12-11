@@ -10,9 +10,9 @@
         <property name="userName" type="java.lang.String" column="user_name" />
         <property name="password" type="java.lang.String" column="password" />
 
-        <set name="questionnaireTables" table="questionnaire_table">
+        <set name="questionnaireTables" table="questionnaire_table" lazy="false">
             <key column="userId" />
-            <one-to-many class="questionnaire.database.QuestionnaireTable" />
+            <one-to-many class="questionnaire.database.QuestionnaireTable"/>
         </set>
     </class>
 </hibernate-mapping>
