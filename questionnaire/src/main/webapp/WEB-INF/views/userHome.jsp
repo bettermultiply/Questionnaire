@@ -28,9 +28,9 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav selections">
-                <li class="active"><a href="#">所有问卷<span class="sr-only">(current)</span></a></li>
-                <li><a href="#">未审核问卷<span class="sr-only">(current)</span></a></li>
-                <li><a href="#">已审核问卷<span class="sr-only">(current)</span></a></li>
+                <li ${type == 'all' ? 'class="active"' : ''}><a href="<c:url value="/questionnaire"/>">所有问卷<span class="sr-only">(current)</span></a></li>
+                <li ${type == 'unchecked' ? 'class="active"' : ''}><a href="<c:url value="/questionnaire/unchecked"/>">未审核问卷<span class="sr-only">(current)</span></a></li>
+                <li ${type == 'checked' ? 'class="active"' : ''}><a href="<c:url value="/questionnaire/checked"/>">已审核问卷<span class="sr-only">(current)</span></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
@@ -133,10 +133,10 @@
                 <c:forEach begin="0" end="${totalPage}" step="1" var="pageCount">
                     <c:choose>
                         <c:when test="${pageCount == currentPage}">
-                            <li class="active"><a href="<c:url value="/questionnaire/"/>${pageCount}">${pageCount + 1}</a></li>
+                            <li class="active"><a href="<c:url value="/questionnaire/${type == 'all' ? '' : type}/"/>${pageCount}">${pageCount + 1}</a></li>
                         </c:when>
                         <c:otherwise>
-                            <li><a href="<c:url value="/questionnaire/"/>${pageCount}">${pageCount + 1}</a></li>
+                            <li><a href="<c:url value="/questionnaire/${type == 'all' ? '' : type}/"/>${pageCount}">${pageCount + 1}</a></li>
                         </c:otherwise>
                     </c:choose>
                 </c:forEach>
