@@ -8,6 +8,6 @@
             <generator class="uuid" />
         </id>
         <property name="userName" type="java.lang.String" column="username" />
-
+        <property name="password" type="java.lang.String" column="password" />
     </class>
 </hibernate-mapping>

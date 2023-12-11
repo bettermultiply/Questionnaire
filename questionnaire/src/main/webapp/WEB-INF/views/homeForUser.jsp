@@ -7,10 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>用户首页</title>
-    <link rel="stylesheet" href="<c:url value="/rescources/css/bootstrap.min.css"/>">
-    <link rel="stylesheet" href="<c:url value="/rescources/css/home.css"/>">
-    <link href="<c:url value="/rescources/css/font-awesome.min.css"/>" rel="stylesheet" type="text/css">
-    <link href="<c:url value="/rescources/style.css"/>" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css"/>">
+    <link rel="stylesheet" href="<c:url value="/resources/css/home.css"/>">
+    <link href="<c:url value="/resources/css/font-awesome.min.css"/>" rel="stylesheet" type="text/css">
+    <link href="<c:url value="/resources/style.css"/>" rel="stylesheet" type="text/css">
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -23,7 +23,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <img class="logo-img" src="<c:url value="/rescources/images/logo2.png"/>" alt="图片加载失败">
+            <img class="logo-img" src="<c:url value="/resources/images/logo2.png"/>" alt="图片加载失败">
             <a class="navbar-brand" href="#">Questionnaire</a>
         </div>
 
@@ -78,25 +78,25 @@
             <div class="col-md-6">
                 <p>问卷1</p>
                 <a href="#">
-                    <img class="icon" src="<c:url value="/rescources/images/icons/link-icon.svg"/>" alt="link svg">
+                    <img class="icon" src="<c:url value="/resources/images/icons/link-icon.svg"/>" alt="link svg">
                 </a>
             </div>
             <div class="col-md-6 questionnaire-option">
 
                 <form class="questionnaire-form" method="post" action="">
                     <button type="button" class="btn btn-primary">
-                        <img class="icon" src="<c:url value="/rescources/images/icons/statistics-icon.svg"/>" alt="statistics icon">
+                        <img class="icon" src="<c:url value="/resources/images/icons/statistics-icon.svg"/>" alt="statistics icon">
                         <span>数据统计</span>
                     </button>
                     <form class="questionnaire-form" method="post" action="">
                         <button type="button" class="btn btn-primary">
-                            <img class="icon" src="<c:url value="/rescources/images/icons/delete-icon.svg"/>" alt="delete icon">
+                            <img class="icon" src="<c:url value="/resources/images/icons/delete-icon.svg"/>" alt="delete icon">
                             <span>删除问卷</span>
                         </button>
                     </form>
                     <form class="questionnaire-form" method="post" action="">
                         <button type="button" class="btn btn-primary">
-                            <img class="icon" src="<c:url value="/rescources/images/icons/edit-icon.svg"/>" alt="edit icon">
+                            <img class="icon" src="<c:url value="/resources/images/icons/edit-icon.svg"/>" alt="edit icon">
                             <span>修改问卷</span>
                         </button>
                     </form>
@@ -108,24 +108,24 @@
             <div class="col-md-6">
                 <p>问卷1</p>
                 <a href="#">
-                    <img class="icon" src="<c:url value="/rescources/images/icons/link-icon.svg"/>" alt="link svg">
+                    <img class="icon" src="<c:url value="/resources/images/icons/link-icon.svg"/>" alt="link svg">
                 </a>
             </div>
             <div class="col-md-6 questionnaire-option">
                 <form class="questionnaire-form" method="post" action="">
                     <button type="button" class="btn btn-primary">
-                        <img class="icon" src="<c:url value="/rescources/images/icons/statistics-icon.svg"/>" alt="statistics icon">
+                        <img class="icon" src="<c:url value="/resources/images/icons/statistics-icon.svg"/>" alt="statistics icon">
                         <span>数据统计</span>
                     </button>
                     <form class="questionnaire-form" method="post" action="">
                         <button type="button" class="btn btn-primary">
-                            <img class="icon" src="<c:url value="/rescources/images/icons/delete-icon.svg"/>" alt="delete icon">
+                            <img class="icon" src="<c:url value="/resources/images/icons/delete-icon.svg"/>" alt="delete icon">
                             <span>删除问卷</span>
                         </button>
                     </form>
                     <form class="questionnaire-form" method="post" action="">
                         <button type="button" class="btn btn-primary">
-                            <img class="icon" src="<c:url value="/rescources/images/icons/edit-icon.svg"/>" alt="edit icon">
+                            <img class="icon" src="<c:url value="/resources/images/icons/edit-icon.svg"/>" alt="edit icon">
                             <span>修改问卷</span>
                         </button>
                     </form>
@@ -137,24 +137,24 @@
             <div class="col-md-6">
                 <p>问卷1</p>
                 <a href="#">
-                    <img class="icon" src="<c:url value="/rescources/images/icons/link-icon.svg"/>" alt="link svg">
+                    <img class="icon" src="<c:url value="/resources/images/icons/link-icon.svg"/>" alt="link svg">
                 </a>
             </div>
             <div class="col-md-6 questionnaire-option">
                 <form class="questionnaire-form" method="post" action="">
                     <button type="button" class="btn btn-primary">
-                        <img class="icon" src="<c:url value="/rescources/images/icons/statistics-icon.svg"/>" alt="statistics icon">
+                        <img class="icon" src="<c:url value="/resources/images/icons/statistics-icon.svg"/>" alt="statistics icon">
                         <span>数据统计</span>
                     </button>
                     <form class="questionnaire-form" method="post" action="">
                         <button type="button" class="btn btn-primary">
-                            <img class="icon" src="<c:url value="/rescources/images/icons/delete-icon.svg"/>" alt="delete icon">
+                            <img class="icon" src="<c:url value="/resources/images/icons/delete-icon.svg"/>" alt="delete icon">
                             <span>删除问卷</span>
                         </button>
                     </form>
                     <form class="questionnaire-form" method="post" action="">
                         <button type="button" class="btn btn-primary">
-                            <img class="icon" src="<c:url value="/rescources/images/icons/edit-icon.svg"/>" alt="edit icon">
+                            <img class="icon" src="<c:url value="/resources/images/icons/edit-icon.svg"/>" alt="edit icon">
                             <span>修改问卷</span>
                         </button>
                     </form>
@@ -166,24 +166,24 @@
             <div class="col-md-6">
                 <p>问卷1</p>
                 <a href="#">
-                    <img class="icon" src="<c:url value="/rescources/images/icons/link-icon.svg"/>" alt="link svg">
+                    <img class="icon" src="<c:url value="/resources/images/icons/link-icon.svg"/>" alt="link svg">
                 </a>
             </div>
             <div class="col-md-6 questionnaire-option">
                 <form class="questionnaire-form" method="post" action="">
                     <button type="button" class="btn btn-primary">
-                        <img class="icon" src="<c:url value="/rescources/images/icons/statistics-icon.svg"/>" alt="statistics icon">
+                        <img class="icon" src="<c:url value="/resources/images/icons/statistics-icon.svg"/>" alt="statistics icon">
                         <span>数据统计</span>
                     </button>
                     <form class="questionnaire-form" method="post" action="">
                         <button type="button" class="btn btn-primary">
-                            <img class="icon" src="<c:url value="/rescources/images/icons/delete-icon.svg"/>" alt="delete icon">
+                            <img class="icon" src="<c:url value="/resources/images/icons/delete-icon.svg"/>" alt="delete icon">
                             <span>删除问卷</span>
                         </button>
                     </form>
                     <form class="questionnaire-form" method="post" action="">
                         <button type="button" class="btn btn-primary">
-                            <img class="icon" src="<c:url value="/rescources/images/icons/edit-icon.svg"/>" alt="edit icon">
+                            <img class="icon" src="<c:url value="/resources/images/icons/edit-icon.svg"/>" alt="edit icon">
                             <span>修改问卷</span>
                         </button>
                     </form>
@@ -195,24 +195,24 @@
             <div class="col-md-6">
                 <p>问卷1</p>
                 <a href="#">
-                    <img class="icon" src="<c:url value="/rescources/images/icons/link-icon.svg"/>" alt="link svg">
+                    <img class="icon" src="<c:url value="/resources/images/icons/link-icon.svg"/>" alt="link svg">
                 </a>
             </div>
             <div class="col-md-6 questionnaire-option">
                 <form class="questionnaire-form" method="post" action="">
                     <button type="button" class="btn btn-primary">
-                        <img class="icon" src="<c:url value="/rescources/images/icons/statistics-icon.svg"/>" alt="statistics icon">
+                        <img class="icon" src="<c:url value="/resources/images/icons/statistics-icon.svg"/>" alt="statistics icon">
                         <span>数据统计</span>
                     </button>
                     <form class="questionnaire-form" method="post" action="">
                         <button type="button" class="btn btn-primary">
-                            <img class="icon" src="<c:url value="/rescources/images/icons/delete-icon.svg"/>" alt="delete icon">
+                            <img class="icon" src="<c:url value="/resources/images/icons/delete-icon.svg"/>" alt="delete icon">
                             <span>删除问卷</span>
                         </button>
                     </form>
                     <form class="questionnaire-form" method="post" action="">
                         <button type="button" class="btn btn-primary">
-                            <img class="icon" src="<c:url value="/rescources/images/icons/edit-icon.svg"/>" alt="edit icon">
+                            <img class="icon" src="<c:url value="/resources/images/icons/edit-icon.svg"/>" alt="edit icon">
                             <span>修改问卷</span>
                         </button>
                     </form>
@@ -224,24 +224,24 @@
             <div class="col-md-6">
                 <p>问卷1</p>
                 <a href="#">
-                    <img class="icon" src="<c:url value="/rescources/images/icons/link-icon.svg"/>" alt="link svg">
+                    <img class="icon" src="<c:url value="/resources/images/icons/link-icon.svg"/>" alt="link svg">
                 </a>
             </div>
             <div class="col-md-6 questionnaire-option">
                 <form class="questionnaire-form" method="post" action="">
                     <button type="button" class="btn btn-primary">
-                        <img class="icon" src="<c:url value="/rescources/images/icons/statistics-icon.svg"/>" alt="statistics icon">
+                        <img class="icon" src="<c:url value="/resources/images/icons/statistics-icon.svg"/>" alt="statistics icon">
                         <span>数据统计</span>
                     </button>
                     <form class="questionnaire-form" method="post" action="">
                         <button type="button" class="btn btn-primary">
-                            <img class="icon" src="<c:url value="/rescources/images/icons/delete-icon.svg"/>" alt="delete icon">
+                            <img class="icon" src="<c:url value="/resources/images/icons/delete-icon.svg"/>" alt="delete icon">
                             <span>删除问卷</span>
                         </button>
                     </form>
                     <form class="questionnaire-form" method="post" action="">
                         <button type="button" class="btn btn-primary">
-                            <img class="icon" src="<c:url value="/rescources/images/icons/edit-icon.svg"/>" alt="edit icon">
+                            <img class="icon" src="<c:url value="/resources/images/icons/edit-icon.svg"/>" alt="edit icon">
                             <span>修改问卷</span>
                         </button>
                     </form>
@@ -253,24 +253,24 @@
             <div class="col-md-6">
                 <p>问卷1</p>
                 <a href="#">
-                    <img class="icon" src="<c:url value="/rescources/images/icons/link-icon.svg"/>" alt="link svg">
+                    <img class="icon" src="<c:url value="/resources/images/icons/link-icon.svg"/>" alt="link svg">
                 </a>
             </div>
             <div class="col-md-6 questionnaire-option">
                 <form class="questionnaire-form" method="post" action="">
                     <button type="button" class="btn btn-primary">
-                        <img class="icon" src="<c:url value="/rescources/images/icons/statistics-icon.svg"/>" alt="statistics icon">
+                        <img class="icon" src="<c:url value="/resources/images/icons/statistics-icon.svg"/>" alt="statistics icon">
                         <span>数据统计</span>
                     </button>
                     <form class="questionnaire-form" method="post" action="">
                         <button type="button" class="btn btn-primary">
-                            <img class="icon" src="<c:url value="/rescources/images/icons/delete-icon.svg"/>" alt="delete icon">
+                            <img class="icon" src="<c:url value="/resources/images/icons/delete-icon.svg"/>" alt="delete icon">
                             <span>删除问卷</span>
                         </button>
                     </form>
                     <form class="questionnaire-form" method="post" action="">
                         <button type="button" class="btn btn-primary">
-                            <img class="icon" src="<c:url value="/rescources/images/icons/edit-icon.svg"/>" alt="edit icon">
+                            <img class="icon" src="<c:url value="/resources/images/icons/edit-icon.svg"/>" alt="edit icon">
                             <span>修改问卷</span>
                         </button>
                     </form>
@@ -282,24 +282,24 @@
             <div class="col-md-6">
                 <p>问卷1</p>
                 <a href="#">
-                    <img class="icon" src="<c:url value="/rescources/images/icons/link-icon.svg"/>" alt="link svg">
+                    <img class="icon" src="<c:url value="/resources/images/icons/link-icon.svg"/>" alt="link svg">
                 </a>
             </div>
             <div class="col-md-6 questionnaire-option">
                 <form class="questionnaire-form" method="post" action="">
                     <button type="button" class="btn btn-primary">
-                        <img class="icon" src="<c:url value="/rescources/images/icons/statistics-icon.svg"/>" alt="statistics icon">
+                        <img class="icon" src="<c:url value="/resources/images/icons/statistics-icon.svg"/>" alt="statistics icon">
                         <span>数据统计</span>
                     </button>
                     <form class="questionnaire-form" method="post" action="">
                         <button type="button" class="btn btn-primary">
-                            <img class="icon" src="<c:url value="/rescources/images/icons/delete-icon.svg"/>" alt="delete icon">
+                            <img class="icon" src="<c:url value="/resources/images/icons/delete-icon.svg"/>" alt="delete icon">
                             <span>删除问卷</span>
                         </button>
                     </form>
                     <form class="questionnaire-form" method="post" action="">
                         <button type="button" class="btn btn-primary">
-                            <img class="icon" src="<c:url value="/rescources/images/icons/edit-icon.svg"/>" alt="edit icon">
+                            <img class="icon" src="<c:url value="/resources/images/icons/edit-icon.svg"/>" alt="edit icon">
                             <span>修改问卷</span>
                         </button>
                     </form>
@@ -339,21 +339,21 @@
     <footer>
         <div class="col-md-4 col-md-offset-4">
             <p>Questionnaire</p>
-            <p>Make with BootStrap<img class="icon" src="<c:url value="/rescources/images/icons/Bootstrap.svg"/>" alt="bootstrap icon"></p>
+            <p>Make with BootStrap<img class="icon" src="<c:url value="/resources/images/icons/Bootstrap.svg"/>" alt="bootstrap icon"></p>
             <p>© Group One</p>
         </div>
     </footer>
 </div>
 
 
-<script src="<c:url value="/rescources/js/jquery.min.js"/>"></script>
-<script src="<c:url value="/rescources/js/bootstrap.min.js"/>"></script>
-<script src="<c:url value="/rescources/js/metisMenu.min.js"/>"></script>
-<script src="<c:url value="/rescources/js/raphael.min.js"/>"></script>
-<script src="<c:url value="/rescources/js/morris.min.js"/>"></script>
-<script src="<c:url value="/rescources/js/morris-data.js"/>"></script>
-<script src="<c:url value="/rescources/js/startmin.js"/>"></script>
-<script src="<c:url value="/rescources/bootstrap-table-1.14.1/bootstrap-table.min.js"/>"></script>
-<script src="<c:url value="/rescources/managerAccount.js"/>"></script>
+<script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
+<script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
+<script src="<c:url value="/resources/js/metisMenu.min.js"/>"></script>
+<script src="<c:url value="/resources/js/raphael.min.js"/>"></script>
+<script src="<c:url value="/resources/js/morris.min.js"/>"></script>
+<script src="<c:url value="/resources/js/morris-data.js"/>"></script>
+<script src="<c:url value="/resources/js/startmin.js"/>"></script>
+<script src="<c:url value="/resources/bootstrap-table-1.14.1/bootstrap-table.min.js"/>"></script>
+<script src="<c:url value="/resources/managerAccount.js"/>"></script>
 </body>
 </html>
