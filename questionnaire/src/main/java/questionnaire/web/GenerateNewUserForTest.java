@@ -13,14 +13,14 @@ import java.util.Set;
 public class GenerateNewUserForTest {
 
     public static CommonUser Generate(String prefix){
-        List<Choice> ch1 = new ArrayList<Choice>();
+        Set<Choice> ch1 = new HashSet<>();
         Choice c1 = chGenerate(prefix+"1", 1);
         Choice c2 = chGenerate(prefix+"2", 2);
         Choice c3 = chGenerate(prefix+"3", 3);
         ch1.add(c1);
         ch1.add(c2);
         ch1.add(c3);
-        List<Choice> ch2 = new ArrayList<Choice>();
+        Set<Choice> ch2 = new HashSet<>();
         Choice c4 = chGenerate(prefix+"4", 1);
         Choice c5 = chGenerate(prefix+"5", 2);
         Choice c6 = chGenerate(prefix+"6", 3);
@@ -29,7 +29,7 @@ public class GenerateNewUserForTest {
         ch2.add(c4);
 
 
-        List<QuestionType> qs = new ArrayList<>();
+        Set<QuestionType> qs = new HashSet<>();
         QuestionType q1 = qGenerate(prefix+"1", true, true);
         QuestionType q2 = qGenerate(prefix+"2", false, true);
         QuestionType q3 = qGenerate(prefix+"3", false, false);

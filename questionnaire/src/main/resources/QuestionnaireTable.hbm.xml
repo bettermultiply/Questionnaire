@@ -16,15 +16,14 @@
             <column name="is_published" default="false" />
         </property>
         
-        <many-to-one name="user" class="questionnaire.database.CommonUser" column="userId" lazy="false" cascade="all"/>
+        <many-to-one name="user" class="questionnaire.database.CommonUser" column="userId" lazy="false"/>
 
-        <list name="questions" table="question_type" inverse="false" cascade="all" lazy="false">
+        <set name="questions" table="question_type" inverse="false" cascade="all" lazy="false">
             <key column="tableId" />
-            <index column="question_index" type="java.lang.Integer" />
             <one-to-many class="questionnaire.database.QuestionType" />
-        </list>
+        </set>
         
-        <set name="results" table="questionnaire_result">
+        <set name="results" table="questionnaire_result" cascade="all" lazy="false">
             <key column="tableId" />
             <one-to-many class="questionnaire.database.QuestionnaireResult" />
         </set>

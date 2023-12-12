@@ -22,7 +22,7 @@
 //            System.out.println("Create");
 //        }
 //        CommonUser user = GenerateNewUserForTest.Generate("bet");
-//        CommonUserTools.createCommonUser(user);
+//        CommonUserTools.registerCommonUser(user);
 //        sessions.setAttribute("commonUser", user);
 //        return "welcome";
 //    }

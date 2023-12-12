@@ -11,18 +11,18 @@ public class QChoose extends QuestionType{
      */
     private Boolean chooseType;
 
-    private List<Choice> choices;
+    private Set<Choice> choices;
 
     public QChoose() {
         super();
     }
 
-    public QChoose(Boolean chooseType, List<Choice> choices) {
+    public QChoose(Boolean chooseType, Set<Choice> choices) {
         this.chooseType = chooseType;
         this.choices = choices;
     }
 
-    public QChoose(String questionId, String description, Boolean questionType, QuestionnaireTable parentTable, Set<QuestionTypeResult> results, Boolean chooseType, List<Choice> choices) {
+    public QChoose(String questionId, String description, Boolean questionType, QuestionnaireTable parentTable, Set<QuestionTypeResult> results, Boolean chooseType, Set<Choice> choices) {
         super(questionId, description, questionType, parentTable, results);
         this.chooseType = chooseType;
         this.choices = choices;
@@ -36,11 +36,11 @@ public class QChoose extends QuestionType{
         this.chooseType = chooseType;
     }
 
-    public List<Choice> getChoices() {
+    public Set<Choice> getChoices() {
         return choices;
     }
 
-    public void setChoices(List<Choice> choices) {
+    public void setChoices(Set<Choice> choices) {
         this.choices = choices;
     }
 }

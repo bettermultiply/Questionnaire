@@ -26,12 +26,12 @@ public class QuestionnaireTable {
     /**
      * TODO we've set the order field maybe the Set structure is better?
      */
-    private List<QuestionType> questions;
+    private Set<QuestionType> questions;
 
     public QuestionnaireTable() {
     }
 
-    public QuestionnaireTable(String tableId, String tableName, Boolean isChecked, Boolean isPublished, CommonUser user, Set<QuestionnaireResult> results, List<QuestionType> questions) {
+    public QuestionnaireTable(String tableId, String tableName, Boolean isChecked, Boolean isPublished, CommonUser user, Set<QuestionnaireResult> results, Set<QuestionType> questions) {
         this.tableId = tableId;
         this.tableName = tableName;
         this.isChecked = isChecked;
@@ -89,11 +89,11 @@ public class QuestionnaireTable {
         this.results = results;
     }
 
-    public List<QuestionType> getQuestions() {
+    public Set<QuestionType> getQuestions() {
         return questions;
     }
 
-    public void setQuestions(List<QuestionType> questions) {
+    public void setQuestions(Set<QuestionType> questions) {
         this.questions = questions;
     }
 }

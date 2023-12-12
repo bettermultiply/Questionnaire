@@ -46,7 +46,7 @@ public class QuestionTools {
         List<QuestionType> questions = null;
         try(Session session = SessionFactorySource.getSessionFactory().openSession()){
             session.beginTransaction();
-            String hql = "FROM QuestionType where tableId='" + parentid + "'";
+            String hql = "FROM QuestionType where parentTable='" + parentid + "'";
             questions = session.createQuery(hql).list();
             session.getTransaction().commit();
         } catch (HibernateException e) {
