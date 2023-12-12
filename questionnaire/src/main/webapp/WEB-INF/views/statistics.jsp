@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@taglib prefix="ques" uri="ques"%>
+<%@ taglib prefix="ques" uri="ques"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,31 +26,25 @@
             <a class="navbar-brand" href="#">Questionnaire</a>
         </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-<%--            <ul class="nav navbar-nav selections">--%>
-<%--                <li class="active"><a href="#">所有问卷<span class="sr-only">(current)</span></a></li>--%>
-<%--                <li><a href="#">未审核问卷<span class="sr-only">(current)</span></a></li>--%>
-<%--                <li><a href="#">已审核问卷<span class="sr-only">(current)</span></a></li>--%>
-<%--            </ul>--%>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">UserName<span class="caret"></span></a>
+                       aria-expanded="false">${commonUser.userName}<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">个人信息</a></li>
                         <li><a href="#">注销登录</a></li>
                     </ul>
                 </li>
             </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container -->
+        </div>
+    </div>
 </nav>
 
 <div class="container">
         <div class="text-center" >
 <%--            name of questionnare--%>
-            <h1><c:out value="${tableName}" /></h1>
+            <h1><c:out value="${tableName}"/></h1>
         </div>
 
     <div class="col-md-12">
@@ -67,6 +61,7 @@
             </form>
         </div>
     </div>
+    <script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
 
     <c:forEach items="${questions}" var="question" varStatus="status">
         <div class="question-chart col-md-12">
@@ -78,7 +73,7 @@
 <%--                    </a>--%>
                 </div>
                 <div class="col-md-2 questionnaire-option">
-                    <ques:handleResult question="${question}"/>
+                    <ques:handleResult question="${question}" iCount="${status.count}"/>
                     <button id="button-${status.count}" type="button" aria-expanded="false" class="btn btn-primary" data-toggle="collapse" data-target="#collapse-chart-${status.count}">折叠图表</button>
                 </div>
             </div>
@@ -90,9 +85,22 @@
 
         </div>
         <script type="text/javascript" >
+            document.addEventListener('DOMContentLoaded', function() {
+                var button = document.getElementById('button-${status.count}');
+                button.click();
+            });
             $(function(){
                 $("#collapse-chart-${status.count}").on("shown.bs.collapse",function(){
-                    buildEchart("chart-${status.count}");
+                    if (${question.questionType}){
+                        var text = document.getElementById("text-${status.count}");
+                        buildtextEchart("chart-${status.count}", ${sessionScope.text});
+
+                    } else {
+                        var xData = document.getElementById("xData-${status.count}");
+                        var sData = document.getElementById("sData-${status.count}");
+                        buildEchart("chart-${status.count}", xData.value, sData.value);
+                    }
+
                 });
             });
             $(function(){
@@ -137,7 +145,7 @@
 
         <div class="question-chart">
             <div class="img-thumbnail chart-margin" >
-                <div id="chart-1" class="chart"></div>
+                <div id="chart-11" class="chart"></div>
             </div>
         </div>
 
@@ -156,12 +164,11 @@
         </div>
     </footer>
 </div>
-
 <script src="<c:url value="/resources/js/echarts.min.js"/>"></script>
-<script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
 <script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
 <script src="<c:url value="/resources/js/echarts-wordcloud.min.js"/>"></script>
 <script src="<c:url value="/resources/buildEchart.js"/>"></script>
+
 
 </body>
 </html>

@@ -6,6 +6,7 @@
 //import org.springframework.web.bind.annotation.RequestMapping;
 //import org.springframework.web.bind.annotation.RequestMethod;
 //import questionnaire.database.CommonUser;
+//import questionnaire.utils.CommonUserTools;
 //import questionnaire.utils.SessionFactorySource;
 //
 //import javax.servlet.http.HttpSession;
@@ -20,7 +21,8 @@
 //        try (Session session = SessionFactorySource.getSessionFactory().openSession();){
 //            System.out.println("Create");
 //        }
-//        CommonUser user = new CommonUser("1", "bet", "mul", null);
+//        CommonUser user = GenerateNewUserForTest.Generate("bet");
+//        CommonUserTools.createCommonUser(user);
 //        sessions.setAttribute("commonUser", user);
 //        return "welcome";
 //    }
