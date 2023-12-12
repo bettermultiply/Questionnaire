@@ -2,7 +2,10 @@ package questionnaire.config;
 
 
 import org.h2.server.web.WebServlet;
+import org.hibernate.Session;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+import questionnaire.database.Manager;
+import questionnaire.utils.SessionFactorySource;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -35,5 +38,15 @@ public class WebInitializer extends AbstractAnnotationConfigDispatcherServletIni
         ServletRegistration.Dynamic servlet = servletContext.addServlet("h2-console", new WebServlet());
         servlet.setLoadOnStartup(2);
         servlet.addMapping("/console/*");
+
+        Session session;
+        session = SessionFactorySource.getSessionFactory().openSession();
+        session.beginTransaction();
+        Manager manager = new Manager();
+        manager.setUserName("admin");
+        manager.setPassword("admin");
+        session.save(manager);
+        session.getTransaction().commit();
+        session.close();
     }
 }

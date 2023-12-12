@@ -131,7 +131,6 @@
         </div>
 
     </div>
-
 <br>
     <div class="question-chart col-md-12">
         <div class="questionnaire-info col-md-12 img-thumbnail">
@@ -168,7 +167,6 @@
 <script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
 <script src="<c:url value="/resources/js/echarts-wordcloud.min.js"/>"></script>
 <script src="<c:url value="/resources/buildEchart.js"/>"></script>
-
 
 </body>
 </html>
