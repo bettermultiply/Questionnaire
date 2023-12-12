@@ -64,7 +64,8 @@
     </div>
 
     <div class="col-md-12 questionList">
-        <c:forEach items="${questionnaire.questions}" var="question">
+        <ques:QuestionSort questionSet="${questionnaire.questions}"/>
+        <c:forEach items="${questionList}" var="question">
             <div class="question-info col-md-12">
                 <div class="col-md-6">
                     <p>${question.description}</p>
@@ -127,7 +128,8 @@
             </div>
 
             <c:if test="${!question.questionType}">
-                <c:forEach items="${QChoose.choices}" var="choice">
+                <ques:ChoiceSort choiceSet="${QChoose.choices}"/>
+                <c:forEach items="${choiceList}" var="choice">
                     <div class="question-info col-md-12">
                         <div class="col-md-6">
                             <div class="option-info">
