@@ -10,6 +10,7 @@
         <discriminator column="specificType" type="java.lang.String" />
         <property name="questionType" type="java.lang.Boolean" column="questionType" />
         <property name="description" type="java.lang.String" column="description" />
+        <property name="questionOrder" type="java.lang.Integer" column="questionorder" />
         <many-to-one name="parentTable" class="questionnaire.database.QuestionnaireTable" column="tableId"/>
         <set name="results" table="question_type_result" cascade="all">
             <key column="model" />
