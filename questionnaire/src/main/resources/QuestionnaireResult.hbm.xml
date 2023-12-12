@@ -8,7 +8,7 @@
             <generator class="uuid" />
         </id>
         <many-to-one name="parentTable" column="tableId" class="questionnaire.database.QuestionnaireTable" />
-        <set name="results" table="question_type_result">
+        <set name="results" table="question_type_result" cascade="all">
             <key column="resultId" />
             <one-to-many class="questionnaire.database.QuestionTypeResult" />
         </set>

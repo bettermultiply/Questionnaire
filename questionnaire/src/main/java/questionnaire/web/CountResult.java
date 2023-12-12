@@ -1,41 +1,67 @@
 package questionnaire.web;
 
+import com.alibaba.fastjson.JSON;
 import questionnaire.database.*;
 import questionnaire.utils.QuestionResultTools;
 
-import javax.servlet.jsp.JspException;
+import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.JspWriter;
+import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * calculate the Result and format it into which the eChartCloud can use
+ */
 public class CountResult extends SimpleTagSupport {
-    QuestionType questionType;
 
+    /**
+     * the question to be calculated
+     */
+    QuestionType question;
+
+    /**
+     * question order
+     */
+    Integer iCount;
+
+    /**
+     * record
+     */
     Map<Integer, Integer> choiceCount = new HashMap<>();
 
 
-    String JsonList = "";
     @Override
-    public void doTag() throws JspException, IOException {
-        JspWriter out = getJspContext().getOut();
-        List<QuestionTypeResult> qResults= QuestionResultTools.readResults(this.questionType.getQuestionId());
+    public void doTag() throws IOException {
 
-        if(questionType.getQuestionType()){
-            //TODO handle text
+        PageContext context = (PageContext)getJspContext();
+        HttpSession session = context.getSession();
+        JspWriter out = context.getOut();
+
+        List<QuestionTypeResult> qResults= QuestionResultTools.readResultsByModel(this.question.getQuestionId());
+        if(question.getQuestionType()){
+
+            List<TextConstruct> lists = new ArrayList<>();
             for(QuestionTypeResult result: qResults){
                 QTextResult temp = (QTextResult) result;
-                this.JsonList += StructText(temp.getAnswer());
+                lists.add(new TextConstruct(temp.getAnswer(), 1));
+
             }
-            out.print(JsonList);
+
+            session.setAttribute("text", JSON.toJSONString(lists));
+
         } else {
-            int count = ((QChoose)questionType).getChoices().size();
-            for(int i=1 ; i<count; i++){
+
+            int count = ((QChoose)question).getChoices().size();
+
+            for(int i=1 ; i<=count; i++){
                 choiceCount.put(i, 0);
             }
-            //TODO handle choice
+
             for(QuestionTypeResult result: qResults){
                 QChooseResult temp = (QChooseResult) result;
                 for(ChoiceResult choice: temp.getResults()){
@@ -43,41 +69,46 @@ public class CountResult extends SimpleTagSupport {
                     choiceCount.replace(order, choiceCount.get(order)+1);
                 }
             }
-            String xData = "[";
+            String xData = "";
             String sData = "[";
             for(Integer order: choiceCount.keySet()){
-                xData += StructX(order);
-                sData += StructS(choiceCount.get(order));
+                xData += order.toString() + ",";
+                sData += choiceCount.get(order).toString() + ",";
             }
-            xData += "]";
+            xData = xData.substring(0, xData.length()-1);
             sData += "]";
-            out.print(xData);
+
+            String n = iCount.toString();
+            out.print(StructInput("xData-"+n, xData));
+            out.print(StructInput("sData-"+n, sData));
         }
 
     }
 
+    /**
+     * construct input table
+     * @param id id of input
+     * @param value value to be transform
+     * @return input label
+     */
     private String StructInput(String id, String value){
-
-        return "<input id=\"" + id + "\" type=\"hidden\" value=\""+ value +"\" />";
-    }
-
-    private String StructS(Integer num){
-        return num.toString() +",";
-    }
-
-    private String StructX(Integer order){
-        return "'"+ order.toString() +"',";
-    }
-
-    private String StructText(String content) {
-        return "{name: \"" + ", value: \"1\"},";
+        return "<input id='" + id + "' type='hidden' value='"+ value +"' />";
     }
 
     public QuestionType getQuestion() {
-        return questionType;
+        return question;
     }
 
     public void setQuestion(QuestionType question) {
-        this.questionType = question;
+        this.question = question;
+    }
+
+    public Integer getiCount() {
+        return iCount;
+    }
+
+    public void setiCount(Integer iCount) {
+        this.iCount = iCount;
     }
 }
+

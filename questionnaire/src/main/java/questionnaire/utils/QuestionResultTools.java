@@ -44,7 +44,21 @@ public class QuestionResultTools {
         List<QuestionTypeResult> results = null;
         try(Session session = SessionFactorySource.getSessionFactory().openSession()){
             session.beginTransaction();
-            String hql = "FROM QuestionTypeResult where questionresultId=" + parentid;
+            String hql = "FROM QuestionTypeResult where parentResult='" + parentid + "'";
+            results = session.createQuery(hql).list();
+            session.getTransaction().commit();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+        }
+
+        return results;
+    }
+
+    public static List<QuestionTypeResult> readResultsByModel(String parentid){
+        List<QuestionTypeResult> results = null;
+        try(Session session = SessionFactorySource.getSessionFactory().openSession()){
+            session.beginTransaction();
+            String hql = "FROM QuestionTypeResult where modelType='" + parentid + "'";
             results = session.createQuery(hql).list();
             session.getTransaction().commit();
         } catch (HibernateException e) {

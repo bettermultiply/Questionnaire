@@ -9,13 +9,13 @@
         </id>
         <discriminator column="specificType" type="java.lang.String" />
         <property name="questionType" type="java.lang.Boolean" column="questiontype" />
-        <many-to-one name="parentResult" column="tableId" class="questionnaire.database.QuestionType" />
+        <many-to-one name="parentResult" column="tableId" class="questionnaire.database.QuestionTypeResult" />
         <many-to-one name="modelType" class="questionnaire.database.QuestionType" column="model" />
         <subclass name="questionnaire.database.QTextResult" discriminator-value="text" >
             <property name="answer" column="answer" type="java.lang.String" />
         </subclass>
         <subclass name="questionnaire.database.QChooseResult" discriminator-value="choose" >
-            <set name="results" table="choice_result">
+            <set name="results" table="choice_result" cascade="all" lazy="false">
                 <key column="questionresultId" />
                 <one-to-many class="questionnaire.database.ChoiceResult" />
             </set>
