@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="ques" uri="ques" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,52 +70,111 @@
                     <p>${question.description}</p>
                     <span class="question-type">
                         <c:choose>
+                            <%-- 判断该问题是否是填空题 --%>
                             <c:when test="${question.questionType}">
                                 <img class="icon" src="<c:url value="/resources/images/icons/fillBlank-black-icon.svg"/>"
                                      alt="fillBlank icon">
                             </c:when>
                             <c:otherwise>
+<<<<<<< HEAD
                                 <c:when test="${question.chooseType}">
                                      <img class="icon" src="<c:url value="/resources/images/icons/checkbox-black-icon.svg"/>"
                                           alt="checkbox icon">
                                 </c:when>
                                 <c:otherwise>
+=======
+                                <%-- 将QuestionType类型的对象转化为QChoose对象，并将设置为属性"QChoose" --%>
+                                <ques:QuestionTypeConversion question="${question}"/>
+                                <%-- 判断是单选题还是多选题 --%>
+                                <c:choose>
+                                    <c:when test="${QChoose.chooseType}">
+                                     <img class="icon" src="<c:url value="/resources/images/icons/checkbox-black-icon.svg"/>"
+                                          alt="checkbox icon">
+                                    </c:when>
+                                    <c:otherwise>
+>>>>>>> c4859ee23e591985f3d6f9f5a48314d2c5c7e8b7
                                     <img class="icon" src="<c:url value="/resources/images/icons/radio-black-icon.svg"/>"
                                          alt="radio icon">
-                                </c:otherwise>
+                                    </c:otherwise>
+                                </c:choose>
                             </c:otherwise>
                         </c:choose>
                     </span>
                 </div>
 
                 <div class="col-md-6 question-option">
+<<<<<<< HEAD
                     <form class="question-form" method="post" action="">
                         <button type="button" class="btn btn-primary">
+=======
+                    <form class="question-form" method="post" action="<c:url value="/questionnaire/design/deleteQuestion.do"/>">
+                        <input type="hidden" name="questionnaireId" value="${questionnaire.tableId}">
+                        <input type="hidden" name="questionId" value="${question.questionId}">
+                        <button type="submit" class="btn btn-primary">
+>>>>>>> c4859ee23e591985f3d6f9f5a48314d2c5c7e8b7
                             <img class="icon" src="<c:url value="/resources/images/icons/delete-icon.svg"/>"
                                  alt="delete icon">
                             <span>删除问题</span>
                         </button>
                     </form>
-                    <form class="question-form" method="post" action="">
+                    <form class="question-form">
                         <button type="button" class="btn btn-primary"
+<<<<<<< HEAD
                                 onclick="openModifyQuestionPopup(document.getElementById('modify-question-popup'))">
+=======
+                                onclick="openModifyQuestionPopup(document.getElementById('modify-question-popup'), '${question.questionId}')">
+>>>>>>> c4859ee23e591985f3d6f9f5a48314d2c5c7e8b7
                             <img class="icon" src="<c:url value="/resources/images/icons/edit-icon.svg"/>"
                                  alt="edit icon">
                             <span>修改问题</span>
                         </button>
                     </form>
-                    <c:if test="${!question.questionType}">
-                        <form class="question-form" method="post" action="">
+                    <form class="question-form">
+                        <c:if test="${!question.questionType}">
                             <button type="button" class="btn btn-primary"
+<<<<<<< HEAD
                                     onclick="openAddOptionPopup(document.getElementById('add-option-popup'))">
+=======
+                                    onclick="openAddOptionPopup(document.getElementById('add-option-popup'), '${question.questionId}')">
+>>>>>>> c4859ee23e591985f3d6f9f5a48314d2c5c7e8b7
                                 <img class="icon" src="<c:url value="/resources/images/icons/add-selection.svg"/>"
                                      alt="statistics icon">
                                 <span>新增选项</span>
                             </button>
-                        </form>
-                    </c:if>
+                        </c:if>
+                    </form>
                 </div>
             </div>
+
+            <c:if test="${!question.questionType}">
+                <c:forEach items="${QChoose.choices}" var="choice">
+                    <div class="question-info col-md-12">
+                        <div class="col-md-6">
+                            <div class="option-info">
+                                <img class="icon" src="<c:url value="/resources/images/icons/arrow.svg"/>" alt="arrow icon">
+                                <p>${choice.choiceContent}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 question-option">
+                            <form class="question-form" method="post" action="<c:url value="/questionnaire/design/deleteChoice.do"/>">
+                                <input type="hidden" name="questionnaireId" value="${questionnaire.tableId}">
+                                <input type="hidden" name="choiceId" value="${choice.choiceId}">
+                                <button type="submit" class="btn btn-primary">
+                                    <img class="icon" src="<c:url value="/resources/images/icons/delete-icon.svg"/>" alt="delete icon">
+                                    <span>删除选项</span>
+                                </button>
+                            </form>
+                            <form class="question-form" method="post" action="">
+                                <button type="button" class="btn btn-primary"
+                                        onclick="openModifyOptionPopup(document.getElementById('modify-option-popup'), '${choice.choiceId}')">
+                                    <img class="icon" src="<c:url value="/resources/images/icons/edit-icon.svg"/>" alt="edit icon">
+                                    <span>修改选项</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </c:forEach>
+            </c:if>
         </c:forEach>
     </div>
 
@@ -183,7 +243,7 @@
 
             <form class="add-form" method="post" action="<c:url value="/questionnaire/design/addQuestion.do"/>">
                 <input type="hidden" name="questionnaireId" value="${questionnaire.tableId}">
-                <input type="hidden" name="addType" value="radio">
+                <input type="hidden" name="addType" value="checkbox">
                 <button type="submit" class="btn btn-primary">
                     <img class="icon" src="<c:url value="/resources/images/icons/checkbox-icon.svg"/>" alt="radio icon">
                     添加多选题
@@ -192,7 +252,7 @@
 
             <form class="add-form" method="post" action="<c:url value="/questionnaire/design/addQuestion.do"/>">
                 <input type="hidden" name="questionnaireId" value="${questionnaire.tableId}">
-                <input type="hidden" name="addType" value="radio">
+                <input type="hidden" name="addType" value="text">
                 <button type="submit" class="btn btn-primary">
                     <img class="icon" src="<c:url value="/resources/images/icons/fillBlank-icon.svg"/>">
                     添加文本题
@@ -211,11 +271,12 @@
         </div>
         <hr>
         <div class="col-md-12">
-            <form class="modify-form" method="post" action="">
-                <input type="hidden" id="questionModifyId" name="questionModifyId">
+            <form class="modify-form" method="post" action="<c:url value="/questionnaire/design/modifyQuestion.do"/>">
+                <input type="hidden" name="questionnaireId" value="${questionnaire.tableId}">
+                <input type="hidden" id="questionModifyId" name="questionId">
                 <div class="form-group">
                     <label for="question-title">问题</label>
-                    <input class="form-control" id="question-title" name="title" value="问题">
+                    <input class="form-control" id="question-title" name="newQuestionName">
                 </div>
                 <button type="submit" class="btn btn-primary">保存修改</button>
             </form>
@@ -232,11 +293,12 @@
         </div>
         <hr>
         <div class="col-md-12">
-            <form class="add-option-form" method="post" action="">
-                <input type="hidden" id="optionAddId" name="optionAddId">
+            <form class="add-option-form" method="post" action="<c:url value="/questionnaire/design/addChoice.do"/>">
+                <input type="hidden"name="questionnaireId" value="${questionnaire.tableId}">
+                <input type="hidden" id="optionAddId" name="questionId">
                 <div class="form-group">
                     <label for="add-option-title">新选项</label>
-                    <input class="form-control" id="add-option-title" name="title" value="新选项">
+                    <input class="form-control" id="add-option-title" name="newChoiceName" value="新选项">
                 </div>
                 <button type="submit" class="btn btn-primary">新增选项</button>
             </form>
@@ -253,11 +315,12 @@
         </div>
         <hr>
         <div class="col-md-12">
-            <form class="modify-option-form" method="post" action="">
-                <input type="hidden" id="optionModifyId" name="optionModifyId">
+            <form class="modify-option-form" method="post" action="<c:url value="/questionnaire/design/modifyChoice.do"/>">
+                <input type="hidden" name="questionnaireId" value="${questionnaire.tableId}">
+                <input type="hidden" id="optionModifyId" name="choiceId">
                 <div class="form-group">
                     <label for="modify-option-title">新选项</label>
-                    <input class="form-control" id="modify-option-title" name="title" value="新选项">
+                    <input class="form-control" id="modify-option-title" name="newChoiceName">
                 </div>
                 <button type="submit" class="btn btn-primary">保存修改</button>
             </form>

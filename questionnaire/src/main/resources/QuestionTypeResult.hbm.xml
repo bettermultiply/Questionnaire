@@ -16,7 +16,7 @@
             <property name="answer" column="answer" type="java.lang.String" />
         </subclass>
         <subclass name="questionnaire.database.QChooseResult" discriminator-value="choose" >
-            <set name="results" table="choice_result" cascade="all" lazy="false">
+            <set name="results" table="choice_result" cascade="delete" lazy="false">
                 <key column="questionresultId" />
                 <one-to-many class="questionnaire.database.ChoiceResult" />
             </set>

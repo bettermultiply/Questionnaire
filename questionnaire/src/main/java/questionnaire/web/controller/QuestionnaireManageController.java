@@ -15,6 +15,7 @@ import questionnaire.web.dao.QuestionnaireDao;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 @Controller
@@ -79,6 +80,7 @@ public class QuestionnaireManageController {
         List<QuestionType> questions = QuestionTools.readQuestion(tableId);
         model.addAttribute("questions", questions);
         model.addAttribute("tableName", tableName);
+
         return "statistics";
     }
 
@@ -92,7 +94,7 @@ public class QuestionnaireManageController {
     public String deleteQuestionnaire(@RequestParam("questionnaireId") String questionnaireId){
         questionnaireDao.deleteQuestionnaire(questionnaireId);
 
-        return "userHome";
+        return "redirect:/questionnaire";
     }
 
     /**
@@ -117,7 +119,9 @@ public class QuestionnaireManageController {
     public String addQuestionnaire(@RequestParam("tableName") String tableName, HttpSession session){
         String questionnaireId;
         CommonUser commonUser = (CommonUser) session.getAttribute("commonUser");
-        QuestionnaireTable questionnaireTable = new QuestionnaireTable(null, tableName, false, false, commonUser, null, null);
+        QuestionnaireTable questionnaireTable =
+                new QuestionnaireTable(null, tableName, false, false, commonUser, new HashSet<>(), new HashSet<>());
+        commonUser.getQuestionnaireTables().add(questionnaireTable);
         questionnaireId = questionnaireDao.addQuestionnaire(questionnaireTable);
 
         return "redirect:/questionnaire/design/" + questionnaireId;

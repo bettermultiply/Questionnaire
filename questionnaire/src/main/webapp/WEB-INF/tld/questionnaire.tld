@@ -22,5 +22,16 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>
+    
+    <tag>
+        <name>QuestionTypeConversion</name>
+        <tag-class>questionnaire.web.myTag.QuestionTypeConversionTag</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>question</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
 
 </taglib>

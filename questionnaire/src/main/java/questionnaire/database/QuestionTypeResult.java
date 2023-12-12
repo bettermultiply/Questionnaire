@@ -11,16 +11,19 @@ public class QuestionTypeResult {
 
     private QuestionType modelType;
 
+    private Integer questionOrder;
+
     private QuestionnaireResult parentResult;
 
     public QuestionTypeResult() {
     }
 
-    public QuestionTypeResult(String resultId, QuestionType modelType, QuestionnaireResult parentResult, Boolean questionType) {
+    public QuestionTypeResult(String resultId, Boolean questionType, QuestionType modelType, Integer questionOrder, QuestionnaireResult parentResult) {
         this.resultId = resultId;
-        this.modelType = modelType;
-        this.parentResult = parentResult;
         this.questionType = questionType;
+        this.modelType = modelType;
+        this.questionOrder = questionOrder;
+        this.parentResult = parentResult;
     }
 
     public String getResultId() {
@@ -53,5 +56,13 @@ public class QuestionTypeResult {
 
     public void setParentResult(QuestionnaireResult parentResult) {
         this.parentResult = parentResult;
+    }
+
+    public Integer getQuestionOrder() {
+        return questionOrder;
+    }
+
+    public void setQuestionOrder(Integer questionOrder) {
+        this.questionOrder = questionOrder;
     }
 }

@@ -18,12 +18,12 @@
         
         <many-to-one name="user" class="questionnaire.database.CommonUser" column="userId" lazy="false"/>
 
-        <set name="questions" table="question_type" inverse="false" cascade="all" lazy="false">
+        <set name="questions" table="question_type" inverse="false" cascade="delete" lazy="false">
             <key column="tableId" />
             <one-to-many class="questionnaire.database.QuestionType" />
         </set>
         
-        <set name="results" table="questionnaire_result" cascade="all" lazy="false">
+        <set name="results" table="questionnaire_result" cascade="delete" lazy="false">
             <key column="tableId" />
             <one-to-many class="questionnaire.database.QuestionnaireResult" />
         </set>

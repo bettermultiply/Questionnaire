@@ -30,9 +30,9 @@ public class GenerateNewUserForTest {
 
 
         Set<QuestionType> qs = new HashSet<>();
-        QuestionType q1 = qGenerate(prefix+"1", true, true);
-        QuestionType q2 = qGenerate(prefix+"2", false, true);
-        QuestionType q3 = qGenerate(prefix+"3", false, false);
+        QuestionType q1 = qGenerate(prefix+"1", true, true, 1);
+        QuestionType q2 = qGenerate(prefix+"2", false, true, 2);
+        QuestionType q3 = qGenerate(prefix+"3", false, false, 3);
         ((QChoose)q2).setChoices(ch1);
         c1.setParentQ((QChoose)q2);
         c2.setParentQ((QChoose)q2);
@@ -47,31 +47,31 @@ public class GenerateNewUserForTest {
 
         Set<QuestionTypeResult> qrs = new HashSet<>();
         //text
-        QuestionTypeResult qr1 = qrGenerate(prefix+"1", true);
-        QuestionTypeResult qr2 = qrGenerate(prefix+"1", true);
-        QuestionTypeResult qr3 = qrGenerate(prefix+"2", true);
-        QuestionTypeResult qr4 = qrGenerate(prefix+"3", true);
-        QuestionTypeResult qr5 = qrGenerate(prefix+"4", true);
-        QuestionTypeResult qr6 = qrGenerate(prefix+"3", true);
-        QuestionTypeResult qr7 = qrGenerate(prefix+"3", true);
+        QuestionTypeResult qr1 = qrGenerate(prefix+"1", true, 1);
+        QuestionTypeResult qr2 = qrGenerate(prefix+"1", true, 1);
+        QuestionTypeResult qr3 = qrGenerate(prefix+"2", true, 1);
+        QuestionTypeResult qr4 = qrGenerate(prefix+"3", true, 1);
+        QuestionTypeResult qr5 = qrGenerate(prefix+"4", true, 1);
+        QuestionTypeResult qr6 = qrGenerate(prefix+"3", true, 1);
+        QuestionTypeResult qr7 = qrGenerate(prefix+"3", true, 1);
         qrs.add(qr1);qrs.add(qr2);qrs.add(qr3);qrs.add(qr4);qrs.add(qr5);qrs.add(qr6);qrs.add(qr7);
         qr1.setModelType(q1);qr2.setModelType(q1);qr3.setModelType(q1);qr4.setModelType(q1);
         qr5.setModelType(q1);qr6.setModelType(q1);qr7.setModelType(q1);
         q1.setResults(qrs);
         //single
         Set<QuestionTypeResult> qrs1 = new HashSet<>();
-        QuestionTypeResult qrc1 = qrGenerate(prefix+"1", false);
-        QuestionTypeResult qrc2 = qrGenerate(prefix+"2", false);
-        QuestionTypeResult qrc3 = qrGenerate(prefix+"3", false);
+        QuestionTypeResult qrc1 = qrGenerate(prefix+"1", false, 2);
+        QuestionTypeResult qrc2 = qrGenerate(prefix+"2", false, 2);
+        QuestionTypeResult qrc3 = qrGenerate(prefix+"3", false, 2);
         qrs1.add(qrc1);qrs1.add(qrc2);qrs1.add(qrc3);
         qrc1.setModelType(q2);qrc2.setModelType(q2);qrc3.setModelType(q2);
         q2.setResults(qrs1);
         //TODO
         //multi
         Set<QuestionTypeResult> qrs2 = new HashSet<>();
-        QuestionTypeResult qrc6 = qrGenerate(prefix+"6", false);
-        QuestionTypeResult qrc7 = qrGenerate(prefix+"7", false);
-        QuestionTypeResult qrc8 = qrGenerate(prefix+"8", false);
+        QuestionTypeResult qrc6 = qrGenerate(prefix+"6", false, 2);
+        QuestionTypeResult qrc7 = qrGenerate(prefix+"7", false, 2);
+        QuestionTypeResult qrc8 = qrGenerate(prefix+"8", false, 2);
         qrs2.add(qrc6);qrs2.add(qrc7);qrs2.add(qrc8);
         qrc6.setModelType(q3);qrc7.setModelType(q3);qrc8.setModelType(q3);
         q3.setResults(qrs2);
@@ -170,12 +170,12 @@ public class GenerateNewUserForTest {
         return new QuestionnaireTable(null, prefix+"-table", false, false, null, null, null);
     }
 
-    public static QuestionType qGenerate(String prefix, Boolean type, Boolean ctype) {
+    public static QuestionType qGenerate(String prefix, Boolean type, Boolean ctype, Integer order) {
         QuestionType qType;
         if(type){
-            qType = new QText(null, prefix+"d", type, null, null);
+            qType = new QText(null, prefix+"d", type, null, order,null);
         }else {
-            qType = new QChoose(null, prefix+"c", type, null, null, ctype, null);
+            qType = new QChoose(null, prefix+"c", type, null, order, null, ctype, null);
         }
         return qType;
     }
@@ -184,12 +184,12 @@ public class GenerateNewUserForTest {
         return new Choice(null, i+1 , null, prefix, null);
     }
 
-    public static QuestionTypeResult qrGenerate(String prefix, Boolean type) {
+    public static QuestionTypeResult qrGenerate(String prefix, Boolean type, Integer order) {
         QuestionTypeResult qType;
         if(type){
-            qType = new QTextResult(null, null, null, type, prefix+"a");
+            qType = new QTextResult(null, type, null,  order, null, prefix+"a");
         }else {
-            qType = new QChooseResult(null, null, null, type, null);
+            qType = new QChooseResult(null, type, null,  order, null, null);
         }
         return qType;
     }

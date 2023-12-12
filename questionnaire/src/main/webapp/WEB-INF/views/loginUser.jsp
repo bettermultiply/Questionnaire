@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>用户登录</title>
     <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css"/>">
-    <link rel="stylesheet" href="<c:url value="/resources/css/home.css"/>">
+    <link rel="stylesheet" href="<c:url value="/resources/css/userHome.css"/>">
     <link href="<c:url value="/resources/css/font-awesome.min.css"/>" rel="stylesheet" type="text/css">
     <link href="<c:url value="/resources/style.css"/>" rel="stylesheet" type="text/css">
 </head>

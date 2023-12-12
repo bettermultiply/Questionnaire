@@ -15,6 +15,8 @@ public class QuestionType {
 
     private QuestionnaireTable parentTable;
 
+    private Integer questionOrder;
+
     private Set<QuestionTypeResult> results;
 
     /**
@@ -26,11 +28,12 @@ public class QuestionType {
     public QuestionType() {
     }
 
-    public QuestionType(String questionId, String description,Boolean questionType, QuestionnaireTable parentTable, Set<QuestionTypeResult> results) {
+    public QuestionType(String questionId, String description, Boolean questionType, QuestionnaireTable parentTable, Integer questionOrder, Set<QuestionTypeResult> results) {
         this.questionId = questionId;
-        this.questionType = questionType;
         this.description = description;
+        this.questionType = questionType;
         this.parentTable = parentTable;
+        this.questionOrder = questionOrder;
         this.results = results;
     }
 
@@ -74,5 +77,13 @@ public class QuestionType {
 
     public void setResults(Set<QuestionTypeResult> results) {
         this.results = results;
+    }
+
+    public Integer getQuestionOrder() {
+        return questionOrder;
+    }
+
+    public void setQuestionOrder(Integer questionOrder) {
+        this.questionOrder = questionOrder;
     }
 }

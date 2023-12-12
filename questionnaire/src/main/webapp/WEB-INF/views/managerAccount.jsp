@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>管理员首页</title>
     <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css"/>">
-    <link rel="stylesheet" href="<c:url value="/resources/css/home.css"/>">
+    <link rel="stylesheet" href="<c:url value="/resources/css/userHome.css"/>">
     <link href="<c:url value="/resources/css/font-awesome.min.css"/>" rel="stylesheet" type="text/css">
     <link href="<c:url value="/resources/style.css"/>" rel="stylesheet" type="text/css">
 </head>
@@ -27,7 +27,7 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
+                <li class="dropdown"
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false"><c:out value="${manager.userName}" /><span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -72,68 +72,68 @@
             <tbody>
             <c:forEach var="manager" items="${managerList}">
                 <tr>
-<%--                    <td>${manager.id}</td>--%>
+                        <%--                    <td>${manager.id}</td>--%>
                     <td><input type="checkbox" name="cb"></td>
                     <td>${manager.userName}</td>
                     <!-- 添加其他管理员信息的表格行 -->
-    <td>
-        <form method="post" action="<c:url value="/manager/delete.do"/>">
-            <input type="hidden" onclick="myfunction()" name="managerId" value="${manager.id}">
-            <button type="submit" class="btn btn-primary">
-                <span>删除</span>
-            </button>
-        </form>
+                    <td>
+                        <form style="width: 50%" method="post" action="<c:url value="/manager/delete.do"/>">
+                            <input type="hidden" onclick="myfunction()" name="managerId" value="${manager.id}">
+                            <button type="submit" class="btn btn-primary">
+                                <span>删除</span>
+                            </button>
+                        </form>
 
-<%--        <a href="javascript:void(0);" οnclick="document.getElementById('myform').submit();" id="agree" class="determine">--%>
-<%--            <input type="hidden"  name="managerId" value=''>删除</a>--%>
-<%--            <form id="myform" method="post" action="">--%>
-<%--            </form>--%>
-        <button class="change">修改</button>
-        <form class="form-horizontal changePage" role="form">
-            <p class="changeHead">修改管理员信息</p>
-            <div class="form-group">
-                <label for="lastname1" class="col-sm-2 control-label col-sm-offset-1">姓</label>
-                <div class="col-sm-6">
-                    <input type="text" class="form-control" id="lastname1" placeholder="请输入姓">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="firstname1" class="col-sm-2 control-label col-sm-offset-1">名字</label>
-                <div class="col-sm-6">
-                    <input type="text" class="form-control" id="firstname1" placeholder="请输入名字">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="username1" class="col-sm-2 control-label col-sm-offset-1">用户名</label>
-                <div class="col-sm-6">
-                    <input type="text" class="form-control" id="username1" placeholder="请输入用户名">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="password1" class="col-sm-2 control-label col-sm-offset-1">密码</label>
-                <div class="col-sm-6">
-                    <input type="password" class="form-control" id="password1" placeholder="请输入密码">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="tel1" class="col-sm-2 control-label col-sm-offset-1">电话号码</label>
-                <div class="col-sm-6">
-                    <input type="tel" class="form-control" id="tel1" placeholder="请输入电话号码">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="email1" class="col-sm-2 control-label col-sm-offset-1">邮箱</label>
-                <div class="col-sm-6">
-                    <input type="email" class="form-control" id="email1" placeholder="请输入邮箱">
-                </div>
-            </div>
-            <div style="text-align: center">
-                <input type="button" value="取消" class="cancel" />
-                <input type="button" value="保存" class="save" />
-            </div>
-        </form>
-        <a href="<c:url value="/manager/managerinfo/${manager.userName}"/>"> <input type="button" value='查看'></a>
-    </td>
+                            <%--        <a href="javascript:void(0);" οnclick="document.getElementById('myform').submit();" id="agree" class="determine">--%>
+                            <%--            <input type="hidden"  name="managerId" value=''>删除</a>--%>
+                            <%--            <form id="myform" method="post" action="">--%>
+                            <%--            </form>--%>
+                        <button class="change">修改</button>
+                        <form class="form-horizontal changePage" role="form">
+                            <p class="changeHead">修改管理员信息</p>
+                            <div class="form-group">
+                                <label for="lastname1" class="col-sm-2 control-label col-sm-offset-1">姓</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" id="lastname1" placeholder="请输入姓">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="firstname1" class="col-sm-2 control-label col-sm-offset-1">名字</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" id="firstname1" placeholder="请输入名字">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="username1" class="col-sm-2 control-label col-sm-offset-1">用户名</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" id="username1" placeholder="请输入用户名">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="password1" class="col-sm-2 control-label col-sm-offset-1">密码</label>
+                                <div class="col-sm-6">
+                                    <input type="password" class="form-control" id="password1" placeholder="请输入密码">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="tel1" class="col-sm-2 control-label col-sm-offset-1">电话号码</label>
+                                <div class="col-sm-6">
+                                    <input type="tel" class="form-control" id="tel1" placeholder="请输入电话号码">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email1" class="col-sm-2 control-label col-sm-offset-1">邮箱</label>
+                                <div class="col-sm-6">
+                                    <input type="email" class="form-control" id="email1" placeholder="请输入邮箱">
+                                </div>
+                            </div>
+                            <div style="text-align: center">
+                                <input type="button" value="取消" class="cancel" />
+                                <input type="button" value="保存" class="save" />
+                            </div>
+                        </form>
+                        <a href="<c:url value="/manager/managerinfo/${manager.userName}"/>"> <input type="button" value='查看'></a>
+                    </td>
                 </tr>
             </c:forEach>
             </tbody>
