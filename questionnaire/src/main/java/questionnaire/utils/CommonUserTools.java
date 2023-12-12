@@ -4,13 +4,36 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import questionnaire.database.CommonUser;
-import questionnaire.database.Manager;
-import questionnaire.database.QuestionType;
-import questionnaire.database.QuestionnaireTable;
 
 import java.util.List;
 
 public class CommonUserTools {
+
+    public static CommonUser verifyCommonUser(String username, String password) {
+        CommonUser user = null;
+        try (Session session = SessionFactorySource.getSessionFactory().openSession()) {
+            session.beginTransaction();
+            // 使用HQL查询管理员对象
+            // 使用参数化查询，避免SQL注入
+            String hql = "FROM CommonUser WHERE userName =:username AND password = :password";
+            Query<CommonUser> query = session.createQuery(hql, CommonUser.class);
+            query.setParameter("username", username);
+            query.setParameter("password", password);
+
+            List<CommonUser> users = query.list();
+
+            // 提交事务
+            session.getTransaction().commit();
+
+            // 如果查询结果不为空，说明用户名和密码匹配
+            if (!users.isEmpty()) {
+                user = users.get(0);
+            }
+        } catch (HibernateException e) {
+            e.printStackTrace();
+        }
+        return user;
+    }
 
     public static CommonUser readOneUser(String userName){
         List<CommonUser> users = null;
@@ -81,7 +104,7 @@ public class CommonUserTools {
 
             commonUsers = query.list();
 
-            //System.out.println(managers);
+
             // 提交事务
             session.getTransaction().commit();
 

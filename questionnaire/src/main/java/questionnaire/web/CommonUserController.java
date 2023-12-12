@@ -84,7 +84,7 @@ public class CommonUserController {
      * @return
      */
     @RequestMapping(value = "/{userName}", method = GET)
-    public String showCommonUserHome(@PathVariable String userName, Model model) {
+    public String showCommonUserHome(@PathVariable String userName, Model model, HttpSession session) {
         /*
          * @PathVariable("xxx") 通过 @PathVariable
          * 可以将URL中占位符参数{xxx}绑定到处理器类的方法形参中@PathVariable(“xxx“)
@@ -93,8 +93,9 @@ public class CommonUserController {
         System.out.println(userName);
         CommonUser cUser = CommonUserTools.readOneUser(userName);
         if (cUser != null) {
+            session.setAttribute("user", cUser);
             model.addAttribute(cUser);
-            return "TestPage";
+            return "redirect:/questionnaire";
         } else {
             return "redirect:/commonuser/login";
         }

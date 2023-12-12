@@ -6,7 +6,11 @@ import org.hibernate.Session;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 import questionnaire.database.Manager;
 import questionnaire.utils.SessionFactorySource;
+import questionnaire.web.filter.CacheFilter;
+import questionnaire.web.filter.ManagerFilter;
+import questionnaire.web.filter.UserFilter;
 
+import javax.servlet.Filter;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;

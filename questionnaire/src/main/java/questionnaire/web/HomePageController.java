@@ -6,13 +6,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import questionnaire.database.*;
-import questionnaire.utils.CommonUserTools;
 import questionnaire.utils.QuestionnaireTools;
 import questionnaire.utils.SessionFactorySource;
 
-import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
@@ -31,13 +28,7 @@ public class HomePageController {
      * @return
      */
     @RequestMapping(method = GET) // 相应的请求方法
-    public String homePage(Model model, HttpSession session) throws HibernateException {
-        CommonUser user = new CommonUser();
-        user.setUserName("bet");
-        user.setPassword("123");
-        user.setQuestionnaireTables(new HashSet<>());
-        CommonUserTools.registerCommonUser(user);
-        session.setAttribute("commonUser", user);
+    public String homePage(Model model) throws HibernateException {
         return "home";
     }
 }
