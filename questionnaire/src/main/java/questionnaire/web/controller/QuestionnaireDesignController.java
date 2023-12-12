@@ -62,7 +62,9 @@ public class QuestionnaireDesignController {
         switch (addType) {
             case "radio": {
                 QuestionnaireTable questionnaireTable = questionnaireDao.getOneQuestionnaire(questionnaireId);
-                QChoose qChoose = new QChoose(null, "新的单选题", false,questionnaireTable, null, null, false, new HashSet<>());
+                QChoose qChoose =
+                        new QChoose(null, "新的单选题", false, questionnaireTable,
+                                questionnaireTable.getQuestions().size() + 1, new HashSet<>(), false, new HashSet<>());
                 Choice choice1 = new Choice(null, 1, qChoose, "选项一", null);
                 Choice choice2 = new Choice(null, 2, qChoose, "选项二", null);
                 qChoose.setQuestionType(false);
@@ -74,7 +76,9 @@ public class QuestionnaireDesignController {
             }
             case "checkbox": {
                 QuestionnaireTable questionnaireTable = questionnaireDao.getOneQuestionnaire(questionnaireId);
-                QChoose qChoose = new QChoose(null, "新的多选题", false, questionnaireTable, null, null, true, new HashSet<>());
+                QChoose qChoose =
+                        new QChoose(null, "新的多选题", false, questionnaireTable,
+                                questionnaireTable.getQuestions().size() + 1, null, true, new HashSet<>());
                 Choice choice1 = new Choice(null, 1, qChoose, "选项一", null);
                 Choice choice2 = new Choice(null, 2, qChoose, "选项二", null);
                 Choice choice3 = new Choice(null, 3, qChoose, "选项三", null);
@@ -93,6 +97,7 @@ public class QuestionnaireDesignController {
                 qText.setDescription("新的填空题");
                 qText.setParentTable(questionnaireTable);
                 qText.setQuestionType(true);
+                qText.setQuestionOrder(questionnaireTable.getQuestions().size() + 1);
                 questionDao.createQuestion(qText);
 
                 break;

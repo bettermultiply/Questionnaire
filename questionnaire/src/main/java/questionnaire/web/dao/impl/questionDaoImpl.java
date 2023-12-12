@@ -4,10 +4,12 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 import questionnaire.database.Choice;
+import questionnaire.database.QChoose;
 import questionnaire.database.QuestionType;
 import questionnaire.utils.SessionFactorySource;
 import questionnaire.web.dao.QuestionDao;
 
+import java.util.Comparator;
 import java.util.List;
 
 @Repository
@@ -25,6 +27,9 @@ public class questionDaoImpl implements QuestionDao {
             session.getTransaction().commit();
         } catch (HibernateException e) {
             e.printStackTrace();
+        }
+        if (questions != null){
+            questions.sort(Comparator.comparing(QuestionType::getQuestionOrder));
         }
 
         return questions;
