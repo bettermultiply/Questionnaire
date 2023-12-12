@@ -34,4 +34,26 @@
         </attribute>
     </tag>
 
+    <tag>
+        <name>QuestionSort</name>
+        <tag-class>questionnaire.web.myTag.QuestionSortTag</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>questionSet</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    
+    <tag>
+        <name>ChoiceSort</name>
+        <tag-class>questionnaire.web.myTag.ChoiceSortTag</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>choiceSet</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
 </taglib>
