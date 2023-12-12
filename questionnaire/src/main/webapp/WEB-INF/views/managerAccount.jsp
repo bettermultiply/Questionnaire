@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>管理员首页</title>
     <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css"/>">
-    <link rel="stylesheet" href="<c:url value="/resources/css/userHome.css"/>">
+    <link rel="stylesheet" href="<c:url value="/resources/css/home.css"/>">
     <link href="<c:url value="/resources/css/font-awesome.min.css"/>" rel="stylesheet" type="text/css">
     <link href="<c:url value="/resources/style.css"/>" rel="stylesheet" type="text/css">
 </head>
@@ -31,7 +31,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false"><c:out value="${manager.userName}" /><span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="<c:url value="/manager/${manager.userName}/viewMe"/>">个人信息</a></li>
+                        <li><a href="<c:url value="/manager/managerinfo/${manager.userName}"/>">个人信息</a></li>
                         <li><a onclick="LogOut()">注销登录</a></li>
                     </ul>
                 </li>
@@ -59,173 +59,88 @@
 </form>
 <br><br>
 <div class="table-responsive" style="text-align: center">
-    <table class="table" id="table">
-        <thead>
-        <tr>
-            <th style="text-align: center"><input type="checkbox" name="cb" id="firstCb"></th>
-            <th style="text-align: center">登录名</th>
-            <th style="text-align: center">操作</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td><input type="checkbox" name="cb"></td>
-            <td>管理员1</td>
-            <td>
-                <button onclick="myfunction()">删除</button>
-                <button class="change">修改</button>
-                <form class="form-horizontal changePage" role="form">
-                    <p class="changeHead">修改管理员信息</p>
-                    <div class="form-group">
-                        <label for="lastname1" class="col-sm-2 control-label col-sm-offset-1">姓</label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="lastname1" placeholder="请输入姓">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="firstname1" class="col-sm-2 control-label col-sm-offset-1">名字</label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="firstname1" placeholder="请输入名字">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="username1" class="col-sm-2 control-label col-sm-offset-1">用户名</label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="username1" placeholder="请输入用户名">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="password1" class="col-sm-2 control-label col-sm-offset-1">密码</label>
-                        <div class="col-sm-6">
-                            <input type="password" class="form-control" id="password1" placeholder="请输入密码">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="tel1" class="col-sm-2 control-label col-sm-offset-1">电话号码</label>
-                        <div class="col-sm-6">
-                            <input type="tel" class="form-control" id="tel1" placeholder="请输入电话号码">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="email1" class="col-sm-2 control-label col-sm-offset-1">邮箱</label>
-                        <div class="col-sm-6">
-                            <input type="email" class="form-control" id="email1" placeholder="请输入邮箱">
-                        </div>
-                    </div>
-                    <div style="text-align: center">
-                        <input type="button" value="取消" class="cancel" />
-                        <input type="button" value="保存" class="save" />
-                    </div>
-                </form>
-                <button onclick="window.location.href='viewOther.jsp'">查看</button>
-            </td>
-        </tr>
-        <tr>
-            <td><input type="checkbox" name="cb" ></td>
-            <td>管理员2</td>
-            <td>
-                <button onclick="myfunction()">删除</button>
-                <button class="change">修改</button>
-                <form class="form-horizontal changePage" role="form">
-                    <p class="changeHead">修改管理员信息</p>
-                    <div class="form-group">
-                        <label for="lastname2" class="col-sm-2 control-label col-sm-offset-1">姓</label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="lastname2" placeholder="请输入姓">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="firstname2" class="col-sm-2 control-label col-sm-offset-1">名字</label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="firstname2" placeholder="请输入名字">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="username2" class="col-sm-2 control-label col-sm-offset-1">用户名</label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="username2" placeholder="请输入用户名">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="password2" class="col-sm-2 control-label col-sm-offset-1">密码</label>
-                        <div class="col-sm-6">
-                            <input type="password" class="form-control" id="password2" placeholder="请输入密码">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="tel2" class="col-sm-2 control-label col-sm-offset-1">电话号码</label>
-                        <div class="col-sm-6">
-                            <input type="tel" class="form-control" id="tel2" placeholder="请输入电话号码">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="email2" class="col-sm-2 control-label col-sm-offset-1">邮箱</label>
-                        <div class="col-sm-6">
-                            <input type="email" class="form-control" id="email2" placeholder="请输入邮箱">
-                        </div>
-                    </div>
-                    <div style="text-align: center">
-                        <input type="button" value="取消" class="cancel" />
-                        <input type="button" value="保存" class="save" />
-                    </div>
-                </form>
-                <button onclick="window.location.href='viewOther.jsp'">查看</button>
-            </td>
-        </tr>
-        <tr>
-            <td><input type="checkbox" name="cb"></td>
-            <td>管理员3</td>
-            <td>
-                <button onclick="myfunction()">删除</button>
-                <button class="change">修改</button>
-                <form class="form-horizontal changePage" role="form">
-                    <p class="changeHead">修改管理员信息</p>
-                    <div class="form-group">
-                        <label for="lastname3" class="col-sm-2 control-label col-sm-offset-1">姓</label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="lastname3" placeholder="请输入姓">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="firstname3" class="col-sm-2 control-label col-sm-offset-1">名字</label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="firstname3" placeholder="请输入名字">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="username3" class="col-sm-2 control-label col-sm-offset-1">用户名</label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="username3" placeholder="请输入用户名">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="password3" class="col-sm-2 control-label col-sm-offset-1">密码</label>
-                        <div class="col-sm-6">
-                            <input type="password" class="form-control" id="password3" placeholder="请输入密码">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="tel3" class="col-sm-2 control-label col-sm-offset-1">电话号码</label>
-                        <div class="col-sm-6">
-                            <input type="tel" class="form-control" id="tel3" placeholder="请输入电话号码">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="email3" class="col-sm-2 control-label col-sm-offset-1">邮箱</label>
-                        <div class="col-sm-6">
-                            <input type="email" class="form-control" id="email3" placeholder="请输入邮箱">
-                        </div>
-                    </div>
-                    <div style="text-align: center">
-                        <input type="button" value="取消" class="cancel" />
-                        <input type="button" value="保存" class="save" />
-                    </div>
-                </form>
-                <button onclick="window.location.href='viewOther.jsp'">查看</button>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+
+    <c:if test="${not empty managerList}">
+        <table class="table" id="table">
+            <thead>
+            <tr>
+                <th style="text-align: center"><input type="checkbox" name="cb" id="firstCb"></th>
+                <th style="text-align: center">登录名</th>
+                <th style="text-align: center">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach var="manager" items="${managerList}">
+                <tr>
+<%--                    <td>${manager.id}</td>--%>
+                    <td><input type="checkbox" name="cb"></td>
+                    <td>${manager.userName}</td>
+                    <!-- 添加其他管理员信息的表格行 -->
+    <td>
+        <form method="post" action="<c:url value="/manager/delete.do"/>">
+            <input type="hidden" onclick="myfunction()" name="managerId" value="${manager.id}">
+            <button type="submit" class="btn btn-primary">
+                <span>删除</span>
+            </button>
+        </form>
+
+<%--        <a href="javascript:void(0);" οnclick="document.getElementById('myform').submit();" id="agree" class="determine">--%>
+<%--            <input type="hidden"  name="managerId" value=''>删除</a>--%>
+<%--            <form id="myform" method="post" action="">--%>
+<%--            </form>--%>
+        <button class="change">修改</button>
+        <form class="form-horizontal changePage" role="form">
+            <p class="changeHead">修改管理员信息</p>
+            <div class="form-group">
+                <label for="lastname1" class="col-sm-2 control-label col-sm-offset-1">姓</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="lastname1" placeholder="请输入姓">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="firstname1" class="col-sm-2 control-label col-sm-offset-1">名字</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="firstname1" placeholder="请输入名字">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="username1" class="col-sm-2 control-label col-sm-offset-1">用户名</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="username1" placeholder="请输入用户名">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password1" class="col-sm-2 control-label col-sm-offset-1">密码</label>
+                <div class="col-sm-6">
+                    <input type="password" class="form-control" id="password1" placeholder="请输入密码">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="tel1" class="col-sm-2 control-label col-sm-offset-1">电话号码</label>
+                <div class="col-sm-6">
+                    <input type="tel" class="form-control" id="tel1" placeholder="请输入电话号码">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email1" class="col-sm-2 control-label col-sm-offset-1">邮箱</label>
+                <div class="col-sm-6">
+                    <input type="email" class="form-control" id="email1" placeholder="请输入邮箱">
+                </div>
+            </div>
+            <div style="text-align: center">
+                <input type="button" value="取消" class="cancel" />
+                <input type="button" value="保存" class="save" />
+            </div>
+        </form>
+        <a href="<c:url value="/manager/managerinfo/${manager.userName}"/>"> <input type="button" value='查看'></a>
+    </td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    </c:if>
+
+
     <div>
         <input type="button" id="selectAll" value="全选">
         <input type="button" id="unSelectAll" value="全不选">

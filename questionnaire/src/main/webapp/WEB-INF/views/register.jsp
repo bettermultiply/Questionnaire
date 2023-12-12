@@ -1,5 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
+<%@ page session="false" %>
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
@@ -7,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>用户注册</title>
     <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css"/>">
-    <link rel="stylesheet" href="<c:url value="/resources/css/userHome.css"/>">
+    <link rel="stylesheet" href="<c:url value="/resources/css/home.css"/>">
     <link href="<c:url value="/resources/css/font-awesome.min.css"/>" rel="stylesheet" type="text/css">
     <link href="<c:url value="/resources/style.css"/>" rel="stylesheet" type="text/css">
 </head>
@@ -44,33 +47,33 @@
         <div class="col-md-offset-3 col-md-6">
             <div class="card card-body">
                 <h1 class="text-center mb-3">User Register</h1>
-                <form action="/" method="post">
-                    <div class="form-group">
-                        <label for="LastName">姓</label>
-                        <input
-                                type="text"
-                                id="LastName"
-                                name="LastName"
-                                class="form-control"
-                                placeholder="Enter LastName"
-                        />
-                    </div>
-                    <div class="form-group">
-                        <label for="FirstName">名</label>
-                        <input
-                                type="text"
-                                id="FirstName"
-                                name="FirstName"
-                                class="form-control"
-                                placeholder="Enter FirstName"
-                        />
-                    </div>
+                <form method="post">
+<%--                    <div class="form-group">--%>
+<%--                        <label for="LastName">姓</label>--%>
+<%--                        <input--%>
+<%--                                type="text"--%>
+<%--                                id="LastName"--%>
+<%--                                name="LastName"--%>
+<%--                                class="form-control"--%>
+<%--                                placeholder="Enter LastName"--%>
+<%--                        />--%>
+<%--                    </div>--%>
+<%--                    <div class="form-group">--%>
+<%--                        <label for="FirstName">名</label>--%>
+<%--                        <input--%>
+<%--                                type="text"--%>
+<%--                                id="FirstName"--%>
+<%--                                name="FirstName"--%>
+<%--                                class="form-control"--%>
+<%--                                placeholder="Enter FirstName"--%>
+<%--                        />--%>
+<%--                    </div>--%>
                     <div class="form-group">
                         <label for="UserName">用户名</label>
                         <input
                                 type="text"
                                 id="UserName"
-                                name="UserName"
+                                name="userName"
                                 class="form-control"
                                 placeholder="Enter UerName"
                         />
@@ -85,29 +88,27 @@
                                 placeholder="Enter Password"
                         />
                     </div>
-                    <div class="form-group">
-                        <label for="Pho">电话号码</label>
-                        <input
-                                type="tel"
-                                id="Pho"
-                                name="Pho"
-                                class="form-control"
-                                placeholder="Enter PhoNumber"
-                        />
-                    </div>
-                    <div class="form-group">
-                        <label for="email">电子邮箱</label>
-                        <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                class="form-control"
-                                placeholder="Enter UerName"
-                        />
-                    </div>
-                    <a class="btn btn-primary btn-block" href="homeForUser.jsp" role="button">
-                        Register
-                    </a>
+<%--                    <div class="form-group">--%>
+<%--                        <label for="Pho">电话号码</label>--%>
+<%--                        <input--%>
+<%--                                type="tel"--%>
+<%--                                id="Pho"--%>
+<%--                                name="Pho"--%>
+<%--                                class="form-control"--%>
+<%--                                placeholder="Enter PhoNumber"--%>
+<%--                        />--%>
+<%--                    </div>--%>
+<%--                    <div class="form-group">--%>
+<%--                        <label for="email">电子邮箱</label>--%>
+<%--                        <input--%>
+<%--                                type="email"--%>
+<%--                                id="email"--%>
+<%--                                name="email"--%>
+<%--                                class="form-control"--%>
+<%--                                placeholder="Enter UerName"--%>
+<%--                        />--%>
+<%--                    </div> --%>
+                    <input role="button" class="btn btn-primary btn-block" type="submit" value="Register" />
                 </form>
             </div>
         </div>

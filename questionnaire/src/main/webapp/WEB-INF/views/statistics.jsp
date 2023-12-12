@@ -1,6 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@taglib prefix="ques" uri="ques"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,8 +48,7 @@
 
 <div class="container">
         <div class="text-center" >
-<%--            name of questionnare--%>
-            <h1><c:out value="${tableName}" /></h1>
+            <h1>问卷标题</h1>
         </div>
 
     <div class="col-md-12">
@@ -67,42 +65,6 @@
             </form>
         </div>
     </div>
-
-    <c:forEach items="${questions}" var="question" varStatus="status">
-        <div class="question-chart col-md-12">
-            <div class="questionnaire-info col-md-12 img-thumbnail">
-                <div class="col-md-10">
-                    <p><c:out value="${question.description}" /></p>
-<%--                    <a href="#">--%>
-                        <img class="icon" src="<c:url value="/resources/images/icons/comment-question.svg"/>" alt="link svg">
-<%--                    </a>--%>
-                </div>
-                <div class="col-md-2 questionnaire-option">
-                    <ques:handleResult question="${question}"/>
-                    <button id="button-${status.count}" type="button" aria-expanded="false" class="btn btn-primary" data-toggle="collapse" data-target="#collapse-chart-${status.count}">折叠图表</button>
-                </div>
-            </div>
-            <div id="collapse-chart-${status.count}" class="collapse">
-                <div class="img-thumbnail chart-margin">
-                    <div id="chart-${status.count}" class="chart" ></div>
-                </div>
-            </div>
-
-        </div>
-        <script type="text/javascript" >
-            $(function(){
-                $("#collapse-chart-${status.count}").on("shown.bs.collapse",function(){
-                    buildEchart("chart-${status.count}");
-                });
-            });
-            $(function(){
-                $("#collapse-chart-${status.count}").on("hidden.bs.collapse",function(){
-                    echarts.init(document.getElementById("chart-${status.count}")).dispose();
-                });
-            });
-        </script>
-    </c:forEach>
-
 
     <div class="question-chart col-md-12">
         <div class="questionnaire-info col-md-12 img-thumbnail">
@@ -123,7 +85,6 @@
         </div>
 
     </div>
-
 <br>
     <div class="question-chart col-md-12">
         <div class="questionnaire-info col-md-12 img-thumbnail">
@@ -156,12 +117,58 @@
         </div>
     </footer>
 </div>
-
 <script src="<c:url value="/resources/js/echarts.min.js"/>"></script>
 <script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
 <script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
-<script src="<c:url value="/resources/js/echarts-wordcloud.min.js"/>"></script>
-<script src="<c:url value="/resources/buildEchart.js"/>"></script>
+<script type="text/javascript">
 
+    // var button = document.getElementById('button-0');
+    // button.click();
+    document.addEventListener('DOMContentLoaded', function() {
+        var button = document.getElementById('button-0');
+        button.click();
+    });
+    $(function(){
+        $("#collapse-chart").on("shown.bs.collapse",function(){
+            helloEchart();
+        });
+    });
+    $(function(){
+        $("#collapse-chart").on("hidden.bs.collapse",function(){
+            var myChart = echarts.init(document.getElementById('chart-0'));
+            myChart.dispose();
+        });
+    });
+    // 基于准备好的dom，初始化echarts实例
+    function helloEchart() {
+        var myChart = echarts.init(document.getElementById('chart-0'));
+
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: 'ECharts 入门示例'
+            },
+            tooltip: {},
+            legend: {
+                data: ['销量']
+            },
+            xAxis: {
+                data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
+            },
+            yAxis: {},
+            series: [
+                {
+                    name: '销量',
+                    type: 'bar',
+                    data: [5, 20, 36, 10, 10, 20]
+                }
+            ]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    };
+
+</script>
 </body>
 </html>

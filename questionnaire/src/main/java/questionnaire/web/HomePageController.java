@@ -29,15 +29,6 @@ public class HomePageController {
      */
     @RequestMapping(method = GET) // 相应的请求方法
     public String homePage(Model model) throws HibernateException {
-        Session session;
-        session = SessionFactorySource.getSessionFactory().openSession();
-        session.beginTransaction();
-        Manager manager = new Manager();
-        manager.setUserName("admin");
-        manager.setPassword("admin");
-        session.save(manager);
-        session.getTransaction().commit();
-        session.close();
         return "home";
     }
 }

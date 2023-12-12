@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>管理员用户管理</title>
     <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css"/>">
-    <link rel="stylesheet" href="<c:url value="/resources/css/userHome.css"/>">
+    <link rel="stylesheet" href="<c:url value="/resources/css/home.css"/>">
     <link href="<c:url value="/resources/css/font-awesome.min.css"/>" rel="stylesheet" type="text/css">
     <link href="<c:url value="/resources/style.css"/>" rel="stylesheet" type="text/css">
 </head>
@@ -56,49 +56,31 @@
 </form>
 <br><br>
 <div class="table-responsive" style="text-align: center">
-    <table class="table" id="table">
-        <thead>
-        <tr>
-            <th style="text-align: center"><input type="checkbox" name="cb" id="firstCb"></th>
-            <th style="text-align: center">登录名</th>
-            <th style="text-align: center">操作</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td><input type="checkbox" name="cb"></td>
-            <td>用户1</td>
-            <td>
-                <a href="changeInfo.jsp" target="_blank">修改</a>
-                <a href="viewOther.jsp" target="_blank">查看</a>
-            </td>
-        </tr>
-        <tr>
-            <td><input type="checkbox" name="cb" ></td>
-            <td>用户2</td>
-            <td>
-                <a href="changeInfo.jsp" target="_blank">修改</a>
-                <a href="viewOther.jsp" target="_blank">查看</a>
-            </td>
-        </tr>
-        <tr>
-            <td><input type="checkbox" name="cb"></td>
-            <td>用户3</td>
-            <td>
-                <a href="changeInfo.jsp" target="_blank">修改</a>
-                <a href="viewOther.jsp" target="_blank">查看</a>
-            </td>
-        </tr>
-        <tr>
-            <td><input type="checkbox" name="cb"></td>
-            <td>用户4</td>
-            <td>
-                <a href="changeInfo.jsp" target="_blank">修改</a>
-                <a href="viewOther.jsp" target="_blank">查看</a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+
+    <c:if test="${not empty commonUserList}">
+        <table class="table" id="table">
+            <thead>
+            <tr>
+                <th style="text-align: center"><input type="checkbox" name="cb" id="firstCb"></th>
+                <th style="text-align: center">登录名</th>
+                <th style="text-align: center">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach var="commonUser" items="${commonUserList}">
+                <tr>
+                        <%--                    <td>${manager.id}</td>--%>
+                    <td><input type="checkbox" name="cb"></td>
+                    <td>${commonUser.userName}</td>
+                            <td>
+                                <a href="changeInfo.jsp" target="_blank">修改</a>
+                                <a href="viewOther.jsp" target="_blank">查看</a>
+                            </td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    </c:if>
 </div>
 
 <div class="container-fluid footer">
