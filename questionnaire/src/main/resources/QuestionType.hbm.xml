@@ -11,14 +11,14 @@
         <property name="questionType" type="java.lang.Boolean" column="questionType" />
         <property name="description" type="java.lang.String" column="description" />
         <many-to-one name="parentTable" class="questionnaire.database.QuestionnaireTable" column="tableId"/>
-        <set name="results" table="question_type_result" cascade="all">
+        <set name="results" table="question_type_result" cascade="delete">
             <key column="model" />
             <one-to-many class="questionnaire.database.QuestionTypeResult" />
         </set>
         <subclass name="questionnaire.database.QText" discriminator-value="text" />
         <subclass name="questionnaire.database.QChoose" discriminator-value="choose" >
             <property name="chooseType" type="java.lang.Boolean" column="choose_type" />
-            <set name="choices" table="choice" inverse="false" cascade="all" lazy="false">
+            <set name="choices" table="choice" inverse="false" cascade="delete" lazy="false">
                 <key column="questionId" />
                 <one-to-many class="questionnaire.database.Choice" />
             </set>
