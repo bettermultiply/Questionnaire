@@ -76,13 +76,6 @@
                                      alt="fillBlank icon">
                             </c:when>
                             <c:otherwise>
-<<<<<<< HEAD
-                                <c:when test="${question.chooseType}">
-                                     <img class="icon" src="<c:url value="/resources/images/icons/checkbox-black-icon.svg"/>"
-                                          alt="checkbox icon">
-                                </c:when>
-                                <c:otherwise>
-=======
                                 <%-- 将QuestionType类型的对象转化为QChoose对象，并将设置为属性"QChoose" --%>
                                 <ques:QuestionTypeConversion question="${question}"/>
                                 <%-- 判断是单选题还是多选题 --%>
@@ -92,7 +85,7 @@
                                           alt="checkbox icon">
                                     </c:when>
                                     <c:otherwise>
->>>>>>> c4859ee23e591985f3d6f9f5a48314d2c5c7e8b7
+
                                     <img class="icon" src="<c:url value="/resources/images/icons/radio-black-icon.svg"/>"
                                          alt="radio icon">
                                     </c:otherwise>
@@ -103,15 +96,10 @@
                 </div>
 
                 <div class="col-md-6 question-option">
-<<<<<<< HEAD
-                    <form class="question-form" method="post" action="">
-                        <button type="button" class="btn btn-primary">
-=======
                     <form class="question-form" method="post" action="<c:url value="/questionnaire/design/deleteQuestion.do"/>">
                         <input type="hidden" name="questionnaireId" value="${questionnaire.tableId}">
                         <input type="hidden" name="questionId" value="${question.questionId}">
                         <button type="submit" class="btn btn-primary">
->>>>>>> c4859ee23e591985f3d6f9f5a48314d2c5c7e8b7
                             <img class="icon" src="<c:url value="/resources/images/icons/delete-icon.svg"/>"
                                  alt="delete icon">
                             <span>删除问题</span>
@@ -119,11 +107,7 @@
                     </form>
                     <form class="question-form">
                         <button type="button" class="btn btn-primary"
-<<<<<<< HEAD
-                                onclick="openModifyQuestionPopup(document.getElementById('modify-question-popup'))">
-=======
                                 onclick="openModifyQuestionPopup(document.getElementById('modify-question-popup'), '${question.questionId}')">
->>>>>>> c4859ee23e591985f3d6f9f5a48314d2c5c7e8b7
                             <img class="icon" src="<c:url value="/resources/images/icons/edit-icon.svg"/>"
                                  alt="edit icon">
                             <span>修改问题</span>
@@ -132,11 +116,7 @@
                     <form class="question-form">
                         <c:if test="${!question.questionType}">
                             <button type="button" class="btn btn-primary"
-<<<<<<< HEAD
-                                    onclick="openAddOptionPopup(document.getElementById('add-option-popup'))">
-=======
                                     onclick="openAddOptionPopup(document.getElementById('add-option-popup'), '${question.questionId}')">
->>>>>>> c4859ee23e591985f3d6f9f5a48314d2c5c7e8b7
                                 <img class="icon" src="<c:url value="/resources/images/icons/add-selection.svg"/>"
                                      alt="statistics icon">
                                 <span>新增选项</span>

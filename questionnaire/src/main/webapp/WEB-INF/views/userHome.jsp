@@ -95,6 +95,7 @@
 
                     <form class="questionnaire-form" method="post" action="<c:url value="/questionnaire/statistics.do"/>">
                         <input type="hidden" name="questionnaireId" value="${questionnaire.tableId}">
+                        <input type="hidden" name="questionnaireName" value="${questionnaire.tableName}">
                         <button type="submit" class="btn btn-primary">
                             <img class="icon" src="<c:url value="/resources/images/icons/statistics-icon.svg"/>"
                                  alt="statistics icon">
