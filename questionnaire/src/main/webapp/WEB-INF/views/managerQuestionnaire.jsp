@@ -30,8 +30,8 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false"><c:out value="${manager.userName}" /><span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="<c:url value="/manager/${manager.userName}/viewMe"/>">个人信息</a></li>
-                        <li><a onclick="LogOut()">注销登录</a></li>
+                        <li><a href="<c:url value="/manager/managerinfo/${manager.userName}"/>">个人信息</a></li>
+                        <li><a onclick="LogOut()" href="<c:url value="/manager/logout.do"/>">注销登录</a></li>
                     </ul>
                 </li>
                 <li>
@@ -45,9 +45,9 @@
     </div>
 </nav>
 <ul class="nav nav-tabs">
-    <li class="active"><a href="<c:url value="/manager/manageManager"/>">管理员账号管理</a></li>
+    <li><a href="<c:url value="/manager/manageManager"/>">管理员账号管理</a></li>
     <li><a href="<c:url value="/manager/manageUser"/>">用户管理</a></li>
-    <li><a href="<c:url value="/manager/manageQuestionnaire"/>">问卷管理</a></li>
+    <li class="active"><a href="<c:url value="/manager/manageQuestionnaire"/>">问卷管理</a></li>
 </ul>
 <br>
 <div class="table-responsive" style="text-align: center">
@@ -62,46 +62,61 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td><input type="checkbox" name="cb"></td>
-            <td>用户1</td>
-            <td>问卷1</td>
-            <td>
-                <button>通过</button>
-                <button>不通过</button>
-            </td>
-            <td><a href="#" target="_blank">查看</a></td>
-        </tr>
-        <tr>
-            <td><input type="checkbox" name="cb"></td>
-            <td>用户2</td>
-            <td>问卷2</td>
-            <td>
-                <button>通过</button>
-                <button>不通过</button>
-            </td>
-            <td><a href="#" target="_blank">查看</a></td>
-        </tr>
-        <tr>
-            <td><input type="checkbox" name="cb"></td>
-            <td>用户3</td>
-            <td>问卷3</td>
-            <td>
-                <button>通过</button>
-                <button>不通过</button>
-            </td>
-            <td><a href="#" target="_blank">查看</a></td>
-        </tr>
-        <tr>
-            <td><input type="checkbox" name="cb"></td>
-            <td>用户4</td>
-            <td>问卷4</td>
-            <td>
-                <button>通过</button>
-                <button>不通过</button>
-            </td>
-            <td><a href="#" target="_blank">查看</a></td>
-        </tr>
+        <form method="post" action="<c:url value="/approveUser"/>">
+        <c:forEach var="user" items="${userList}">
+            <tr>
+                    <td><input type="checkbox" name="cb"></td>
+                    <td>${user.name}</td>
+                    <td>${user.questionnaire}</td>
+                    <td>
+                        <button type="submit" name="action" value="approve">通过</button>
+                        <button type="submit" name="action" value="reject">不通过</button>
+                    </td>
+                    <td><a href="#" onclick="view(${user.id})">查看</a></td>
+                    <input type="hidden" name="userId" value="${user.id}">
+            </tr>
+        </c:forEach>
+        </form>
+<%--        <tr>--%>
+<%--            <td><input type="checkbox" name="cb"></td>--%>
+<%--            <td>用户1</td>--%>
+<%--            <td>问卷1</td>--%>
+<%--            <td>--%>
+<%--                <button>通过</button>--%>
+<%--                <button>不通过</button>--%>
+<%--            </td>--%>
+<%--            <td><a href="#" target="_blank">查看</a></td>--%>
+<%--        </tr>--%>
+<%--        <tr>--%>
+<%--            <td><input type="checkbox" name="cb"></td>--%>
+<%--            <td>用户2</td>--%>
+<%--            <td>问卷2</td>--%>
+<%--            <td>--%>
+<%--                <button>通过</button>--%>
+<%--                <button>不通过</button>--%>
+<%--            </td>--%>
+<%--            <td><a href="#" target="_blank">查看</a></td>--%>
+<%--        </tr>--%>
+<%--        <tr>--%>
+<%--            <td><input type="checkbox" name="cb"></td>--%>
+<%--            <td>用户3</td>--%>
+<%--            <td>问卷3</td>--%>
+<%--            <td>--%>
+<%--                <button>通过</button>--%>
+<%--                <button>不通过</button>--%>
+<%--            </td>--%>
+<%--            <td><a href="#" target="_blank">查看</a></td>--%>
+<%--        </tr>--%>
+<%--        <tr>--%>
+<%--            <td><input type="checkbox" name="cb"></td>--%>
+<%--            <td>用户4</td>--%>
+<%--            <td>问卷4</td>--%>
+<%--            <td>--%>
+<%--                <button>通过</button>--%>
+<%--                <button>不通过</button>--%>
+<%--            </td>--%>
+<%--            <td><a href="#" target="_blank">查看</a></td>--%>
+<%--        </tr>--%>
         </tbody>
     </table>
 </div>

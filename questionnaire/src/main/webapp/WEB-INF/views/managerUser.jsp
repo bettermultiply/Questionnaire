@@ -30,8 +30,8 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false"><c:out value="${manager.userName}" /><span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="<c:url value="/manager/${manager.userName}/viewMe"/>">个人信息</a></li>
-                        <li><a onclick="LogOut()">注销登录</a></li>
+                        <li><a href="<c:url value="/manager/managerinfo/${manager.userName}"/>">个人信息</a></li>
+                        <li><a onclick="LogOut()" href="<c:url value="/manager/logout.do"/>">注销登录</a></li>
                     </ul>
                 </li>
                 <li>
@@ -45,18 +45,44 @@
     </div>
 </nav>
 <ul class="nav nav-tabs">
-    <li class="active"><a href="<c:url value="/manager/manageManager"/>">管理员账号管理</a></li>
-    <li><a href="<c:url value="/manager/manageUser"/>">用户管理</a></li>
+    <li ><a href="<c:url value="/manager/manageManager"/>">管理员账号管理</a></li>
+    <li class="active"><a href="<c:url value="/manager/manageUser"/>">用户管理</a></li>
     <li><a href="<c:url value="/manager/manageQuestionnaire"/>">问卷管理</a></li>
 </ul>
 <br>
-<form action="#" style="margin-left: 20px">
-    <input type="text" placeholder="用户名.." name="search2">
+
+<form method="post" action="<c:url value="/manager/searchCommonUser.do"/>" style="margin-left: 20px">
+    <input type="text" placeholder="用户名.." name="userName">
     <button type="submit"><i class="fa fa-search"></i></button>
 </form>
+
 <br><br>
 <div class="table-responsive" style="text-align: center">
 
+<c:choose>
+    <c:when test="${not empty searchCommonUser}">
+        <table class="table" id="table">
+            <thead>
+            <tr>
+                <th style="text-align: center"><input type="checkbox" name="cb" id="1firstCb"></th>
+                <th style="text-align: center">登录名</th>
+                <th style="text-align: center">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                        <%--                    <td>${manager.id}</td>--%>
+                    <td><input type="checkbox" name="cb"></td>
+                    <td>${searchCommonUser}</td>
+                    <td>
+                        <a href="<c:url value="/manager/changeuserinfo/${searchCommonUser}"/>">修改</a>
+                        <a href="<c:url value="/manager/commonuserinfo/${searchCommonUser}"/>" >查看</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </c:when>
+    <c:otherwise>
     <c:if test="${not empty commonUserList}">
         <table class="table" id="table">
             <thead>
@@ -73,14 +99,17 @@
                     <td><input type="checkbox" name="cb"></td>
                     <td>${commonUser.userName}</td>
                             <td>
-                                <a href="changeInfo.jsp" target="_blank">修改</a>
-                                <a href="viewOther.jsp" target="_blank">查看</a>
+                                <a href="<c:url value="/manager/changeuserinfo/${commonUser.userName}"/>" >修改</a>
+                                <a href="<c:url value="/manager/commonuserinfo/${commonUser.userName}"/>" >查看</a>
                             </td>
                 </tr>
             </c:forEach>
             </tbody>
         </table>
     </c:if>
+    </c:otherwise>
+    </c:choose>
+    CommonUserList is Empty now!
 </div>
 
 <div class="container-fluid footer">

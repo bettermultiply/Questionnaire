@@ -9,6 +9,7 @@ import questionnaire.database.*;
 import questionnaire.utils.QuestionnaireTools;
 import questionnaire.utils.SessionFactorySource;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +29,7 @@ public class HomePageController {
      * @return
      */
     @RequestMapping(method = GET) // 相应的请求方法
-    public String homePage(Model model) throws HibernateException {
+    public String homePage(Model model, HttpSession session) throws HibernateException {
         return "home";
     }
 }
