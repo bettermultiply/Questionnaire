@@ -155,7 +155,6 @@ public class QuestionnaireDesignController {
                             @RequestParam("newChoiceName") String newChoiceName){
         QChoose question = (QChoose) questionDao.readOneQuestion(questionId);
         Choice choice = new Choice(null, question.getChoices().size() + 1, question, newChoiceName, new HashSet<>());
-        question.getChoices().add(choice);
         choiceDao.addChoice(choice);
 
         return "redirect:/questionnaire/design/" + questionnaireId;
@@ -176,6 +175,14 @@ public class QuestionnaireDesignController {
         return "redirect:/questionnaire/design/" + questionnaireId;
     }
 
+    /**
+     * 根据ID修改选项的名称
+     *
+     * @param choiceId 选项ID
+     * @param questionnaireId 问卷ID
+     * @param newChoiceName 新的选项名称
+     * @return 问卷设计页面
+     */
     @RequestMapping(value = "/modifyChoice.do", method = RequestMethod.POST)
     public String modifyChoice(@RequestParam("choiceId") String choiceId,
                                @RequestParam("questionnaireId") String questionnaireId,
@@ -185,5 +192,13 @@ public class QuestionnaireDesignController {
         choiceDao.updateChoice(choice);
 
         return "redirect:/questionnaire/design/" + questionnaireId;
+    }
+
+    @RequestMapping(value = "/preview/{questionnaireId}", method = RequestMethod.GET)
+    public String previewQuestionnaire(@PathVariable("questionnaireId") String questionnaireId, Model model){
+        QuestionnaireTable questionnaireTable = questionnaireDao.getOneQuestionnaire(questionnaireId);
+        model.addAttribute("questionnaire", questionnaireTable);
+
+        return "questionnaire";
     }
 }

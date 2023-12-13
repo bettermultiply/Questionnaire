@@ -161,6 +161,12 @@
     </div>
 
     <div class="col-md-12 text-center check-button">
+        <a href="<c:url value="/questionnaire/design/preview/${questionnaire.tableId}"/>">
+            <button type="button" class="btn btn-primary">
+                <img class="icon" src="<c:url value="/resources/images/icons/preview.svg"/>" alt="check icon">
+                预览问卷
+            </button>
+        </a>
         <form method="post" action="">
             <input type="hidden" name="questionnaireId" value="">
             <button type="submit" class="btn btn-primary">

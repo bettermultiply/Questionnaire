@@ -10,7 +10,7 @@
         <discriminator column="specificType" type="java.lang.String" />
         <property name="questionType" type="java.lang.Boolean" column="questiontype" />
         <property name="questionOrder" type="java.lang.Integer" column="questionorder" />
-        <many-to-one name="parentResult" column="tableId" class="questionnaire.database.QuestionTypeResult" />
+        <many-to-one name="parentResult" column="tableId" class="questionnaire.database.QuestionnaireResult" />
         <many-to-one name="modelType" class="questionnaire.database.QuestionType" column="model" />
         <subclass name="questionnaire.database.QTextResult" discriminator-value="text" >
             <property name="answer" column="answer" type="java.lang.String" />
