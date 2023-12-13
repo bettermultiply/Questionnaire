@@ -105,6 +105,11 @@ body{
     font-size: 18px;
 }
 
+.check-button > form {
+    display: inline-block;
+    margin-left: 1%;
+}
+
 .popup {
     position: fixed;
     z-index: 1;

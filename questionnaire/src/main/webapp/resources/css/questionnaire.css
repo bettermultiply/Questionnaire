@@ -1,0 +1,88 @@
+body{
+    background-color: #f7f7f7;
+}
+
+.logo-img {
+    height: 36px;
+    margin-top: 7px;
+    margin-left: 20px;
+    margin-right: 10px;
+    float: left;
+}
+
+.navbar{
+    background-color: #ffffff;
+}
+
+.questionnaire-part {
+    padding-bottom: 2%;
+    padding-left: 4%;
+    background-color: #ffffff;
+    min-height: 65vh;
+}
+
+.questionnaire-title > p {
+    margin-top: 4%;
+    font-size: 30px;
+}
+
+.question{
+    margin-top: 3%;
+}
+
+.question > p {
+    font-size: 25px;
+}
+
+.question label {
+    margin-top: 1%;
+    margin-left: 4%;
+    font-size: 18px;
+}
+
+.submitButton button{
+    margin-top: 4%;
+    font-size: 20px;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
+
+.footer {
+    background-color: #2a2730;
+}
+
+.footer {
+    margin-top: 4%;
+}
+
+footer > div > p {
+    color: #ffffff;
+    text-align: center;
+}
+
+footer p:nth-child(1) {
+    margin-top: 5%;
+    line-height: 30px;
+    font-size: 18px;
+}
+
+footer p:nth-child(2) {
+    line-height: 30px;
+    font-size: 18px;
+}
+
+footer p:nth-child(3) {
+    line-height: 30px;
+    font-size: 18px;
+}
+
+footer p:nth-child(2) > img {
+    vertical-align: middle;
+    margin-left: 1%;
+    width: 25px;
+    height: 25px;
+}

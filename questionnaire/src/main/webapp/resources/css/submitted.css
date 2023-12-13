@@ -1,0 +1,73 @@
+body{
+    background-color: #f7f7f7;
+}
+
+.logo-img {
+    height: 36px;
+    margin-top: 7px;
+    margin-left: 20px;
+    margin-right: 10px;
+    float: left;
+}
+
+.navbar{
+    background-color: #ffffff;
+}
+
+.result-part {
+    background-color: #ffffff;
+    min-height: 70vh;
+}
+
+.result-part p:nth-child(2) {
+    margin-top: 2%;
+    font-size: 30px;
+}
+
+.result-part p:nth-child(3) {
+    font-size: 25px;
+}
+
+.submitted-icon {
+    width: 10%;
+    height: 10%;
+    margin-top: 15%;
+}
+
+
+
+.footer {
+    background-color: #2a2730;
+}
+
+.footer {
+    margin-top: 4%;
+}
+
+footer > div > p {
+    color: #ffffff;
+    text-align: center;
+}
+
+footer p:nth-child(1) {
+    margin-top: 5%;
+    line-height: 30px;
+    font-size: 18px;
+}
+
+footer p:nth-child(2) {
+    line-height: 30px;
+    font-size: 18px;
+}
+
+footer p:nth-child(3) {
+    line-height: 30px;
+    font-size: 18px;
+}
+
+footer p:nth-child(2) > img {
+    vertical-align: middle;
+    margin-left: 1%;
+    width: 25px;
+    height: 25px;
+}
