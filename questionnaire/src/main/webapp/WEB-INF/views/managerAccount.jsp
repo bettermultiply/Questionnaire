@@ -174,7 +174,7 @@
                                     <div class="form-group">
                                         <label for="username1" class="col-sm-2 control-label col-sm-offset-1">用户名</label>
                                         <div class="col-sm-6">
-                                            <input type="text" class="form-control" id="username1" name="userName" placeholder="请输入用户名">
+                                            <input type="text" class="form-control" id="username1" name="username" placeholder="请输入用户名">
                                         </div>
                                     </div>
                                     <div class="form-group">
