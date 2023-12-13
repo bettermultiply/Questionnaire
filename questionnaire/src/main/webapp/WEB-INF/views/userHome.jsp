@@ -22,7 +22,7 @@
                 <span class="icon-bar"></span>
             </button>
             <img class="logo-img" src="<c:url value="/resources/images/logo2.png"/>" alt="图片加载失败">
-            <a class="navbar-brand" href="#">Questionnaire</a>
+            <a class="navbar-brand" href="<c:url value="/questionnaire"/>">Questionnaire</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -37,7 +37,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">UserName<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">个人信息</a></li>
+                        <li><a href="<c:url value="/commonuser/${commonUser.userName}"/>">个人信息</a></li>
                         <li><a href="#">注销登录</a></li>
                     </ul>
                 </li>
@@ -50,7 +50,7 @@
 <div class="container">
     <div class="jumbotron">
         <div class="container">
-            <h1>UserName,</h1>
+            <h1>${commonUser.userName},</h1>
             <h1>Welcome to Questionnaire</h1>
             <h2>Questionnaire致力于为您提供便捷的问卷服务</h2>
         </div>
@@ -77,15 +77,26 @@
         <c:forEach items="${allQuestionnaire}" var="questionnaire">
             <div class="questionnaire-info col-md-12">
                 <div class="col-md-6">
-                    <p><c:out value="${questionnaire.tableName}"/></p>
                     <c:choose>
-                        <c:when test="${questionnaire.isChecked}">
-                            <a href="<c:url value="/answer/"/>${questionnaire.tableId}">
+                        <c:when test="${questionnaire.isPublished && questionnaire.isChecked}">
+                            <img class="big-icon" src="<c:url value="/resources/images/icons/checked.png"/>" alt="checked icon">
+                            <p><c:out value="${questionnaire.tableName}"/></p>
+                            <a class="link" href="<c:url value="/answerQuestionnaire/${questionnaire.tableId}"/>"
+                               data-toggle="tooltip" title data-original-title="<c:url value="/answerQuestionnaire/${questionnaire.tableId}"/>">
+                                <img class="icon" src="<c:url value="/resources/images/icons/link-icon.svg"/>" alt="link svg">
+                            </a>
+                        </c:when>
+                        <c:when test="${questionnaire.isPublished && !questionnaire.isChecked}">
+                            <img class="big-icon" src="<c:url value="/resources/images/icons/submitted_2.png"/>" alt="checked icon">
+                            <p><c:out value="${questionnaire.tableName}"/></p>
+                            <a class="link" href="#" data-toggle="tooltip" title data-original-title="问卷还未审核通过">
                                 <img class="icon" src="<c:url value="/resources/images/icons/link-icon.svg"/>" alt="link svg">
                             </a>
                         </c:when>
                         <c:otherwise>
-                            <a href="#">
+                            <img class="big-icon" src="<c:url value="/resources/images/icons/unSubmitted.png"/>" alt="checked icon">
+                            <p><c:out value="${questionnaire.tableName}"/></p>
+                            <a class="link" href="#" data-toggle="tooltip" title data-original-title="问卷还未提交审核">
                                 <img class="icon" src="<c:url value="/resources/images/icons/link-icon.svg"/>" alt="link svg">
                             </a>
                         </c:otherwise>
@@ -112,7 +123,7 @@
                     </form>
                     <form class="questionnaire-form" method="post" action="<c:url value="/questionnaire/modify.do"/>">
                         <input type="hidden" name="questionnaireId" value="${questionnaire.tableId}">
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" class="btn btn-primary ${questionnaire.isPublished ? "disabled" : ""}">
                             <img class="icon" src="<c:url value="/resources/images/icons/edit-icon.svg"/>"
                                  alt="edit icon">
                             <span>修改问卷</span>

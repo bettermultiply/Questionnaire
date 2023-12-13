@@ -15,13 +15,19 @@
 <form method="post" action="<c:url value="/init/add.do"/>">
   <input type="hidden" name="tableName" value="Test">
   <button type="submit" class="btn btn-primary addQuestionnaire">
-    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新建问卷
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>创建已提交问卷
   </button>
 </form>
 <form method="post" action="<c:url value="/init/addChecked.do"/>">
     <input type="hidden" name="tableName" value="Checked">
     <button type="submit" class="btn btn-primary addQuestionnaire">
-        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新建已审核问卷
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新建已提交已审核问卷
+    </button>
+</form>
+<form method="post" action="<c:url value="/init/addUnpublished.do"/>">
+    <input type="hidden" name="tableName" value="Checked">
+    <button type="submit" class="btn btn-primary addQuestionnaire">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新建未提交问卷问卷
     </button>
 </form>
 </body>

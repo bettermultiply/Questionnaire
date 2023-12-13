@@ -23,7 +23,7 @@
                 <span class="icon-bar"></span>
             </button>
             <img class="logo-img" src="<c:url value="/resources/images/logo2.png"/>" alt="图片加载失败">
-            <a class="navbar-brand" href="#">Questionnaire</a>
+            <a class="navbar-brand" href="<c:url value="/questionnaire"/>">Questionnaire</a>
         </div>
 
         <ul class="nav navbar-nav navbar-right">
@@ -31,7 +31,7 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                    aria-expanded="false">UserName<span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">个人信息</a></li>
+                    <li><a href="<c:url value="/commonuser/${commonUser.userName}"/>">个人信息</a></li>
                     <li><a href="#">注销登录</a></li>
                 </ul>
             </li>
@@ -161,14 +161,21 @@
     </div>
 
     <div class="col-md-12 text-center check-button">
+        <a href="<c:url value="/questionnaire"/>">
+            <input type="hidden" name="questionnaireId" value="">
+            <button type="submit" class="btn btn-primary">
+                <img class="icon" src="<c:url value="/resources/images/icons/home.svg"/>" alt="check icon">
+                返回首页
+            </button>
+        </a>
         <a href="<c:url value="/questionnaire/design/preview/${questionnaire.tableId}"/>">
             <button type="button" class="btn btn-primary">
                 <img class="icon" src="<c:url value="/resources/images/icons/preview.svg"/>" alt="check icon">
                 预览问卷
             </button>
         </a>
-        <form method="post" action="">
-            <input type="hidden" name="questionnaireId" value="">
+        <form method="post" action="<c:url value="/questionnaire/design/submit.do"/>">
+            <input type="hidden" name="questionnaireId" value="${questionnaire.tableId}">
             <button type="submit" class="btn btn-primary">
                 <img class="icon" src="<c:url value="/resources/images/icons/check.svg"/>" alt="check icon">
                 提交审核
