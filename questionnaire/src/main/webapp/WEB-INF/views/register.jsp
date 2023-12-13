@@ -48,26 +48,26 @@
             <div class="card card-body">
                 <h1 class="text-center mb-3">User Register</h1>
                 <form method="post">
-<%--                    <div class="form-group">--%>
-<%--                        <label for="LastName">姓</label>--%>
-<%--                        <input--%>
-<%--                                type="text"--%>
-<%--                                id="LastName"--%>
-<%--                                name="LastName"--%>
-<%--                                class="form-control"--%>
-<%--                                placeholder="Enter LastName"--%>
-<%--                        />--%>
-<%--                    </div>--%>
-<%--                    <div class="form-group">--%>
-<%--                        <label for="FirstName">名</label>--%>
-<%--                        <input--%>
-<%--                                type="text"--%>
-<%--                                id="FirstName"--%>
-<%--                                name="FirstName"--%>
-<%--                                class="form-control"--%>
-<%--                                placeholder="Enter FirstName"--%>
-<%--                        />--%>
-<%--                    </div>--%>
+                    <div class="form-group">
+                        <label for="LastName">姓</label>
+                        <input
+                                type="text"
+                                id="LastName"
+                                name="lastName"
+                                class="form-control"
+                                placeholder="Enter LastName"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="FirstName">名</label>
+                        <input
+                                type="text"
+                                id="FirstName"
+                                name="firstName"
+                                class="form-control"
+                                placeholder="Enter FirstName"
+                        />
+                    </div>
                     <div class="form-group">
                         <label for="UserName">用户名</label>
                         <input
@@ -88,26 +88,26 @@
                                 placeholder="Enter Password"
                         />
                     </div>
-<%--                    <div class="form-group">--%>
-<%--                        <label for="Pho">电话号码</label>--%>
-<%--                        <input--%>
-<%--                                type="tel"--%>
-<%--                                id="Pho"--%>
-<%--                                name="Pho"--%>
-<%--                                class="form-control"--%>
-<%--                                placeholder="Enter PhoNumber"--%>
-<%--                        />--%>
-<%--                    </div>--%>
-<%--                    <div class="form-group">--%>
-<%--                        <label for="email">电子邮箱</label>--%>
-<%--                        <input--%>
-<%--                                type="email"--%>
-<%--                                id="email"--%>
-<%--                                name="email"--%>
-<%--                                class="form-control"--%>
-<%--                                placeholder="Enter UerName"--%>
-<%--                        />--%>
-<%--                    </div> --%>
+                    <div class="form-group">
+                        <label for="Pho">电话号码</label>
+                        <input
+                                type="tel"
+                                id="Pho"
+                                name="pho"
+                                class="form-control"
+                                placeholder="Enter PhoNumber"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">电子邮箱</label>
+                        <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                class="form-control"
+                                placeholder="Enter UerName"
+                        />
+                    </div>
                     <input role="button" class="btn btn-primary btn-block" type="submit" value="Register" />
                 </form>
             </div>

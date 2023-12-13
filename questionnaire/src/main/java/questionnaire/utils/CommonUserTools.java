@@ -51,6 +51,16 @@ public class CommonUserTools {
         return users.get(0);
     }
 
+    public static void updateOneUser(CommonUser commonUser){
+        try(Session session = SessionFactorySource.getSessionFactory().openSession()){
+            session.beginTransaction();
+            session.update(commonUser);
+            session.getTransaction().commit();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static CommonUser registerCommonUser(CommonUser cUser){
         try(Session session = SessionFactorySource.getSessionFactory().openSession()){
             session.beginTransaction();
@@ -79,7 +89,7 @@ public class CommonUserTools {
 
             List<CommonUser> cUsers = query.list();
 
-            System.out.println(cUsers);
+            //System.out.println(cUsers);
             // 提交事务
             session.getTransaction().commit();
 

@@ -1,0 +1,132 @@
+body{
+    background-color: #f7f7f7;
+}
+
+.logo-img {
+    height: 36px;
+    margin-top: 7px;
+    margin-left: 20px;
+    margin-right: 10px;
+    float: left;
+}
+
+
+.navbar{
+    background-color: #ffffff;
+}
+
+.navbar-header > .navbar-brand {
+    color: #000000;
+}
+
+.navbar-collapse > .selections {
+    margin-left: 3%;
+}
+
+.jumbotron{
+    background-color: #ffffff;
+}
+
+.questionnaireList-title {
+    color: #000;
+    font-family: "Adobe Garamond", serif;
+    font-size: 25px;
+    line-height: 45px;
+    text-align: center;
+    width: 180px;
+    border-bottom: 2px solid black;
+    margin-bottom: 10%;
+}
+
+.addQuestionnaire{
+    width: 130px;
+    font-size: 18px;
+    margin-bottom: 10%;
+    float: right;
+}
+
+.addQuestionnaire > span {
+    margin-right: 5%;
+}
+
+.questionnaireList {
+    margin-top: 2%;
+}
+
+.questionnaire-info {
+    background-color: #ffffff;
+    margin-bottom: 1%;
+}
+
+.questionnaire-info > div {
+    height: 60px;
+    font-family: "Adobe Garamond", serif;
+    font-size: 20px;
+    line-height: 60px;
+    padding-left: 1%;
+}
+
+.questionnaire-info > div > p {
+    display: inline-block;
+}
+
+.questionnaire-info > div > a >img {
+    margin-left: 1%;
+}
+
+.questionnaire-form {
+    display: inline-block;
+    margin-left: 2%;
+    margin-bottom: 2%;
+    float: right;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
+
+.paging > nav {
+    margin-top: 3%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.footer {
+    background-color: #2a2730;
+}
+
+.footer {
+    margin-top: 6%;
+}
+
+footer > div > p {
+    color: #ffffff;
+    text-align: center;
+}
+
+footer p:nth-child(1) {
+    margin-top: 5%;
+    line-height: 30px;
+    font-size: 18px;
+}
+
+footer p:nth-child(2) {
+    line-height: 30px;
+    font-size: 18px;
+}
+
+footer p:nth-child(3) {
+    line-height: 30px;
+    font-size: 18px;
+}
+
+footer p:nth-child(2) > img {
+    vertical-align: middle;
+    margin-left: 1%;
+    width: 25px;
+    height: 25px;
+}
