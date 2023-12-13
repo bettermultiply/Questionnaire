@@ -87,6 +87,18 @@ body{
     vertical-align: middle;
 }
 
+.link {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+
+.big-icon {
+    width: 60px;
+    height: 60px;
+    vertical-align: middle;
+}
+
 .paging > nav {
     margin-top: 3%;
     position: absolute;

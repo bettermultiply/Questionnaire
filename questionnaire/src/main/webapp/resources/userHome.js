@@ -1,3 +1,7 @@
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+
 function openPopup(popup){
     popup.style.display = "block";
 }

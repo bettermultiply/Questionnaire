@@ -201,4 +201,13 @@ public class QuestionnaireDesignController {
 
         return "questionnaire";
     }
+
+    @RequestMapping(value = "/submit.do", method = RequestMethod.POST)
+    public String submitQuestionnaire(@RequestParam("questionnaireId") String questionnaireId){
+        QuestionnaireTable questionnaireTable = questionnaireDao.getOneQuestionnaire(questionnaireId);
+        questionnaireTable.setIsPublished(true);
+        questionnaireDao.updateQuestionnaire(questionnaireTable);
+
+        return "redirect:/questionnaire";
+    }
 }

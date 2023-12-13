@@ -105,6 +105,10 @@ body{
     font-size: 18px;
 }
 
+.check-button a {
+    margin-left: 1%;
+}
+
 .check-button > form {
     display: inline-block;
     margin-left: 1%;
