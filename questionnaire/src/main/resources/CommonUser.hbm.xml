@@ -9,7 +9,10 @@
         </id>
         <property name="userName" type="java.lang.String" column="user_name" />
         <property name="password" type="java.lang.String" column="password" />
-
+        <property name="email" type="java.lang.String" column="email" />
+        <property name="firstName" type="java.lang.String" column="firstname" />
+        <property name="lastName" type="java.lang.String" column="lastname" />
+        <property name="phoneNo" type="java.lang.String" column="phoneNo" />
         <set name="questionnaireTables" table="questionnaire_table" lazy="false" cascade="delete">
             <key column="userId" />
             <one-to-many class="questionnaire.database.QuestionnaireTable"/>
