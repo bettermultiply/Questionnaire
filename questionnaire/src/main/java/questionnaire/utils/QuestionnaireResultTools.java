@@ -2,17 +2,18 @@ package questionnaire.utils;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
-import questionnaire.database.Choice;
-import questionnaire.database.QChoose;
+import questionnaire.database.ChoiceResult;
+import questionnaire.database.QuestionnaireResult;
+import questionnaire.database.QuestionnaireTable;
 
 import java.util.List;
 
-public class ChoiceTools {
+public class QuestionnaireResultTools {
 
-    public static void createChoice(Choice choice){
+    public static void createQuestionnaireResult(QuestionnaireResult table){
         try (Session session = SessionFactorySource.getSessionFactory().openSession()){
             session.beginTransaction();
-            session.save(choice);
+            session.save(table);
             session.getTransaction().commit();
         } catch (HibernateException e) {
             e.printStackTrace();
@@ -20,38 +21,38 @@ public class ChoiceTools {
 
     }
 
-    public static void deleteChoice(String id){
+    public static void deleteQuestionnaireResult(String id){
         try(Session session = SessionFactorySource.getSessionFactory().openSession()){
+            QuestionnaireResult table = session.load(QuestionnaireResult.class, id);
             session.beginTransaction();
-            Choice choice = session.load(Choice.class, id);
-            session.delete(choice);
+            session.delete(table);
             session.getTransaction().commit();
         } catch (HibernateException e) {
             e.printStackTrace();
         }
     }
 
-    public static void updateChoice(Choice choice){
+    public static void updateQuestionnaireResult(QuestionnaireResult table){
         try(Session session = SessionFactorySource.getSessionFactory().openSession()){
             session.beginTransaction();
-            session.update(choice);
+            session.update(table);
             session.getTransaction().commit();
         } catch (HibernateException e) {
             e.printStackTrace();
         }
     }
 
-    public static List<Choice> readChoice(String parentid){
-        List<Choice> choices = null;
+    private static List<QuestionnaireTable> readQuestionnaireResult(String parentId){
+        List<QuestionnaireTable> tables = null;
         try(Session session = SessionFactorySource.getSessionFactory().openSession()){
             session.beginTransaction();
-            String hql = "FROM Choice where parentQ='" + parentid + "'";
-            choices = session.createQuery(hql).list();
+            String hql = "FROM QuestionnaireResult where parentTable=:parentId";
+            tables = session.createQuery(hql).list();
             session.getTransaction().commit();
         } catch (HibernateException e) {
             e.printStackTrace();
         }
 
-        return choices;
+        return tables;
     }
 }

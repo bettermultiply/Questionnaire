@@ -27,6 +27,7 @@ public class ManagerFilter implements Filter {
         Manager manager = (Manager) session.getAttribute("manager");
         if (manager != null && ManagerTools.verifyManager(manager.getUserName(), manager.getPassword()) != null) {
             filterChain.doFilter(request, response);
+            return;
         }
         request.getRequestDispatcher("/manager/login").forward(request, response);
     }

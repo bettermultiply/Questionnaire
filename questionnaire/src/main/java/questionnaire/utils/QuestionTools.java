@@ -24,10 +24,10 @@ public class QuestionTools {
         }
     }
 
-    public static void deleteQuestion(Integer id) {
+    public static void deleteQuestion(String id) {
         try (Session session = SessionFactorySource.getSessionFactory().openSession()) {
             session.beginTransaction();
-            QuestionType question = (QuestionType) session.load(QuestionType.class, id);
+            QuestionType question = session.load(QuestionType.class, id);
             session.delete(question);
             session.getTransaction().commit();
         } catch (HibernateException e) {

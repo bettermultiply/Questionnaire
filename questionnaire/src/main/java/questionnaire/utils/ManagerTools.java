@@ -82,7 +82,7 @@ public class ManagerTools {
     public static void deleteManager(String managerId) {
         try(Session session = SessionFactorySource.getSessionFactory().openSession()){
             session.beginTransaction();
-            Manager manager = (Manager) session.load(Manager.class, managerId);
+            Manager manager = session.load(Manager.class, managerId);
             if(!manager.getUserName().equals("admin")) {
                 session.delete(manager);
                 session.getTransaction().commit();

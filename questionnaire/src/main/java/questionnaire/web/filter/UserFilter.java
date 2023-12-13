@@ -28,6 +28,7 @@ public class UserFilter implements Filter {
         CommonUser user = (CommonUser) session.getAttribute("commonUser");
         if (user != null && CommonUserTools.verifyCommonUser(user.getUserName(), user.getPassword()) != null) {
             filterChain.doFilter(request, response);
+            return;
         }
         request.getRequestDispatcher("/commonuser/login").forward(request, response);
     }
