@@ -53,7 +53,7 @@
     <footer>
         <div class="col-md-4 col-md-offset-4">
             <p>Questionnaire</p>
-            <p>Make with BootStrap<img class="icon" src="<c:url value="//resources/images/icons/Bootstrap.svg"/>" alt="bootstrap icon"></p>
+            <p>Make with BootStrap<img class="icon" src="<c:url value="/resources/images/icons/Bootstrap.svg"/>" alt="bootstrap icon"></p>
             <p>© Group One</p>
         </div>
     </footer>
