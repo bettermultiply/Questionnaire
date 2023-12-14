@@ -95,7 +95,6 @@
             <tbody>
             <c:forEach var="commonUser" items="${commonUserList}">
                 <tr>
-                        <%--                    <td>${manager.id}</td>--%>
                     <td><input type="checkbox" name="cb"></td>
                     <td>${commonUser.userName}</td>
                             <td>

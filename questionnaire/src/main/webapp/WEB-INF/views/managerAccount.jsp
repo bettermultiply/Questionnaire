@@ -53,8 +53,14 @@
 <br>
 <form method="post" action="<c:url value="/manager/searchManager.do"/>" style="margin-left: 5px">
     <a class="btn btn-info" href="<c:url value="/manager/add.do"/>" role="button" style="margin-left: 50px">创建一个管理员账号</a>
-    &nbsp;
+    &nbsp;<c:choose>
+    <c:when test="${not empty searchManager}">
+        <input type="text"  name="userName" value="${searchManager.userName}" >
+    </c:when>
+    <c:otherwise>
         <input type="text" placeholder="管理员账号名.." name="userName" >
+    </c:otherwise>
+    </c:choose>
     <button type="submit"><i class="fa fa-search"></i></button>
 </form>
 <br><br>
@@ -73,60 +79,14 @@
                     <tr>
                         <td><input type="checkbox" name="cb"></td>
                         <td> <c:out value="${searchManager.userName}" /></td>
-                        <!-- 添加其他管理员信息的表格行 -->
                         <td>
                             <form method="post" action="<c:url value="/manager/delete.do"/>">
                                 <input type="hidden" onclick="myfunction()" name="managerId" value="${searchManager.id}">
-                                <button type="submit" class="btn btn-primary">
-                                    <span>删除</span>
+                                <button type="submit" style="color: #0f0f0f;" >
+                                    删除
                                 </button>
                             </form>
-
-                            <button class="change">修改</button>
-                            <form method="post" class="form-horizontal changePage" role="form">
-                                <p class="changeHead">修改管理员信息</p>
-                                <div class="form-group">
-                                    <label for="lastname2" class="col-sm-2 control-label col-sm-offset-1">姓</label>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control" id="lastname2" name="lastName" placeholder="请输入姓">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="firstname2" class="col-sm-2 control-label col-sm-offset-1">名字</label>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control" id="firstname2" name="firstName" placeholder="请输入名字">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="username2" class="col-sm-2 control-label col-sm-offset-1">用户名</label>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control" id="username2" name="username" placeholder="请输入用户名">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="password2" class="col-sm-2 control-label col-sm-offset-1">密码</label>
-                                    <div class="col-sm-6">
-                                        <input type="password" class="form-control" id="password2" name="password" placeholder="请输入密码">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="tel2" class="col-sm-2 control-label col-sm-offset-1">电话号码</label>
-                                    <div class="col-sm-6">
-                                        <input type="tel" class="form-control" id="tel2" name="pho" placeholder="请输入电话号码">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email2" class="col-sm-2 control-label col-sm-offset-1">邮箱</label>
-                                    <div class="col-sm-6">
-                                        <input type="email" class="form-control" id="email2" name="email" placeholder="请输入邮箱">
-                                    </div>
-                                </div>
-                                <input type="hidden" class="form-control custom-input" name="oldName" value="${searchManager.userName}">
-                                <div style="text-align: center">
-                                    <input type="button" name="cancel" value="取消" class="cancel" />
-                                    <input role="button" type="submit" name="save" value="保存" class="save" />
-                                </div>
-                            </form>
+                            <a href="<c:url value="/manager/changeManagerinfo/${searchManager.userName}"/>" ><input type="button" value='修改' style="color: #0f0f0f;"></a>
                             <a href="<c:url value="/manager/managerinfo/${searchManager.userName}"/>"> <input type="button" value='查看' style="color: #0f0f0f;"></a>
                         </td>
                     </tr>
@@ -148,59 +108,14 @@
                         <tr>
                             <td><input type="checkbox" name="cb"></td>
                             <td>${manager.userName}</td>
-                            <!-- 添加其他管理员信息的表格行 -->
                             <td>
                                 <form method="post" action="<c:url value="/manager/delete.do"/>">
                                     <input type="hidden" onclick="myfunction()" name="managerId" value="${manager.id}">
-                                    <button type="submit" class="btn btn-primary">
-                                        <span>删除</span>
+                                    <button type="submit" style="color: #0f0f0f;">
+                                        删除
                                     </button>
                                 </form>
-                                <button class="change">修改</button>
-                                <form method="post" class="form-horizontal changePage" role="form">
-                                    <p class="changeHead">修改管理员信息</p>
-                                    <div class="form-group">
-                                        <label for="lastname1" class="col-sm-2 control-label col-sm-offset-1">姓</label>
-                                        <div class="col-sm-6">
-                                            <input type="text" class="form-control" id="lastname1" name="lastName" placeholder="请输入姓">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="firstname1" class="col-sm-2 control-label col-sm-offset-1">名字</label>
-                                        <div class="col-sm-6">
-                                            <input type="text" class="form-control" id="firstname1" name="firstName" placeholder="请输入名字">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="username1" class="col-sm-2 control-label col-sm-offset-1">用户名</label>
-                                        <div class="col-sm-6">
-                                            <input type="text" class="form-control" id="username1" name="username" placeholder="请输入用户名">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="password1" class="col-sm-2 control-label col-sm-offset-1">密码</label>
-                                        <div class="col-sm-6">
-                                            <input type="password" class="form-control" id="password1" name="password" placeholder="请输入密码">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="tel1" class="col-sm-2 control-label col-sm-offset-1">电话号码</label>
-                                        <div class="col-sm-6">
-                                            <input type="tel" class="form-control" id="tel1" name="pho" placeholder="请输入电话号码">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="email1" class="col-sm-2 control-label col-sm-offset-1">邮箱</label>
-                                        <div class="col-sm-6">
-                                            <input type="email" class="form-control" id="email1" name="email" placeholder="请输入邮箱">
-                                        </div>
-                                    </div>
-                                    <input type="hidden" class="form-control custom-input" name="oldName" value="${manager.userName}">
-                                    <div style="text-align: center">
-                                        <input role="button" type="button" value="取消" class="cancel" />
-                                        <input role="button" type="submit" value="保存" class="save" />
-                                    </div>
-                                </form>
+                                <a href="<c:url value="/manager/changeManagerinfo/${manager.userName}"/>" > <input type="button" value='修改' style="color: #0f0f0f;"></a>
                                 <a href="<c:url value="/manager/managerinfo/${manager.userName}"/>"> <input type="button" value='查看' style="color: #0f0f0f;"></a>
                             </td>
                         </tr>

@@ -89,7 +89,7 @@
                 <input type="email" class="form-control custom-input" id="email" name="email" placeholder="请输入邮箱">
             </div>
         </div>
-        <input type="hidden" class="form-control custom-input" name="oldName" value="${commonUser.userName}">
+        <input type="hidden" class="form-control custom-input" name="oldName" value="${User.userName}">
         <div class="form-group">
             <div class="col-sm-offset-5">
                 <input role="button" class="btn btn-default" type="submit" onclick="changeUserSucsess()" value="确定" />
