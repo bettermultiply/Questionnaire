@@ -22,6 +22,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
+            <a class="navbar-brand" href="<c:url value="/manager/manageManager"/>">Questionnaire</a>
             <img class="logo-img" src="<c:url value="/resources/images/logo2.png"/>" alt="图片加载失败">
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -30,8 +31,8 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false"><c:out value="${manager.userName}" /><span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="<c:url value="/manager/${manager.userName}/viewMe"/>">个人信息</a></li>
-                        <li><a onclick="LogOut()">注销登录</a></li>
+                        <li><a href="<c:url value="/manager/managerinfo/${manager.userName}"/>">个人信息</a></li>
+                        <li><a onclick="LogOut()" href="<c:url value="/manager/logout.do"/>">注销登录</a></li>
                     </ul>
                 </li>
                 <li>
@@ -45,63 +46,43 @@
     </div>
 </nav>
 <ul class="nav nav-tabs">
-    <li class="active"><a href="<c:url value="/manager/manageManager"/>">管理员账号管理</a></li>
+    <li><a href="<c:url value="/manager/manageManager"/>">管理员账号管理</a></li>
     <li><a href="<c:url value="/manager/manageUser"/>">用户管理</a></li>
-    <li><a href="<c:url value="/manager/manageQuestionnaire"/>">问卷管理</a></li>
+    <li class="active"><a href="<c:url value="/manager/manageQuestionnaire"/>">问卷管理</a></li>
 </ul>
 <br>
 <div class="table-responsive" style="text-align: center">
     <table class="table" id="table">
-        <thead>
-        <tr>
-            <th style="text-align: center"><input type="checkbox" name="cb" id="firstCb"></th>
-            <th style="text-align: center">所属用户</th>
-            <th style="text-align: center">问卷名</th>
-            <th style="text-align: center">审核</th>
-            <th style="text-align: center">操作</th>
-        </tr>
-        </thead>
         <tbody>
-        <tr>
-            <td><input type="checkbox" name="cb"></td>
-            <td>用户1</td>
-            <td>问卷1</td>
-            <td>
-                <button>通过</button>
-                <button>不通过</button>
-            </td>
-            <td><a href="#" target="_blank">查看</a></td>
-        </tr>
-        <tr>
-            <td><input type="checkbox" name="cb"></td>
-            <td>用户2</td>
-            <td>问卷2</td>
-            <td>
-                <button>通过</button>
-                <button>不通过</button>
-            </td>
-            <td><a href="#" target="_blank">查看</a></td>
-        </tr>
-        <tr>
-            <td><input type="checkbox" name="cb"></td>
-            <td>用户3</td>
-            <td>问卷3</td>
-            <td>
-                <button>通过</button>
-                <button>不通过</button>
-            </td>
-            <td><a href="#" target="_blank">查看</a></td>
-        </tr>
-        <tr>
-            <td><input type="checkbox" name="cb"></td>
-            <td>用户4</td>
-            <td>问卷4</td>
-            <td>
-                <button>通过</button>
-                <button>不通过</button>
-            </td>
-            <td><a href="#" target="_blank">查看</a></td>
-        </tr>
+        <c:choose>
+        <c:when test="${not empty uncheckedQuestionnaires}">
+            <thead>
+            <tr>
+                <th style="text-align: center"><input type="checkbox" name="cb" id="firstCb"></th>
+                <th style="text-align: center">所属用户</th>
+                <th style="text-align: center">问卷名</th>
+                <th style="text-align: center">审核</th>
+                <th style="text-align: center">操作</th>
+            </tr>
+            </thead>
+        <form method="post" action="<c:url value="/manager/checkQue.do"/>">
+        <c:forEach var="unCQuestionnaire" items="${uncheckedQuestionnaires}">
+            <tr>
+                    <td><input type="checkbox" name="cb"></td>
+                    <td>${unCQuestionnaire.user.userName}</td>
+                    <td>${unCQuestionnaire.tableName}</td>
+                    <td>
+                        <button type="submit" name="tableId" value="${unCQuestionnaire.tableId}">通过</button>
+                        <button type="submit" name="tableId" value="-1">不通过</button>
+                    </td>
+                    <td><a href="<c:url value="/manager/preview/${unCQuestionnaire.tableId}"/>" >查看</a></td>
+            </tr>
+        </c:forEach>
+        </form>
+        </c:when><c:otherwise>
+        This is a questionnaire wasteland!
+        </c:otherwise>
+        </c:choose>
         </tbody>
     </table>
 </div>

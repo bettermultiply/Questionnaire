@@ -1,20 +1,15 @@
 package questionnaire.web;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import questionnaire.database.CommonUser;
-import questionnaire.database.Manager;
 import questionnaire.utils.CommonUserTools;
-import questionnaire.utils.ManagerTools;
 
 import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -42,16 +37,29 @@ public class CommonUserController {
     }
 
     @RequestMapping(value ="/register",method =POST) // 相应的请求方法
-    public String commonUserRegister(@RequestParam(value = "userName", defaultValue = "") String userName,
-                                     @RequestParam(value = "password", defaultValue = "") String password,   HttpSession session){
+    public String commonUserRegister(@RequestParam(value = "lastName", defaultValue = "") String lastName,
+                                     @RequestParam(value = "firstName", defaultValue = "") String firstName,
+                                     @RequestParam(value = "userName", defaultValue = "") String userName,
+                                     @RequestParam(value = "password", defaultValue = "") String password,
+                                     @RequestParam(value = "pho", defaultValue = "") String pho,
+                                     @RequestParam(value = "email", defaultValue = "") String email,Model model){
+
+        if(CommonUserTools.readOneUser(userName)!=null){
+            model.addAttribute("taken", true);
+            return "register";
+        }
         CommonUser commonUser=new CommonUser();
+        commonUser.setFirstName(firstName);
+        commonUser.setLastName(lastName);
         commonUser.setUserName(userName);
         commonUser.setPassword(password);
+        commonUser.setPhoneNo(pho);
+        commonUser.setEmail(email);
         CommonUser cUser=CommonUserTools.registerCommonUser(commonUser);
         if(cUser!=null){
             return "redirect:/";
         }
-        return  "registerFailedPage";
+        return  "redirect:/commonuser/register";
     }
 
 
@@ -64,42 +72,38 @@ public class CommonUserController {
     public String commonUserLogin(@RequestParam(value = "userName", defaultValue = "") String userName,
                                   @RequestParam(value = "password", defaultValue = "") String password, HttpSession session){
 
-        System.out.println(userName);
-        System.out.println(password);
         CommonUser commonUser = CommonUserTools.verifyUser(userName, password);
         if(commonUser != null ){
             session.setAttribute("commonUser",commonUser);
-            //return "managerAccount";
-            return "redirect:/commonuser/"+commonUser.getUserName();
+            return "redirect:/questionnaire";
         }else {
             return "redirect:/commonuser/login";
         }
     }
 
     /**
-     * 用户信息页面
+     * 展示用户主页面
      *
      * @param userName
-     * @param model
+     * @param session
      * @return
      */
     @RequestMapping(value = "/{userName}", method = GET)
-    public String showCommonUserHome(@PathVariable String userName, Model model, HttpSession session) {
-        /*
-         * @PathVariable("xxx") 通过 @PathVariable
-         * 可以将URL中占位符参数{xxx}绑定到处理器类的方法形参中@PathVariable(“xxx“)
-         * 用于将请求URL中的模板变量映射到功能处理方法的参数上，即取出uri模板中的变量作为参数
-         */
-        System.out.println(userName);
-        CommonUser cUser = CommonUserTools.readOneUser(userName);
-        if (cUser != null) {
-            session.setAttribute("user", cUser);
-            model.addAttribute(cUser);
+    public String showCommonUserHome(@PathVariable String userName, HttpSession session) {
+        CommonUser commonUser = CommonUserTools.readOneUser(userName);
+        if (commonUser != null) {
+            session.setAttribute("commonUser", commonUser);
             return "redirect:/questionnaire";
         } else {
             return "redirect:/commonuser/login";
         }
     }
 
+
+    @RequestMapping(value = "/logout.do", method = GET)
+    public String logOut(HttpSession session) {
+        session.invalidate();
+        return "redirect:/";
+    }
 }
 

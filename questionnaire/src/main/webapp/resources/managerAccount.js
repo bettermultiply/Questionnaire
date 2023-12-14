@@ -44,10 +44,7 @@ for (var i = 0; i < trs.length; i++) {
 function myfunction(){
     alert("该管理员账户已成功删除！");
 }
-//添加管理员账号显示成功弹窗
-function functionmanager(){
-    alert("账户已添加！");
-}
+
 //显示修改自己信息成功
 function functionchange(){
     alert("修改成功！");
@@ -59,10 +56,9 @@ $(".change").click(function() {
 
 $(".cancel").click(function() {
     $('.changePage').hide();
-    $("#div_body").append("<p class='status'>钣金<img onclick='delRow(this)'  src='img/delete.png'/></p>")
 })
 $(".save").click(function() {
-    $('#changePage').hide();
+    $('.changePage').hide();
 })
 
 /* 删除 */
@@ -74,13 +70,6 @@ function delRow(obj) {
 /*账户注销*/
 function LogOut(){
     alert("注销成功！");
-    window.open('home.jsp');
-}
-
-/*用户账户修改*/
-function  changeUser(){
-    alert("修改成功！");
-    //想设置成返回原页面，奈何实力有限
-    window.open('managerUser.jsp');
+    //window.open('home.jsp');
 }
 

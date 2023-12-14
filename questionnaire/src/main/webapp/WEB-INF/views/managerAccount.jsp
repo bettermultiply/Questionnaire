@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>管理员首页</title>
     <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css"/>">
-    <link rel="stylesheet" href="<c:url value="/resources/css/userHome.css"/>">
+    <link href="<c:url value="/resources/css/userHome.css"/>" rel="stylesheet" type="text/css" >
     <link href="<c:url value="/resources/css/font-awesome.min.css"/>" rel="stylesheet" type="text/css">
     <link href="<c:url value="/resources/style.css"/>" rel="stylesheet" type="text/css">
 </head>
@@ -24,15 +24,16 @@
                 <span class="icon-bar"></span>
             </button>
             <img class="logo-img" src="<c:url value="/resources/images/logo2.png"/>" alt="图片加载失败">
+            <a class="navbar-brand" href="<c:url value="/manager/manageManager"/>">Questionnaire</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown"
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false"><c:out value="${manager.userName}" /><span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="<c:url value="/manager/managerinfo/${manager.userName}"/>">个人信息</a></li>
-                        <li><a onclick="LogOut()">注销登录</a></li>
+                        <li><a onclick="LogOut()" href="<c:url value="/manager/logout.do"/>">注销登录</a></li>
                     </ul>
                 </li>
                 <li>
@@ -51,95 +52,80 @@
     <li><a href="<c:url value="/manager/manageQuestionnaire"/>">问卷管理</a></li>
 </ul>
 <br>
-<form action="#" style="margin-left: 5px">
-    <a class="btn btn-info" href="<c:url value="/manager/add.do"/>" role="button" style="margin-left: 50px" target="_blank">创建一个管理员账号</a>
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="text" placeholder="管理员账号名.." name="search2">
+<form method="post" action="<c:url value="/manager/searchManager.do"/>" style="margin-left: 5px">
+    <a class="btn btn-info" href="<c:url value="/manager/add.do"/>" role="button" style="margin-left: 50px">创建一个管理员账号</a>
+    &nbsp;<c:choose>
+    <c:when test="${not empty searchManager}">
+        <input type="text"  name="userName" value="${searchManager.userName}" >
+    </c:when>
+    <c:otherwise>
+        <input type="text" placeholder="管理员账号名.." name="userName" >
+    </c:otherwise>
+    </c:choose>
     <button type="submit"><i class="fa fa-search"></i></button>
 </form>
 <br><br>
 <div class="table-responsive" style="text-align: center">
-
-    <c:if test="${not empty managerList}">
-        <table class="table" id="table">
-            <thead>
-            <tr>
-                <th style="text-align: center"><input type="checkbox" name="cb" id="firstCb"></th>
-                <th style="text-align: center">登录名</th>
-                <th style="text-align: center">操作</th>
-            </tr>
-            </thead>
-            <tbody>
-            <c:forEach var="manager" items="${managerList}">
+    <c:choose>
+        <c:when test="${not empty searchManager}">
+            <table class="table" id="table">
+                <thead>
                 <tr>
-                        <%--                    <td>${manager.id}</td>--%>
-                    <td><input type="checkbox" name="cb"></td>
-                    <td>${manager.userName}</td>
-                    <!-- 添加其他管理员信息的表格行 -->
-                    <td>
-                        <form style="width: 50%" method="post" action="<c:url value="/manager/delete.do"/>">
-                            <input type="hidden" onclick="myfunction()" name="managerId" value="${manager.id}">
-                            <button type="submit" class="btn btn-primary">
-                                <span>删除</span>
-                            </button>
-                        </form>
-
-                            <%--        <a href="javascript:void(0);" οnclick="document.getElementById('myform').submit();" id="agree" class="determine">--%>
-                            <%--            <input type="hidden"  name="managerId" value=''>删除</a>--%>
-                            <%--            <form id="myform" method="post" action="">--%>
-                            <%--            </form>--%>
-                        <button class="change">修改</button>
-                        <form class="form-horizontal changePage" role="form">
-                            <p class="changeHead">修改管理员信息</p>
-                            <div class="form-group">
-                                <label for="lastname1" class="col-sm-2 control-label col-sm-offset-1">姓</label>
-                                <div class="col-sm-6">
-                                    <input type="text" class="form-control" id="lastname1" placeholder="请输入姓">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="firstname1" class="col-sm-2 control-label col-sm-offset-1">名字</label>
-                                <div class="col-sm-6">
-                                    <input type="text" class="form-control" id="firstname1" placeholder="请输入名字">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="username1" class="col-sm-2 control-label col-sm-offset-1">用户名</label>
-                                <div class="col-sm-6">
-                                    <input type="text" class="form-control" id="username1" placeholder="请输入用户名">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="password1" class="col-sm-2 control-label col-sm-offset-1">密码</label>
-                                <div class="col-sm-6">
-                                    <input type="password" class="form-control" id="password1" placeholder="请输入密码">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="tel1" class="col-sm-2 control-label col-sm-offset-1">电话号码</label>
-                                <div class="col-sm-6">
-                                    <input type="tel" class="form-control" id="tel1" placeholder="请输入电话号码">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="email1" class="col-sm-2 control-label col-sm-offset-1">邮箱</label>
-                                <div class="col-sm-6">
-                                    <input type="email" class="form-control" id="email1" placeholder="请输入邮箱">
-                                </div>
-                            </div>
-                            <div style="text-align: center">
-                                <input type="button" value="取消" class="cancel" />
-                                <input type="button" value="保存" class="save" />
-                            </div>
-                        </form>
-                        <a href="<c:url value="/manager/managerinfo/${manager.userName}"/>"> <input type="button" value='查看'></a>
-                    </td>
+                    <th style="text-align: center"><input type="checkbox" name="cb" id="firstCb"></th>
+                    <th style="text-align: center">登录名</th>
+                    <th style="text-align: center">操作</th>
                 </tr>
-            </c:forEach>
-            </tbody>
-        </table>
-    </c:if>
-
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox" name="cb"></td>
+                        <td> <c:out value="${searchManager.userName}" /></td>
+                        <td>
+                            <form method="post" action="<c:url value="/manager/delete.do"/>">
+                                <input type="hidden" onclick="myfunction()" name="managerId" value="${searchManager.id}">
+                                <button type="submit" style="color: #0f0f0f;" >
+                                    删除
+                                </button>
+                            </form>
+                            <a href="<c:url value="/manager/changeManagerinfo/${searchManager.userName}"/>" ><input type="button" value='修改' style="color: #0f0f0f;"></a>
+                            <a href="<c:url value="/manager/managerinfo/${searchManager.userName}"/>"> <input type="button" value='查看' style="color: #0f0f0f;"></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </c:when>
+        <c:otherwise>
+            <c:if test="${not empty managerList}">
+                <table class="table" id="table">
+                    <thead>
+                    <tr>
+                        <th style="text-align: center"><input type="checkbox" name="cb" id="firstCb"></th>
+                        <th style="text-align: center">登录名</th>
+                        <th style="text-align: center">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach var="manager" items="${managerList}">
+                        <tr>
+                            <td><input type="checkbox" name="cb"></td>
+                            <td>${manager.userName}</td>
+                            <td>
+                                <form method="post" action="<c:url value="/manager/delete.do"/>">
+                                    <input type="hidden" onclick="myfunction()" name="managerId" value="${manager.id}">
+                                    <button type="submit" style="color: #0f0f0f;">
+                                        删除
+                                    </button>
+                                </form>
+                                <a href="<c:url value="/manager/changeManagerinfo/${manager.userName}"/>" > <input type="button" value='修改' style="color: #0f0f0f;"></a>
+                                <a href="<c:url value="/manager/managerinfo/${manager.userName}"/>"> <input type="button" value='查看' style="color: #0f0f0f;"></a>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+            </c:if>
+        </c:otherwise>
+    </c:choose>
 
     <div>
         <input type="button" id="selectAll" value="全选">

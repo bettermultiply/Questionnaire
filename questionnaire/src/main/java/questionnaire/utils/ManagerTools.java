@@ -27,8 +27,6 @@ public class ManagerTools {
 
             List<Manager> managers = query.list();
 
-            //System.out.println(managers);
-            // 提交事务
             session.getTransaction().commit();
 
             // 如果查询结果不为空，说明用户名和密码匹配
@@ -98,8 +96,6 @@ public class ManagerTools {
         List<Manager> managers = null;
         try (Session session = SessionFactorySource.getSessionFactory().openSession()) {
             session.beginTransaction();
-            // 使用HQL查询管理员对象
-            // 使用参数化查询，避免SQL注入
             String hql = "FROM Manager ";
             Query<Manager> query = session.createQuery(hql, Manager.class);
 
@@ -117,5 +113,15 @@ public class ManagerTools {
             e.printStackTrace();
         }
         return managers;
+    }
+
+    public static void updateOneManager(Manager manager){
+        try(Session session = SessionFactorySource.getSessionFactory().openSession()){
+            session.beginTransaction();
+            session.update(manager);
+            session.getTransaction().commit();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+        }
     }
 }

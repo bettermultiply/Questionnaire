@@ -23,7 +23,7 @@
                 <span class="icon-bar"></span>
             </button>
             <img class="logo-img" src="<c:url value="/resources/images/logo2.png"/>" alt="图片加载失败">
-            <a class="navbar-brand" href="#">Questionnaire</a>
+            <a class="navbar-brand" href="<c:url value="/"/>">Questionnaire</a>
         </div>
     </div><!-- /.container -->
 </nav>
@@ -86,6 +86,16 @@
                             <img class="icon" src="<c:url value="/resources/images/icons/submit-icon.svg" />" alt="submit icon">
                             提交问卷
                         </button>
+                    </div>
+                </c:when>
+                <c:when test="${not empty manager}">
+                    <div class="col-md-12 submitButton text-center">
+                        <a href="<c:url value="/manager/manageQuestionnaire"/>">
+                            <button type="button" class="btn btn-primary">
+                                <img class="icon" src="<c:url value="/resources/images/icons/edit-icon.svg"/>" alt="edit icon">
+                                返回审核页面
+                            </button>
+                        </a>
                     </div>
                 </c:when>
                 <c:otherwise>

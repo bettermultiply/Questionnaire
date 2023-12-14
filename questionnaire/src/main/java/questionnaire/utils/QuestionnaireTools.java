@@ -82,6 +82,11 @@ public class QuestionnaireTools {
         return readQuestionnaire(hql);
     }
 
+    public static List<QuestionnaireTable> readAllUncheckedQuestionnaires(){
+        String hql = "FROM QuestionnaireTable where is_checked=0";
+        return readQuestionnaire(hql);
+    }
+
     private static List<QuestionnaireTable> readQuestionnaire(String hql){
         List<QuestionnaireTable> tables = null;
         try(Session session = SessionFactorySource.getSessionFactory().openSession()){

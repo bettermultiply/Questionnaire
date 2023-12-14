@@ -1,4 +1,4 @@
-package questionnaire.web;
+package questionnaire.utils;
 
 import com.alibaba.fastjson.annotation.JSONField;
 

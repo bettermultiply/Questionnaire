@@ -35,11 +35,18 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">UserName<span class="caret"></span></a>
+                       aria-expanded="false">${commonUser.userName}<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="<c:url value="/commonuser/${commonUser.userName}"/>">个人信息</a></li>
-                        <li><a href="#">注销登录</a></li>
+                        <%--                        TODO the personal message page is not built--%>
+                        <li><a href="<c:url value="/questionnaire/info"/>">个人信息</a></li>
+                        <li><a href="<c:url value="/commonuser/logout.do"/>">注销登录</a></li>
                     </ul>
+                </li>
+                <li>
+                    <a href=" " target="_blank">
+                        <span class="glyphicon glyphicon-question-sign"></span>
+                        <strong class="size">帮助文档</strong>
+                    </a>
                 </li>
             </ul>
         </div><!-- /.navbar-collapse -->

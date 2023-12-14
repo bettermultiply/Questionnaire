@@ -23,15 +23,16 @@
                 <span class="icon-bar"></span>
             </button>
             <img class="logo-img" src="<c:url value="/resources/images/logo2.png"/>" alt="图片加载失败">
+            <a class="navbar-brand" href="<c:url value="/manager/manageManager"/>">Questionnaire</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">UserName<span class="caret"></span></a>
+                       aria-expanded="false"><c:out value="${manager.userName}" /><span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="viewMe.jsp">个人信息</a></li>
-                        <li><a onclick="LogOut()">注销登录</a></li>
+                        <li><a href="<c:url value="/manager/managerinfo/${manager.userName}"/>">个人信息</a></li>
+                        <li><a onclick="LogOut()" href="<c:url value="/manager/logout.do"/>">注销登录</a></li>
                     </ul>
                 </li>
                 <li>
@@ -46,52 +47,53 @@
 </nav>
 <br><br><br><br>
 <div class="container">
-    <form class="form-horizontal custom-form" role="form">
+    <form  method="post" class="form-horizontal custom-form" role="form">
         <div class="form-group">
             <div class="col-sm-1"></div>
             <label for="firstname" class="col-sm-2 control-label">姓</label>
             <div class="col-sm-6">
-                <input type="text" class="form-control custom-input" id="firstname" placeholder="请输入姓">
+                <input type="text" class="form-control custom-input" id="firstname" name="lastName" placeholder="请输入姓" value="${managerinfo.lastName}">
             </div>
         </div>
         <div class="form-group">
             <div class="col-sm-1"></div>
             <label for="lastname" class="col-sm-2 control-label">名</label>
             <div class="col-sm-6">
-                <input type="text" class="form-control custom-input" id="lastname" placeholder="请输入名">
+                <input type="text" class="form-control custom-input" id="lastname" name="firstName" placeholder="请输入名" value="${managerinfo.firstName}">
             </div>
         </div>
         <div class="form-group">
             <div class="col-sm-1"></div>
             <label for="username" class="col-sm-2 control-label">用户名</label>
             <div class="col-sm-6">
-                <input type="text" class="form-control custom-input" id="username" placeholder="请输入用户名">
+                <input type="text" class="form-control custom-input" id="username" name="userName" placeholder="请输入用户名" value="${managerinfo.userName}" required>
             </div>
         </div>
         <div class="form-group">
             <div class="col-sm-1"></div>
             <label for="password" class="col-sm-2 control-label">密码</label>
             <div class="col-sm-6">
-                <input type="password" class="form-control custom-input" id="password" placeholder="请输入密码">
+                <input type="password" class="form-control custom-input" id="password" name="password" placeholder="请输入密码" value="${managerinfo.password}" required>
             </div>
         </div>
         <div class="form-group">
             <div class="col-sm-1"></div>
             <label for="telephone" class="col-sm-2 control-label">电话号码</label>
             <div class="col-sm-6">
-                <input type="tel" class="form-control custom-input" id="telephone" placeholder="请输入电话号码">
+                <input type="tel" class="form-control custom-input" id="telephone" name="pho" placeholder="请输入电话号码" value="${managerinfo.phoneNo}">
             </div>
         </div>
         <div class="form-group">
             <div class="col-sm-1"></div>
             <label for="email" class="col-sm-2 control-label">邮箱</label>
             <div class="col-sm-6">
-                <input type="email" class="form-control custom-input" id="email" placeholder="请输入邮箱">
+                <input type="email" class="form-control custom-input" id="email" name="email" placeholder="请输入邮箱" value="${managerinfo.email}">
             </div>
         </div>
+        <input type="hidden" class="form-control custom-input" name="oldName" value="${managerinfo.userName}">
         <div class="form-group">
             <div class="col-sm-offset-5">
-                <button type="submit" class="btn btn-default" onclick="changeUser()">确定</button>
+                <input role="button" class="btn btn-default" type="submit" onclick="changeUserSucsess()" value="确定" />
             </div>
         </div>
     </form>

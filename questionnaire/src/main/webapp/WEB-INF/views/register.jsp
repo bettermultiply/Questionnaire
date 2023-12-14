@@ -26,6 +26,7 @@
                 <span class="icon-bar"></span>
             </button>
             <img class="logo-img" src="<c:url value="/resources/images/logo2.png"/>" alt="图片加载失败">
+            <a class="navbar-brand" href="<c:url value="/"/>">Questionnaire</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
@@ -48,26 +49,26 @@
             <div class="card card-body">
                 <h1 class="text-center mb-3">User Register</h1>
                 <form method="post">
-<%--                    <div class="form-group">--%>
-<%--                        <label for="LastName">姓</label>--%>
-<%--                        <input--%>
-<%--                                type="text"--%>
-<%--                                id="LastName"--%>
-<%--                                name="LastName"--%>
-<%--                                class="form-control"--%>
-<%--                                placeholder="Enter LastName"--%>
-<%--                        />--%>
-<%--                    </div>--%>
-<%--                    <div class="form-group">--%>
-<%--                        <label for="FirstName">名</label>--%>
-<%--                        <input--%>
-<%--                                type="text"--%>
-<%--                                id="FirstName"--%>
-<%--                                name="FirstName"--%>
-<%--                                class="form-control"--%>
-<%--                                placeholder="Enter FirstName"--%>
-<%--                        />--%>
-<%--                    </div>--%>
+                    <div class="form-group">
+                        <label for="LastName">姓</label>
+                        <input
+                                type="text"
+                                id="LastName"
+                                name="lastName"
+                                class="form-control"
+                                placeholder="Enter LastName"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="FirstName">名</label>
+                        <input
+                                type="text"
+                                id="FirstName"
+                                name="firstName"
+                                class="form-control"
+                                placeholder="Enter FirstName"
+                        />
+                    </div>
                     <div class="form-group">
                         <label for="UserName">用户名</label>
                         <input
@@ -76,7 +77,11 @@
                                 name="userName"
                                 class="form-control"
                                 placeholder="Enter UerName"
+                                required
                         />
+                        <c:if test="${not empty taken}" >
+                            <label style="color: darkred" >名字已被占用</label>
+                        </c:if>
                     </div>
                     <div class="form-group">
                         <label for="password">密码</label>
@@ -86,28 +91,29 @@
                                 name="password"
                                 class="form-control"
                                 placeholder="Enter Password"
+                                required
                         />
                     </div>
-<%--                    <div class="form-group">--%>
-<%--                        <label for="Pho">电话号码</label>--%>
-<%--                        <input--%>
-<%--                                type="tel"--%>
-<%--                                id="Pho"--%>
-<%--                                name="Pho"--%>
-<%--                                class="form-control"--%>
-<%--                                placeholder="Enter PhoNumber"--%>
-<%--                        />--%>
-<%--                    </div>--%>
-<%--                    <div class="form-group">--%>
-<%--                        <label for="email">电子邮箱</label>--%>
-<%--                        <input--%>
-<%--                                type="email"--%>
-<%--                                id="email"--%>
-<%--                                name="email"--%>
-<%--                                class="form-control"--%>
-<%--                                placeholder="Enter UerName"--%>
-<%--                        />--%>
-<%--                    </div> --%>
+                    <div class="form-group">
+                        <label for="Pho">电话号码</label>
+                        <input
+                                type="tel"
+                                id="Pho"
+                                name="pho"
+                                class="form-control"
+                                placeholder="Enter PhoNumber"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">电子邮箱</label>
+                        <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                class="form-control"
+                                placeholder="Enter UerName"
+                        />
+                    </div>
                     <input role="button" class="btn btn-primary btn-block" type="submit" value="Register" />
                 </form>
             </div>

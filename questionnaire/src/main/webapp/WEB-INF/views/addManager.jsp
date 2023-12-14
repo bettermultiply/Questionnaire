@@ -27,6 +27,7 @@
                 <span class="icon-bar"></span>
             </button>
             <img class="logo-img" src="<c:url value="/resources/images/logo2.png"/>" alt="图片加载失败">
+            <a class="navbar-brand" href="<c:url value="/manager/manageManager"/>">Questionnaire</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
@@ -34,8 +35,8 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">UserName<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="<c:url value="/manager/${manager.userName}/viewMe"/>">个人信息</a></li>
-                        <li><a onclick="LogOut()">注销登录</a></li>
+                        <li><a href="<c:url value="/manager/managerinfo/${manager.userName}"/>">个人信息</a></li>
+                        <li><a onclick="LogOut()" href="<c:url value="/manager/logout.do"/>">注销登录</a></li>
                     </ul>
                 </li>
                 <li>
@@ -51,26 +52,29 @@
 <br><br><br><br>
 <div class="container">
     <sf:form method="POST" modelAttribute="manager" class="form-horizontal custom-form" role="form">
-<%--        <div class="form-group">--%>
-<%--            <div class="col-sm-1"></div>--%>
-<%--            <label for="firstname" class="col-sm-2 control-label">姓</label>--%>
-<%--            <div class="col-sm-6">--%>
-<%--                <sf:input path="firstName" type="text" class="form-control custom-input" id="firstname" placeholder="请输入姓" />--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--        <div class="form-group">--%>
-<%--            <div class="col-sm-1"></div>--%>
-<%--            <label for="lastname" class="col-sm-2 control-label">名</label>--%>
-<%--            <div class="col-sm-6">--%>
-<%--                <sf:input path="lastName" type="text" class="form-control custom-input" id="lastname" placeholder="请输入名" />--%>
-<%--            </div>--%>
-<%--        </div>--%>
+        <div class="form-group">
+            <div class="col-sm-1"></div>
+            <label for="firstname" class="col-sm-2 control-label">姓</label>
+            <div class="col-sm-6">
+                <sf:input path="firstName" type="text" class="form-control custom-input" id="firstname" placeholder="请输入姓" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-1"></div>
+            <label for="lastname" class="col-sm-2 control-label">名</label>
+            <div class="col-sm-6">
+                <sf:input path="lastName" type="text" class="form-control custom-input" id="lastname" placeholder="请输入名" />
+            </div>
+        </div>
         <div class="form-group">
             <div class="col-sm-1"></div>
             <label for="username" class="col-sm-2 control-label">用户名</label>
             <div class="col-sm-6">
                 <sf:input path="userName" type="text" class="form-control custom-input" id="username" placeholder="请输入用户名" />
             </div>
+            <c:if test="${not empty taken}" >
+                <label style="color: darkred" >名字已被占用</label>
+            </c:if>
         </div>
         <div class="form-group">
             <div class="col-sm-1"></div>
@@ -79,20 +83,20 @@
                 <sf:input path="password" type="password" class="form-control custom-input" id="password" placeholder="请输入密码" />
             </div>
         </div>
-<%--        <div class="form-group">--%>
-<%--            <div class="col-sm-1"></div>--%>
-<%--            <label for="telephone" class="col-sm-2 control-label">电话号码</label>--%>
-<%--            <div class="col-sm-6">--%>
-<%--                <sf:input path="telephone" type="tel" class="form-control custom-input" id="telephone" placeholder="请输入电话号码" />--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--        <div class="form-group">--%>
-<%--            <div class="col-sm-1"></div>--%>
-<%--            <label for="email" class="col-sm-2 control-label">邮箱</label>--%>
-<%--            <div class="col-sm-6">--%>
-<%--                <sf:input path="email" type="email" class="form-control custom-input" id="email" placeholder="请输入邮箱" />--%>
-<%--            </div>--%>
-<%--        </div>--%>
+        <div class="form-group">
+            <div class="col-sm-1"></div>
+            <label for="telephone" class="col-sm-2 control-label">电话号码</label>
+            <div class="col-sm-6">
+                <sf:input path="phoneNo" type="tel" class="form-control custom-input" id="telephone" placeholder="请输入电话号码" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-1"></div>
+            <label for="email" class="col-sm-2 control-label">邮箱</label>
+            <div class="col-sm-6">
+                <sf:input path="email" type="email" class="form-control custom-input" id="email" placeholder="请输入邮箱" />
+            </div>
+        </div>
         <div class="form-group">
             <div class="col-sm-offset-5">
                 <input type="submit" class="btn btn-default" onclick="functionmanager()" value="确定" />

@@ -22,7 +22,7 @@
                 <span class="icon-bar"></span>
             </button>
             <img class="logo-img" src="<c:url value="/resources/images/logo2.png"/>" alt="图片加载失败">
-            <a class="navbar-brand" href="#">Questionnaire</a>
+            <a class="navbar-brand" href="<c:url value="/"/>">Questionnaire</a>
         </div>
     </div><!-- /.container -->
 </nav>

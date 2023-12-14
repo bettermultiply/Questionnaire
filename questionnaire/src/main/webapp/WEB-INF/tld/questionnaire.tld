@@ -9,7 +9,7 @@
 
     <tag>
         <name>handleResult</name>
-        <tag-class>questionnaire.web.CountResult</tag-class>
+        <tag-class>questionnaire.web.myTag.CountResult</tag-class>
         <body-content>empty</body-content>
         <attribute>
             <name>question</name>
