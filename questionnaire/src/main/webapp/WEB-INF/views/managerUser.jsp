@@ -22,6 +22,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
+            <a class="navbar-brand" href="<c:url value="/manager/manageManager"/>">Questionnaire</a>
             <img class="logo-img" src="<c:url value="/resources/images/logo2.png"/>" alt="图片加载失败">
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -95,7 +96,6 @@
             <tbody>
             <c:forEach var="commonUser" items="${commonUserList}">
                 <tr>
-                        <%--                    <td>${manager.id}</td>--%>
                     <td><input type="checkbox" name="cb"></td>
                     <td>${commonUser.userName}</td>
                             <td>

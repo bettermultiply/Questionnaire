@@ -42,7 +42,12 @@ public class CommonUserController {
                                      @RequestParam(value = "userName", defaultValue = "") String userName,
                                      @RequestParam(value = "password", defaultValue = "") String password,
                                      @RequestParam(value = "pho", defaultValue = "") String pho,
-                                     @RequestParam(value = "email", defaultValue = "") String email,HttpSession session){
+                                     @RequestParam(value = "email", defaultValue = "") String email,Model model){
+
+        if(CommonUserTools.readOneUser(userName)!=null){
+            model.addAttribute("taken", true);
+            return "register";
+        }
         CommonUser commonUser=new CommonUser();
         commonUser.setFirstName(firstName);
         commonUser.setLastName(lastName);

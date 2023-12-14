@@ -7,8 +7,8 @@
         <id name="id" type="java.lang.String" column="id">
             <generator class="uuid" />
         </id>
-        <property name="userName" type="java.lang.String" column="username" />
-        <property name="password" type="java.lang.String" column="password" />
+        <property name="userName" type="java.lang.String" column="username" unique="true" not-null="true"/>
+        <property name="password" type="java.lang.String" column="password" not-null="true"/>
         <property name="email" type="java.lang.String" column="email" />
         <property name="firstName" type="java.lang.String" column="firstname" />
         <property name="lastName" type="java.lang.String" column="lastname" />

@@ -7,6 +7,9 @@ import questionnaire.database.ChoiceResult;
 
 import java.util.List;
 
+/**
+ * the class is used to find Choice by Hibernate
+ */
 public class ChoiceResultTools {
 
     public static void createChoiceResult(ChoiceResult choiceResult){

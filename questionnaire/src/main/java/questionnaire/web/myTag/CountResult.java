@@ -10,10 +10,7 @@ import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * calculate the Result and format it into which the eChartCloud can use
@@ -34,6 +31,7 @@ public class CountResult extends SimpleTagSupport {
      * record
      */
     Map<Integer, Integer> choiceCount = new HashMap<>();
+    Map<Integer, String> choiceOrder = new HashMap<>();
 
 
     @Override
@@ -57,10 +55,11 @@ public class CountResult extends SimpleTagSupport {
 
         } else {
 
-            int count = ((QChoose)question).getChoices().size();
+            Set<Choice> choices = ((QChoose)question).getChoices();
 
-            for(int i=1 ; i<=count; i++){
-                choiceCount.put(i, 0);
+            for(Choice c: choices){
+                choiceCount.put(c.getcOrder(), 0);
+                choiceOrder.put(c.getcOrder(), c.getChoiceContent());
             }
 
             for(QuestionTypeResult result: qResults){
@@ -70,11 +69,12 @@ public class CountResult extends SimpleTagSupport {
                     choiceCount.replace(order, choiceCount.get(order)+1);
                 }
             }
+
             String xData = "";
             String sData = "[";
-            for(Integer order: choiceCount.keySet()){
-                xData += order.toString() + ",";
-                sData += choiceCount.get(order).toString() + ",";
+            for(int i=1; i<=choices.size(); i++){
+                xData += choiceOrder.get(i) + ",";
+                sData += choiceCount.get(i).toString() + ",";
             }
             xData = xData.substring(0, xData.length()-1);
             sData += "]";

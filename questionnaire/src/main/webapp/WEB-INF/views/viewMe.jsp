@@ -23,6 +23,7 @@
                 <span class="icon-bar"></span>
             </button>
             <img class="logo-img" src="<c:url value="/resources/images/logo2.png"/>" alt="图片加载失败">
+            <a class="navbar-brand" href="<c:url value="/manager/manageManager"/>">Questionnaire</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
@@ -30,7 +31,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false"><c:out value="${manager.userName}" /><span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="<c:url value="/manager/managerinfo/${manager.userName}"/>">个人信息</a></li>
+                        <li><a href="viewMe.jsp">个人信息</a></li>
                         <li><a onclick="LogOut()" href="<c:url value="/manager/logout.do"/>">注销登录</a></li>
                     </ul>
                 </li>

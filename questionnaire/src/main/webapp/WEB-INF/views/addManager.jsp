@@ -27,6 +27,7 @@
                 <span class="icon-bar"></span>
             </button>
             <img class="logo-img" src="<c:url value="/resources/images/logo2.png"/>" alt="图片加载失败">
+            <a class="navbar-brand" href="<c:url value="/manager/manageManager"/>">Questionnaire</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
@@ -71,6 +72,9 @@
             <div class="col-sm-6">
                 <sf:input path="userName" type="text" class="form-control custom-input" id="username" placeholder="请输入用户名" />
             </div>
+            <c:if test="${not empty taken}" >
+                <label style="color: darkred" >名字已被占用</label>
+            </c:if>
         </div>
         <div class="form-group">
             <div class="col-sm-1"></div>

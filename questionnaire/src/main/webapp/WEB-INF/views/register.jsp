@@ -26,6 +26,7 @@
                 <span class="icon-bar"></span>
             </button>
             <img class="logo-img" src="<c:url value="/resources/images/logo2.png"/>" alt="图片加载失败">
+            <a class="navbar-brand" href="<c:url value="/"/>">Questionnaire</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
@@ -76,7 +77,11 @@
                                 name="userName"
                                 class="form-control"
                                 placeholder="Enter UerName"
+                                required
                         />
+                        <c:if test="${not empty taken}" >
+                            <label style="color: darkred" >名字已被占用</label>
+                        </c:if>
                     </div>
                     <div class="form-group">
                         <label for="password">密码</label>
@@ -86,6 +91,7 @@
                                 name="password"
                                 class="form-control"
                                 placeholder="Enter Password"
+                                required
                         />
                     </div>
                     <div class="form-group">
