@@ -81,7 +81,6 @@
                                     <span>删除</span>
                                 </button>
                             </form>
-
                             <button class="change">修改</button>
                             <form method="post" class="form-horizontal changePage" role="form">
                                 <p class="changeHead">修改管理员信息</p>

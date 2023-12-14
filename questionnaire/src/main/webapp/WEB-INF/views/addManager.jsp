@@ -35,7 +35,7 @@
                        aria-expanded="false">UserName<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="<c:url value="/manager/managerinfo/${manager.userName}"/>">个人信息</a></li>
-                        <li><a onclick="LogOut()">注销登录</a></li>
+                        <li><a onclick="LogOut()" href="<c:url value="/manager/logout.do"/>">注销登录</a></li>
                     </ul>
                 </li>
                 <li>

@@ -23,7 +23,7 @@
                 <span class="icon-bar"></span>
             </button>
             <img class="logo-img" src="<c:url value="/resources/images/logo2.png"/>" alt="图片加载失败">
-            <a class="navbar-brand" href="#">Questionnaire</a>
+            <a class="navbar-brand" href="<c:url value="/questionnaire"/>">Questionnaire</a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -32,9 +32,15 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">${commonUser.userName}<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">个人信息</a></li>
-                        <li><a href="#">注销登录</a></li>
+                        <li><a href="<c:url value="/questionnaire/info"/>">个人信息</a></li>
+                        <li><a onclick="LogOut()"  href="<c:url value="/commonuser/logout.do"/>">注销登录</a></li>
                     </ul>
+                </li>
+                <li>
+                    <a href=" " target="_blank">
+                        <span class="glyphicon glyphicon-question-sign"></span>
+                        <strong class="size">帮助文档</strong>
+                    </a>
                 </li>
             </ul>
         </div>
@@ -53,13 +59,6 @@
                 <strong>统计数据</strong>
             </div>
         </div>
-        <div class="col-md-2 col-md-offset-8">
-            <form method="post" action="">
-                <button type="button" class="btn btn-primary addQuestionnaire">
-                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>全部展开
-                </button>
-            </form>
-        </div>
     </div>
     <script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
 
@@ -68,9 +67,7 @@
             <div class="questionnaire-info col-md-12 img-thumbnail">
                 <div class="col-md-10">
                     <p><c:out value="${question.description}" /></p>
-<%--                    <a href="#">--%>
                         <img class="icon" src="<c:url value="/resources/images/icons/comment-question.svg"/>" alt="link svg">
-<%--                    </a>--%>
                 </div>
                 <div class="col-md-2 questionnaire-option">
                     <ques:handleResult question="${question}" iCount="${status.count}"/>
@@ -100,55 +97,18 @@
                         var sData = document.getElementById("sData-${status.count}");
                         buildEchart("chart-${status.count}", xData.value, sData.value);
                     }
+                    document.getElementById("button-${status.count}").innerText = "折叠图表"
 
                 });
             });
             $(function(){
                 $("#collapse-chart-${status.count}").on("hidden.bs.collapse",function(){
                     echarts.init(document.getElementById("chart-${status.count}")).dispose();
+                    document.getElementById("button-${status.count}").innerText = "展开图表"
                 });
             });
         </script>
     </c:forEach>
-
-
-    <div class="question-chart col-md-12">
-        <div class="questionnaire-info col-md-12 img-thumbnail">
-            <div class="col-md-10">
-                <p>问题 1</p>
-                <a href="#">
-                    <img class="icon" src="<c:url value="/resources/images/icons/comment-question.svg"/>" alt="link svg">
-                </a>
-            </div>
-            <div class="col-md-2 questionnaire-option">
-                <button id="button-0" type="button" aria-expanded="false" class="btn btn-primary" data-toggle="collapse" data-target="#collapse-chart">折叠图标</button>
-            </div>
-        </div>
-        <div id="collapse-chart" class="collapse">
-            <div class="img-thumbnail chart-margin">
-                <div id="chart-0" class="chart" ></div>
-            </div>
-        </div>
-
-    </div>
-<br>
-    <div class="question-chart col-md-12">
-        <div class="questionnaire-info col-md-12 img-thumbnail">
-            <div class="col-md-6">
-                <p>问题 1</p>
-                <a href="#">
-                    <img class="icon" src="<c:url value="/resources/images/icons/comment-question.svg"/>" alt="link svg">
-                </a>
-            </div>
-        </div>
-
-        <div class="question-chart">
-            <div class="img-thumbnail chart-margin" >
-                <div id="chart-11" class="chart"></div>
-            </div>
-        </div>
-
-    </div>
 
 </div>
 <div class="clearfix"></div>

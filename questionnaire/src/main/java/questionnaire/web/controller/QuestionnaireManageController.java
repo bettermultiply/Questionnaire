@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import questionnaire.database.CommonUser;
 import questionnaire.database.QuestionType;
 import questionnaire.database.QuestionnaireTable;
+import questionnaire.utils.CommonUserTools;
 import questionnaire.utils.QuestionTools;
 import questionnaire.web.dao.QuestionnaireDao;
 
@@ -17,6 +18,8 @@ import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 @Controller
 @RequestMapping("/questionnaire")
@@ -48,6 +51,11 @@ public class QuestionnaireManageController {
         model.addAttribute("currentPage", page);
 
         return "userHome";
+    }
+
+    @RequestMapping(value ="/info",method = GET) // 相应的请求方法
+    public String showCommonUserInfo(){
+        return "viewUserSelf";
     }
 
     /**

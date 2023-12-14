@@ -67,32 +67,28 @@ public class CommonUserController {
     public String commonUserLogin(@RequestParam(value = "userName", defaultValue = "") String userName,
                                   @RequestParam(value = "password", defaultValue = "") String password, HttpSession session){
 
-        System.out.println(userName);
-        System.out.println(password);
         CommonUser commonUser = CommonUserTools.verifyUser(userName, password);
         if(commonUser != null ){
             session.setAttribute("commonUser",commonUser);
-            //return "managerAccount";
-            return "redirect:/commonuser/"+commonUser.getUserName();
+            return "redirect:/questionnaire";
         }else {
             return "redirect:/commonuser/login";
         }
     }
 
     /**
-     * 用户信息页面
+     * 展示用户主页面
      *
      * @param userName
-     * @param model
+     * @param session
      * @return
      */
     @RequestMapping(value = "/{userName}", method = GET)
-    public String showCommonUserHome(@PathVariable String userName, Model model) {
-        System.out.println(userName);
-        CommonUser cUser = CommonUserTools.readOneUser(userName);
-        if (cUser != null) {
-            model.addAttribute(cUser);
-            return "userHome";
+    public String showCommonUserHome(@PathVariable String userName, HttpSession session) {
+        CommonUser commonUser = CommonUserTools.readOneUser(userName);
+        if (commonUser != null) {
+            session.setAttribute("commonUser", commonUser);
+            return "redirect:/questionnaire";
         } else {
             return "redirect:/commonuser/login";
         }
