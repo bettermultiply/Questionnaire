@@ -14,6 +14,9 @@ import questionnaire.utils.CommonUserTools;
 import questionnaire.utils.QuestionTools;
 import questionnaire.web.dao.QuestionnaireDao;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -38,9 +41,21 @@ public class QuestionnaireManageController {
      * @return 问卷列表的JSP页面
      */
     @RequestMapping(method = RequestMethod.GET)
-    public String getQuestionnairePage(HttpSession session, Model model){
-        int page = 0;
-        String userId = ((CommonUser)session.getAttribute("commonUser")).getUserId();
+    public String getQuestionnairePage(HttpSession session, Model model, HttpServletRequest request, HttpServletResponse response) {
+           int page = 0;
+            CommonUser commonUser=((CommonUser) session.getAttribute("commonUser"));
+            //初次登录，添加用户cookie到浏览器，实现后续访问的自动登录
+            Cookie [] cookies=request.getCookies();
+                for (Cookie cookie : cookies) {
+                String cookieName = cookie.getName();
+                if (!"userName".equals(cookieName)) {
+                    Cookie userCookie=new Cookie("userName",commonUser.getUserName());
+                    cookie.setMaxAge(-1);
+                    cookie.setPath("/questionnaire/questionnaire");
+                    response.addCookie(userCookie);
+                }
+            }
+        String  userId = commonUser.getUserId();
         ArrayList<QuestionnaireTable> questionnaireTables = (ArrayList<QuestionnaireTable>)
                 questionnaireDao.getAllQuestionnaires(userId);
         int totalPage = questionnaireTables.size() / 8;
