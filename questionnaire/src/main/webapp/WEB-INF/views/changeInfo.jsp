@@ -48,54 +48,56 @@
 <br><br><br><br>
 <div class="container">
     <form  method="post" class="form-horizontal custom-form" role="form">
+<c:if test="${not empty User}">
         <div class="form-group">
             <div class="col-sm-1"></div>
             <label for="firstname" class="col-sm-2 control-label">姓</label>
             <div class="col-sm-6">
-                <input type="text" class="form-control custom-input" id="firstname" name="lastName" placeholder="请输入姓" value="${managerinfo.lastName}">
+                <input type="text" class="form-control custom-input" id="firstname" name="lastName" placeholder="请输入姓" value="${User.lastName}">
             </div>
         </div>
         <div class="form-group">
             <div class="col-sm-1"></div>
             <label for="lastname" class="col-sm-2 control-label">名</label>
             <div class="col-sm-6">
-                <input type="text" class="form-control custom-input" id="lastname" name="firstName" placeholder="请输入名" value="${managerinfo.firstName}">
+                <input type="text" class="form-control custom-input" id="lastname" name="firstName" placeholder="请输入名" value="${User.firstName}">
             </div>
         </div>
         <div class="form-group">
             <div class="col-sm-1"></div>
             <label for="username" class="col-sm-2 control-label">用户名</label>
             <div class="col-sm-6">
-                <input type="text" class="form-control custom-input" id="username" name="userName" placeholder="请输入用户名" value="${managerinfo.userName}" required>
+                <input type="text" class="form-control custom-input" id="username" name="userName" placeholder="请输入用户名" value="${User.userName}" required>
             </div>
         </div>
         <div class="form-group">
             <div class="col-sm-1"></div>
             <label for="password" class="col-sm-2 control-label">密码</label>
             <div class="col-sm-6">
-                <input type="password" class="form-control custom-input" id="password" name="password" placeholder="请输入密码" value="${managerinfo.password}" required>
+                <input type="password" class="form-control custom-input" id="password" name="password" placeholder="请输入密码" value="${User.password}" required>
             </div>
         </div>
         <div class="form-group">
             <div class="col-sm-1"></div>
             <label for="telephone" class="col-sm-2 control-label">电话号码</label>
             <div class="col-sm-6">
-                <input type="tel" class="form-control custom-input" id="telephone" name="pho" placeholder="请输入电话号码" value="${managerinfo.phoneNo}">
+                <input type="tel" class="form-control custom-input" id="telephone" name="pho" placeholder="请输入电话号码" value="${User.phoneNo}">
             </div>
         </div>
         <div class="form-group">
             <div class="col-sm-1"></div>
             <label for="email" class="col-sm-2 control-label">邮箱</label>
             <div class="col-sm-6">
-                <input type="email" class="form-control custom-input" id="email" name="email" placeholder="请输入邮箱" value="${managerinfo.email}">
+                <input type="email" class="form-control custom-input" id="email" name="email" placeholder="请输入邮箱" value="${User.email}">
             </div>
         </div>
-        <input type="hidden" class="form-control custom-input" name="oldName" value="${managerinfo.userName}">
+        <input type="hidden" class="form-control custom-input" name="oldName" value="${User.userName}">
         <div class="form-group">
             <div class="col-sm-offset-5">
                 <input role="button" class="btn btn-default" type="submit" onclick="changeUserSucsess()" value="确定" />
             </div>
         </div>
+</c:if>
     </form>
 </div>
 

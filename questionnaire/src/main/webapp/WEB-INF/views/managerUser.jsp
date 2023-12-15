@@ -83,8 +83,7 @@
             </tbody>
         </table>
     </c:when>
-    <c:otherwise>
-    <c:if test="${not empty commonUserList}">
+    <c:when test="${not empty commonUserList}">
         <table class="table" id="table">
             <thead>
             <tr>
@@ -106,10 +105,11 @@
             </c:forEach>
             </tbody>
         </table>
-    </c:if>
+    </c:when>
+    <c:otherwise>
+        CommonUserList is Empty now!
     </c:otherwise>
     </c:choose>
-    CommonUserList is Empty now!
 </div>
 
 <div class="container-fluid footer">

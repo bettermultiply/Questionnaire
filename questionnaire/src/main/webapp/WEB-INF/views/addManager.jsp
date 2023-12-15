@@ -72,8 +72,8 @@
             <div class="col-sm-6">
                 <sf:input path="userName" type="text" class="form-control custom-input" id="username" placeholder="请输入用户名" />
             </div>
-            <c:if test="${not empty taken}" >
-                <label style="color: darkred" >名字已被占用</label>
+            <c:if test="${not empty duplicateName}" >
+                <label style="color: darkred" >名字<c:out value="${duplicateName}"/>已被占用</label>
             </c:if>
         </div>
         <div class="form-group">

@@ -9,7 +9,12 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import questionnaire.database.CommonUser;
 import questionnaire.utils.CommonUserTools;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import java.util.Arrays;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -36,14 +41,25 @@ public class CommonUserController {
         return "register";
     }
 
+    /**
+     *
+     * @param lastName
+     * @param firstName
+     * @param userName
+     * @param password
+     * @param pho
+     * @param email
+     * @param model
+     * @return
+     */
     @RequestMapping(value ="/register",method =POST) // 相应的请求方法
     public String commonUserRegister(@RequestParam(value = "lastName", defaultValue = "") String lastName,
                                      @RequestParam(value = "firstName", defaultValue = "") String firstName,
                                      @RequestParam(value = "userName", defaultValue = "") String userName,
                                      @RequestParam(value = "password", defaultValue = "") String password,
                                      @RequestParam(value = "pho", defaultValue = "") String pho,
-                                     @RequestParam(value = "email", defaultValue = "") String email,Model model){
-
+                                     @RequestParam(value = "email", defaultValue = "") String email,
+                                     Model model){
         if(CommonUserTools.readOneUser(userName)!=null){
             model.addAttribute("taken", true);
             return "register";
@@ -64,37 +80,34 @@ public class CommonUserController {
 
 
     @RequestMapping(value ="/login",method = GET) // 相应的请求方法
-    public String commonUserLogin(Model model){
+    public String commonUserLogin(Model model,HttpServletRequest request,HttpSession session){
+        //若cookie校验通过则自动登录
+        Cookie[] cookies = request.getCookies();
+        if(cookies != null && cookies.length>0){
+            for(Cookie cookie : cookies){
+                String cookieName = cookie.getName();
+                if("userName".equals(cookieName)){
+                    String cookieValue = cookie.getValue();
+                    CommonUser commonUser = CommonUserTools.readOneUser(cookieValue);
+                    if(commonUser!=null){
+                        model.addAttribute("userName",commonUser.getUserName());
+                        model.addAttribute("password",commonUser.getPassword());
+                    }
+                }
+            }
+        }
         return "loginUser";
     }
 
     @RequestMapping(value ="/login",method = POST) // 相应的请求方法
     public String commonUserLogin(@RequestParam(value = "userName", defaultValue = "") String userName,
-                                  @RequestParam(value = "password", defaultValue = "") String password, HttpSession session){
+                                  @RequestParam(value = "password", defaultValue = "") String password, HttpSession session,HttpServletResponse response){
 
         CommonUser commonUser = CommonUserTools.verifyUser(userName, password);
         if(commonUser != null ){
             session.setAttribute("commonUser",commonUser);
             return "redirect:/questionnaire";
         }else {
-            return "redirect:/commonuser/login";
-        }
-    }
-
-    /**
-     * 展示用户主页面
-     *
-     * @param userName
-     * @param session
-     * @return
-     */
-    @RequestMapping(value = "/{userName}", method = GET)
-    public String showCommonUserHome(@PathVariable String userName, HttpSession session) {
-        CommonUser commonUser = CommonUserTools.readOneUser(userName);
-        if (commonUser != null) {
-            session.setAttribute("commonUser", commonUser);
-            return "redirect:/questionnaire";
-        } else {
             return "redirect:/commonuser/login";
         }
     }
