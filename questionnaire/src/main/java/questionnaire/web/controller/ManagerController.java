@@ -224,19 +224,21 @@ public class ManagerController {
             @RequestParam(value = "email", defaultValue = "") String email,
             @RequestParam(value = "oldName",defaultValue = "") String  oldName,
             Model model) {
-        if(!userName.equals("admin")) {
-            if(managerDao.findManagerByUserName(userName) != null){
-                model.addAttribute("duplicateName", userName);
-                return "redirect:/manager/changeManagerinfo/"+oldName;
-            }
+        if(!oldName.equals("admin")) {
             Manager oldManager = managerDao.findManagerByUserName(oldName);
-            oldManager.setFirstName(firstName);
-            oldManager.setLastName(lastName);
-            oldManager.setUserName(userName);
-            oldManager.setPassword(password);
-            oldManager.setPhoneNo(pho);
-            oldManager.setEmail(email);
-            managerDao.updateOneManager(oldManager);
+                if(managerDao.findManagerByUserName(userName) != null){
+                    if(!userName.equals(oldName)){
+                        model.addAttribute("duplicateName", userName);
+                        return "redirect:/manager/changeManagerinfo/" + oldName;
+                    }
+                }
+                    oldManager.setFirstName(firstName);
+                    oldManager.setLastName(lastName);
+                    oldManager.setUserName(userName);
+                    oldManager.setPassword(password);
+                    oldManager.setPhoneNo(pho);
+                    oldManager.setEmail(email);
+                    managerDao.updateOneManager(oldManager);
         }
         return "redirect:/manager/manageManager";
     }
@@ -266,11 +268,13 @@ public class ManagerController {
             @RequestParam(value = "email", defaultValue = "") String email,
             @RequestParam(value = "oldName", defaultValue = "") String oldName,
             Model model) {
-        if(commonUserDao.readOneUser(userName) != null){
-            model.addAttribute("duplicateName", userName);
-            return "redirect:/manager/changeuserinfo/"+oldName;
-        }
         CommonUser oldCommonUser = commonUserDao.readOneUser(oldName);
+        if(commonUserDao.readOneUser(userName) != null){
+            if(!userName.equals(oldName)){
+                model.addAttribute("duplicateName", userName);
+                return "redirect:/manager/changeuserinfo/"+oldName;
+            }
+        }
         oldCommonUser.setFirstName(firstName);
         oldCommonUser.setLastName(lastName);
         oldCommonUser.setUserName(userName);
