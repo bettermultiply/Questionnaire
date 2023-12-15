@@ -31,6 +31,9 @@ public class QuestionnaireAnswerController {
     @RequestMapping(value = "/{questionnaireId}", method = RequestMethod.GET)
     public String getAnswerQuestionnairePage(@PathVariable("questionnaireId") String questionnaireId, Model model){
         QuestionnaireTable questionnaireTable = questionnaireDao.getOneQuestionnaire(questionnaireId);
+        if (!questionnaireTable.getIsChecked()){
+            return "unChecked";
+        }
         model.addAttribute("questionnaire", questionnaireTable);
 
         return "questionnaire";
