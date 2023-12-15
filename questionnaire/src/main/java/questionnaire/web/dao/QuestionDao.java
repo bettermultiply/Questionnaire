@@ -1,8 +1,6 @@
 package questionnaire.web.dao;
 
-import questionnaire.database.Choice;
 import questionnaire.database.QuestionType;
-import questionnaire.utils.QuestionTools;
 
 import java.util.List;
 

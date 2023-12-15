@@ -1,17 +1,11 @@
-package questionnaire.web;
+package questionnaire.web.controller;
 
 import org.hibernate.HibernateException;
-import org.hibernate.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import questionnaire.database.*;
-import questionnaire.utils.QuestionnaireTools;
-import questionnaire.utils.SessionFactorySource;
 
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 

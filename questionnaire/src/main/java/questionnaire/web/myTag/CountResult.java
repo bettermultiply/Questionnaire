@@ -1,9 +1,10 @@
 package questionnaire.web.myTag;
 
 import com.alibaba.fastjson.JSON;
+import org.springframework.beans.factory.annotation.Autowired;
 import questionnaire.database.*;
-import questionnaire.utils.QuestionResultTools;
 import questionnaire.utils.TextConstruct;
+import questionnaire.web.dao.QuestionResultDao;
 
 import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.JspWriter;
@@ -16,6 +17,8 @@ import java.util.*;
  * calculate the Result and format it into which the eChartCloud can use
  */
 public class CountResult extends SimpleTagSupport {
+    @Autowired
+    private QuestionResultDao questionResultDao;
 
     /**
      * the question to be calculated
@@ -41,7 +44,7 @@ public class CountResult extends SimpleTagSupport {
         HttpSession session = context.getSession();
         JspWriter out = context.getOut();
 
-        List<QuestionTypeResult> qResults= QuestionResultTools.readResultsByModel(this.question.getQuestionId());
+        List<QuestionTypeResult> qResults= questionResultDao.readResultsByModel(this.question.getQuestionId());
         if(question.getQuestionType()){
 
             List<TextConstruct> lists = new ArrayList<>();

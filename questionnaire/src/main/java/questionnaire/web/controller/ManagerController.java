@@ -1,4 +1,4 @@
-package questionnaire.web;
+package questionnaire.web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,9 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import questionnaire.database.CommonUser;
 import questionnaire.database.Manager;
 import questionnaire.database.QuestionnaireTable;
-import questionnaire.utils.CommonUserTools;
-import questionnaire.utils.ManagerTools;
-import questionnaire.utils.QuestionnaireTools;
+import questionnaire.web.dao.CommonUserDao;
+import questionnaire.web.dao.ManagerDao;
 import questionnaire.web.dao.impl.QuestionnaireDaoImpl;
 
 import javax.servlet.http.HttpSession;
@@ -31,6 +30,10 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 @Controller
 @RequestMapping("/manager") // manager web path
 public class ManagerController {
+    @Autowired
+    private CommonUserDao commonUserDao;
+    @Autowired
+    private ManagerDao managerDao;
     @Autowired
     private QuestionnaireDaoImpl questionnaireDao;
     /**
@@ -55,7 +58,7 @@ public class ManagerController {
     @RequestMapping(value = "/login", method = POST)
     public String processManagerLogin(@RequestParam(value = "userName", defaultValue = "") String userName,
                                       @RequestParam(value = "password", defaultValue = "") String password, HttpSession session, Model model) {
-        Manager manager = ManagerTools.verifyManager(userName, password);
+        Manager manager = managerDao.verifyManager(userName, password);
         if (manager != null) {
             session.setAttribute("manager", manager);
             return "redirect:/manager/manageManager";
@@ -74,9 +77,9 @@ public class ManagerController {
     @RequestMapping(value = "/manageManager", method = GET)
     public String managerAccountManage(Model model, HttpSession session, String userName) {
         if (session.getAttribute("manager") != null && session.getAttribute("manager") instanceof Manager) {
-            Manager searchManager = ManagerTools.findManagerByUserName(userName);
+            Manager searchManager = managerDao.findManagerByUserName(userName);
             model.addAttribute("searchManager", searchManager);
-            List<Manager> managerList = ManagerTools.getAllManagers();
+            List<Manager> managerList = managerDao.getAllManagers();
             if (managerList != null) {
                 model.addAttribute("managerList", managerList);
                 return "managerAccount";
@@ -95,7 +98,7 @@ public class ManagerController {
     public String userAccountManage(Model model, String userName, HttpSession session) {
         if (session.getAttribute("manager") != null && session.getAttribute("manager") instanceof Manager) {
             model.addAttribute("searchCommonUser", userName);
-            List<CommonUser> commonUserList = CommonUserTools.getAllCommonUsers();
+            List<CommonUser> commonUserList = commonUserDao.getAllCommonUsers();
             model.addAttribute("commonUserList", commonUserList);
             return "managerUser";
         }
@@ -111,7 +114,7 @@ public class ManagerController {
     @RequestMapping(value = "/manageQuestionnaire", method = GET)
     public String questionnaireManage(Model model, HttpSession session) {
         if (session.getAttribute("manager") != null && session.getAttribute("manager") instanceof Manager) {
-            List<QuestionnaireTable> allUncheckedQuestionnaires = QuestionnaireTools.readAllUncheckedQuestionnaires();
+            List<QuestionnaireTable> allUncheckedQuestionnaires = questionnaireDao.readAllUncheckedQuestionnaires();
             List<QuestionnaireTable> uncheckedAndIsPublishedQues = new ArrayList<>();
             for (QuestionnaireTable questionnaire : allUncheckedQuestionnaires) {
                 if (questionnaire.getIsPublished()) {
@@ -139,7 +142,7 @@ public class ManagerController {
      */
     @RequestMapping(value = "/managerinfo/{userName}", method = GET)
     public String showManagerInfo(@PathVariable String userName, Model model) {
-        Manager manager = ManagerTools.findManagerByUserName(userName);
+        Manager manager = managerDao.findManagerByUserName(userName);
         if (manager != null) {
             model.addAttribute("managerinfo", manager);
         }
@@ -155,7 +158,7 @@ public class ManagerController {
      */
     @RequestMapping(value = "/commonuserinfo/{userName}", method = GET)
     public String showCommonUserInfo(@PathVariable String userName, Model model) {
-        CommonUser commonUser = CommonUserTools.readOneUser(userName);
+        CommonUser commonUser = commonUserDao.readOneUser(userName);
         if (commonUser != null) {
             model.addAttribute("commonUser", commonUser);
         }
@@ -172,7 +175,7 @@ public class ManagerController {
      */
     @RequestMapping(value = "/changeuserinfo/{userName}", method = GET)
     public String showChangeCommonUserInfo(@PathVariable String userName, Model model,String duplicateName) {
-        CommonUser commonUser = CommonUserTools.readOneUser(userName);
+        CommonUser commonUser = commonUserDao.readOneUser(userName);
         if (commonUser != null) {
             model.addAttribute("info", commonUser);
             model.addAttribute("duplicateName",duplicateName);
@@ -189,7 +192,7 @@ public class ManagerController {
      */
     @RequestMapping(value = "/changeManagerinfo/{userName}", method = GET)
     public String showChangeManagerInfo(@PathVariable String userName, Model model,String duplicateName ) {
-        Manager manager = ManagerTools.findManagerByUserName(userName);
+        Manager manager = managerDao.findManagerByUserName(userName);
         if (manager != null) {
             model.addAttribute("info", manager);
             model.addAttribute("duplicateName",duplicateName);
@@ -222,18 +225,18 @@ public class ManagerController {
             @RequestParam(value = "oldName",defaultValue = "") String  oldName,
             Model model) {
         if(!userName.equals("admin")) {
-            if(ManagerTools.findManagerByUserName(userName) != null){
+            if(managerDao.findManagerByUserName(userName) != null){
                 model.addAttribute("duplicateName", userName);
                 return "redirect:/manager/changeManagerinfo/"+oldName;
             }
-            Manager oldManager = ManagerTools.findManagerByUserName(oldName);
+            Manager oldManager = managerDao.findManagerByUserName(oldName);
             oldManager.setFirstName(firstName);
             oldManager.setLastName(lastName);
             oldManager.setUserName(userName);
             oldManager.setPassword(password);
             oldManager.setPhoneNo(pho);
             oldManager.setEmail(email);
-            ManagerTools.updateOneManager(oldManager);
+            managerDao.updateOneManager(oldManager);
         }
         return "redirect:/manager/manageManager";
     }
@@ -263,18 +266,18 @@ public class ManagerController {
             @RequestParam(value = "email", defaultValue = "") String email,
             @RequestParam(value = "oldName", defaultValue = "") String oldName,
             Model model) {
-        if(CommonUserTools.readOneUser(userName) != null){
+        if(commonUserDao.readOneUser(userName) != null){
             model.addAttribute("duplicateName", userName);
             return "redirect:/manager/changeuserinfo/"+oldName;
         }
-        CommonUser oldCommonUser = CommonUserTools.readOneUser(oldName);
+        CommonUser oldCommonUser = commonUserDao.readOneUser(oldName);
         oldCommonUser.setFirstName(firstName);
         oldCommonUser.setLastName(lastName);
         oldCommonUser.setUserName(userName);
         oldCommonUser.setPassword(password);
         oldCommonUser.setPhoneNo(pho);
         oldCommonUser.setEmail(email);
-        CommonUserTools.updateOneUser(oldCommonUser);
+        commonUserDao.updateOneUser(oldCommonUser);
         return "redirect:/manager/manageUser";
     }
 
@@ -287,16 +290,16 @@ public class ManagerController {
      */
     @RequestMapping(value = "/checkQue.do", method = POST)
     public String checkQuestionnaire(@RequestParam(value = "tableId", defaultValue = "") String tableId, @RequestParam(value = "check", defaultValue = "-1") String check) {
-        QuestionnaireTable uncheckTable = QuestionnaireTools.readOneQuestionnaire(tableId);
+        QuestionnaireTable uncheckTable = questionnaireDao.getOneQuestionnaire(tableId);
 
         if (check.equals("1")) {
             if (!uncheckTable.getIsChecked() && uncheckTable.getIsPublished()) {
                 uncheckTable.setIsChecked(true);
             }
-            QuestionnaireTools.updateQuestionnaire(uncheckTable);
+            questionnaireDao.updateQuestionnaire(uncheckTable);
         } else {
             uncheckTable.setIsPublished(false);
-            QuestionnaireTools.updateQuestionnaire(uncheckTable);
+            questionnaireDao.updateQuestionnaire(uncheckTable);
         }
         return "redirect:/manager/manageQuestionnaire";
     }
@@ -340,11 +343,11 @@ public class ManagerController {
         if (errors.hasErrors()) {
             return "/manager/add.do";
         }
-        if(ManagerTools.findManagerByUserName(manager.getUserName()) != null){
+        if(managerDao.findManagerByUserName(manager.getUserName()) != null){
             model.addAttribute("duplicateName", manager.getUserName());
             return "redirect:/manager/add.do";
         }
-        Manager newmanager = ManagerTools.addManager(manager);
+        Manager newmanager = managerDao.addManager(manager);
         return "redirect:/manager/manageManager";
     }
 
@@ -358,7 +361,7 @@ public class ManagerController {
     @RequestMapping(value = "/delete.do", method = POST)
     public String processDeleteManager(@RequestParam(value = "managerId", defaultValue = "") String managerId,
                                        HttpSession session) {
-        ManagerTools.deleteManager(managerId);
+        managerDao.deleteManager(managerId);
         return "redirect:/manager/manageManager";
     }
 
@@ -372,7 +375,7 @@ public class ManagerController {
     public String processSearchManager(@RequestParam(value = "userName", defaultValue = "") String userName,
                                        Model model) {
         System.out.println(userName);
-        Manager searchManager = ManagerTools.findManagerByUserName(userName);
+        Manager searchManager = managerDao.findManagerByUserName(userName);
         if (searchManager != null) {
             model.addAttribute("userName", searchManager.getUserName());
         }
@@ -390,7 +393,7 @@ public class ManagerController {
     public String processSearchCommonUser(@RequestParam(value = "userName", defaultValue = "") String userName,
                                           Model model) {
         System.out.println(userName);
-        CommonUser searchCommonUser = CommonUserTools.readOneUser(userName);
+        CommonUser searchCommonUser = commonUserDao.readOneUser(userName);
         if (searchCommonUser != null) {
             model.addAttribute("userName", searchCommonUser.getUserName());
         }

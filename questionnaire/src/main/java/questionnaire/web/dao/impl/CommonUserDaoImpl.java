@@ -1,15 +1,20 @@
-package questionnaire.utils;
+package questionnaire.web.dao.impl;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
+import org.springframework.stereotype.Repository;
 import questionnaire.database.CommonUser;
+import questionnaire.utils.SessionFactorySource;
+import questionnaire.web.dao.CommonUserDao;
 
 import java.util.List;
 
-public class CommonUserTools {
+@Repository
+public class CommonUserDaoImpl implements CommonUserDao {
 
-    public static CommonUser verifyCommonUser(String username, String password) {
+    @Override
+    public CommonUser verifyCommonUser(String username, String password) {
         CommonUser user = null;
         try (Session session = SessionFactorySource.getSessionFactory().openSession()) {
             session.beginTransaction();
@@ -35,7 +40,8 @@ public class CommonUserTools {
         return user;
     }
 
-    public static CommonUser readOneUser(String userName){
+    @Override
+    public CommonUser readOneUser(String userName) {
         List<CommonUser> users = null;
         try(Session session = SessionFactorySource.getSessionFactory().openSession()){
             session.beginTransaction();
@@ -51,7 +57,8 @@ public class CommonUserTools {
         return users.get(0);
     }
 
-    public static void updateOneUser(CommonUser commonUser){
+    @Override
+    public void updateOneUser(CommonUser commonUser) {
         try(Session session = SessionFactorySource.getSessionFactory().openSession()){
             session.beginTransaction();
             session.update(commonUser);
@@ -61,7 +68,8 @@ public class CommonUserTools {
         }
     }
 
-    public static CommonUser registerCommonUser(CommonUser cUser){
+    @Override
+    public CommonUser registerCommonUser(CommonUser cUser) {
         try(Session session = SessionFactorySource.getSessionFactory().openSession()){
             session.beginTransaction();
             if(readOneUser(cUser.getUserName())==null){
@@ -76,7 +84,8 @@ public class CommonUserTools {
         return cUser;
     }
 
-    public static CommonUser verifyUser(String username , String password){
+    @Override
+    public CommonUser verifyUser(String username, String password) {
         CommonUser cUser = null;
         try(Session session = SessionFactorySource.getSessionFactory().openSession()){
             session.beginTransaction();
@@ -103,7 +112,8 @@ public class CommonUserTools {
         return cUser;
     }
 
-    public static List<CommonUser> getAllCommonUsers(){
+    @Override
+    public List<CommonUser> getAllCommonUsers() {
         List<CommonUser> commonUsers=null;
         try(Session session = SessionFactorySource.getSessionFactory().openSession()){
             session.beginTransaction();

@@ -10,8 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import questionnaire.database.CommonUser;
 import questionnaire.database.QuestionType;
 import questionnaire.database.QuestionnaireTable;
-import questionnaire.utils.CommonUserTools;
-import questionnaire.utils.QuestionTools;
+import questionnaire.web.dao.QuestionDao;
 import questionnaire.web.dao.QuestionnaireDao;
 
 import javax.servlet.http.Cookie;
@@ -32,6 +31,8 @@ public class QuestionnaireManageController {
      */
     @Autowired
     private QuestionnaireDao questionnaireDao;
+    @Autowired
+    private QuestionDao questionDao;
 
     /**
      * 获取默认问卷页面
@@ -99,7 +100,7 @@ public class QuestionnaireManageController {
     @RequestMapping(value = "/statistics.do", method = RequestMethod.POST)
     public String getStaticsPage(@RequestParam("questionnaireId") String tableId, @RequestParam("questionnaireName") String tableName, Model model){
 
-        List<QuestionType> questions = QuestionTools.readQuestion(tableId);
+        List<QuestionType> questions = questionDao.readQuestion(tableId);
         model.addAttribute("questions", questions);
         model.addAttribute("tableName", tableName);
 

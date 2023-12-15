@@ -9,6 +9,8 @@ import questionnaire.database.QuestionnaireResult;
 import questionnaire.utils.SessionFactorySource;
 import questionnaire.web.dao.QuestionResultDao;
 
+import java.util.List;
+
 @Repository
 public class QuestionResultDaoImpl implements QuestionResultDao {
     /**
@@ -57,5 +59,20 @@ public class QuestionResultDaoImpl implements QuestionResultDao {
         } catch (HibernateException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public List<QuestionTypeResult> readResultsByModel(String parentid) {
+        List<QuestionTypeResult> results = null;
+        try(Session session = SessionFactorySource.getSessionFactory().openSession()){
+            session.beginTransaction();
+            String hql = "FROM QuestionTypeResult where modelType='" + parentid + "'";
+            results = session.createQuery(hql).list();
+            session.getTransaction().commit();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+        }
+
+        return results;
     }
 }

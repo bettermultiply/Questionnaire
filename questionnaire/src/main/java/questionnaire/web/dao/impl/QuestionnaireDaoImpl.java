@@ -102,6 +102,12 @@ public class QuestionnaireDaoImpl implements QuestionnaireDao {
         return null;
     }
 
+    @Override
+    public List<QuestionnaireTable> readAllUncheckedQuestionnaires() {
+        String hql = "FROM QuestionnaireTable where is_checked=0";
+        return readQuestionnaire(hql);
+    }
+
     private List<QuestionnaireTable> readQuestionnaire(String hql){
         List<QuestionnaireTable> tables = null;
         try(Session session = SessionFactorySource.getSessionFactory().openSession()){

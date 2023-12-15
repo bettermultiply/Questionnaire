@@ -4,6 +4,8 @@ import questionnaire.database.ChoiceResult;
 import questionnaire.database.QuestionTypeResult;
 import questionnaire.database.QuestionnaireResult;
 
+import java.util.List;
+
 public interface QuestionResultDao {
     /**
      * 添加一个新的问题回答记录
@@ -27,4 +29,6 @@ public interface QuestionResultDao {
      * @param choiceResult 新的问题回答记录
      */
     void addChoiceResult(ChoiceResult choiceResult);
+
+    List<QuestionTypeResult> readResultsByModel(String parentid);
 }
