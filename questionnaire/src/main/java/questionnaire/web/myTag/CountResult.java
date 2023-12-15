@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import questionnaire.database.*;
 import questionnaire.utils.TextConstruct;
 import questionnaire.web.dao.QuestionResultDao;
+import questionnaire.web.dao.impl.QuestionResultDaoImpl;
 
 import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.JspWriter;
@@ -17,8 +18,8 @@ import java.util.*;
  * calculate the Result and format it into which the eChartCloud can use
  */
 public class CountResult extends SimpleTagSupport {
-    @Autowired
-    private QuestionResultDao questionResultDao;
+
+    private final QuestionResultDao questionResultDao = new QuestionResultDaoImpl();
 
     /**
      * the question to be calculated
