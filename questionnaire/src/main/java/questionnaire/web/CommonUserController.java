@@ -42,15 +42,13 @@ public class CommonUserController {
     }
 
     /**
-     * todo：cookies 设置有问题，当有其他用户需要在同一浏览器注册时，点击登录仍然自动登陆到上一用户
+     *
      * @param lastName
      * @param firstName
      * @param userName
      * @param password
      * @param pho
      * @param email
-     * @param request
-     * @param response
      * @param model
      * @return
      */
@@ -61,21 +59,7 @@ public class CommonUserController {
                                      @RequestParam(value = "password", defaultValue = "") String password,
                                      @RequestParam(value = "pho", defaultValue = "") String pho,
                                      @RequestParam(value = "email", defaultValue = "") String email,
-                                     HttpServletRequest request,
-                                     HttpServletResponse response,
                                      Model model){
-        //todo: 如何设置cookie在浏览器端失效
-//        Cookie [] cookies=request.getCookies();
-//        for (Cookie cookie : cookies) {
-//            String cookieName = cookie.getName();
-//            if ("userName".equals(cookieName)) {
-//                cookie.setValue("-1");
-//                cookie.setPath("/questionnaire/questionnaire");
-//                cookie.setMaxAge(0);
-//                response.addCookie(cookie);
-//                break;
-//            }
-//        }
         if(CommonUserTools.readOneUser(userName)!=null){
             model.addAttribute("taken", true);
             return "register";
@@ -106,8 +90,8 @@ public class CommonUserController {
                     String cookieValue = cookie.getValue();
                     CommonUser commonUser = CommonUserTools.readOneUser(cookieValue);
                     if(commonUser!=null){
-                        session.setAttribute("commonUser",commonUser);
-                        return "redirect:/questionnaire";
+                        model.addAttribute("userName",commonUser.getUserName());
+                        model.addAttribute("password",commonUser.getPassword());
                     }
                 }
             }

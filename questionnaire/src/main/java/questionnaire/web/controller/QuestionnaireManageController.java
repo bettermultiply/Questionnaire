@@ -51,7 +51,6 @@ public class QuestionnaireManageController {
                 if (!"userName".equals(cookieName)) {
                     Cookie userCookie=new Cookie("userName",commonUser.getUserName());
                     cookie.setMaxAge(-1);
-                    cookie.setPath("/questionnaire/questionnaire");
                     response.addCookie(userCookie);
                 }
             }

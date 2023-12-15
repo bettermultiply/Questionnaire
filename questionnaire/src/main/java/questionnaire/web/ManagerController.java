@@ -190,7 +190,7 @@ public class ManagerController {
     public String showChangeManagerInfo(@PathVariable String userName, Model model) {
         Manager manager = ManagerTools.findManagerByUserName(userName);
         if (manager != null) {
-            model.addAttribute("managerinfo", manager);
+            model.addAttribute("User", manager);
         }
         return "changeInfo";
     }
@@ -219,8 +219,6 @@ public class ManagerController {
             @RequestParam(value = "email", defaultValue = "") String email,
             @RequestParam(value = "oldName",defaultValue = "") String  oldName,
             Model model) {
-        System.out.println(userName);
-        System.out.println(oldName);
         if(!oldName.equals("admin")) {
             Manager oldManager = ManagerTools.findManagerByUserName(oldName);
             oldManager.setFirstName(firstName);
@@ -297,7 +295,8 @@ public class ManagerController {
      * @return
      */
     @RequestMapping(value = "/add.do", method = GET)
-    public String addManager(Model model) {
+    public String addManager(Model model,String duplicateName) {
+        model.addAttribute("duplicateName",duplicateName);
         return "addManager";
     }
 
@@ -328,8 +327,8 @@ public class ManagerController {
             return "/manager/add.do";
         }
         if(ManagerTools.findManagerByUserName(manager.getUserName()) != null){
-            model.addAttribute("taken", true);
-            return "/manager/add.do";
+            model.addAttribute("duplicateName", manager.getUserName());
+            return "redirect:/manager/add.do";
         }
         Manager newmanager = ManagerTools.addManager(manager);
         return "redirect:/manager/manageManager";
