@@ -92,6 +92,10 @@
                                data-toggle="tooltip" title data-original-title="<c:url value="/answerQuestionnaire/${questionnaire.tableId}"/>">
                                 <img class="icon" src="<c:url value="/resources/images/icons/link-icon.svg"/>" alt="link svg">
                             </a>
+                            <a class="link" href="<c:url value="/answerQuestionnaire/getQRCode/${questionnaire.tableId}"/>"
+                               data-toggle="tooltip" title data-original-title="<c:url value="/answerQuestionnaire/getQRCode/${questionnaire.tableId}"/>" download="${questionnaire.tableName}" target="_blank">
+                                <img class="icon" src="<c:url value="/resources/images/icons/qrcode.svg"/>" alt="link svg">
+                            </a>
                         </c:when>
                         <c:when test="${questionnaire.isPublished && !questionnaire.isChecked}">
                             <img class="big-icon" src="<c:url value="/resources/images/icons/submitted_2.png"/>" alt="checked icon">

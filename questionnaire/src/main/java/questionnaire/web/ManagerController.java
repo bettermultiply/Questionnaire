@@ -28,8 +28,8 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
  * Created by zong chang on 2023/12/11 19:28
  */
 
-@Controller // 控制定义
-@RequestMapping("/manager") // 相应web路径
+@Controller
+@RequestMapping("/manager") // manager web path
 public class ManagerController {
     @Autowired
     private QuestionnaireDaoImpl questionnaireDao;
@@ -38,7 +38,7 @@ public class ManagerController {
      *
      * @return manager login page
      */
-    @RequestMapping(value = "/login", method = GET) // 相应的请求方法
+    @RequestMapping(value = "/login", method = GET)
     public String showManagerLogin() {
         return "loginManager";
     }
@@ -127,7 +127,6 @@ public class ManagerController {
     public String previewQuestionnaire(@PathVariable("questionnaireId") String questionnaireId, Model model){
         QuestionnaireTable questionnaireTable = questionnaireDao.getOneQuestionnaire(questionnaireId);
         model.addAttribute("questionnaire", questionnaireTable);
-
         return "questionnaire";
     }
 
