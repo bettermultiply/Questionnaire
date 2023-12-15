@@ -6,6 +6,9 @@ import questionnaire.database.QuestionnaireResult;
 
 import java.util.List;
 
+/**
+ * 答卷Dao接口
+ */
 public interface QuestionResultDao {
     /**
      * 添加一个新的问题回答记录
@@ -30,5 +33,11 @@ public interface QuestionResultDao {
      */
     void addChoiceResult(ChoiceResult choiceResult);
 
+    /**
+     * 获取某个问题的所有答题记录
+     *
+     * @param parentid 问题ID
+     * @return 该问题的所有答题记录
+     */
     List<QuestionTypeResult> readResultsByModel(String parentid);
 }

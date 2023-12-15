@@ -1,12 +1,12 @@
 package questionnaire.web.dao;
 
-import questionnaire.database.Choice;
-import questionnaire.database.QuestionType;
 import questionnaire.database.QuestionnaireTable;
 
 import java.util.List;
-import java.util.Map;
 
+/**
+ * 问卷Dao接口
+ */
 public interface QuestionnaireDao {
     /**
      * 根据用户的ID获取该用户发布的所有的问卷列表，包括已审核的和未审核的问卷
@@ -63,12 +63,9 @@ public interface QuestionnaireDao {
     void updateQuestionnaire(QuestionnaireTable questionnaireTable);
 
     /**
-     * 获取问卷的问题列表和对应的问题选项
+     * 获取所有未审核的问卷列表
      *
-     * @param questionnaireId 问卷ID
-     * @return 问卷的问题列表和对应的问题选项
+     * @return 所有未审核的问卷列表
      */
-    List<QuestionType> getAllQuestionsAndChoices(String questionnaireId);
-
     List<QuestionnaireTable> readAllUncheckedQuestionnaires();
 }

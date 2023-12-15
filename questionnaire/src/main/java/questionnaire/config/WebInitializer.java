@@ -36,7 +36,7 @@ public class WebInitializer extends AbstractAnnotationConfigDispatcherServletIni
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
         super.onStartup(servletContext);
-        // 启动h2数据库控制台，通过http://localhost:8080/ex5/console访问数据库管理工具
+        // 启动h2数据库控制台，通过http://localhost:8080/console访问数据库管理工具
         // 默认使用数据库URL jdbc:h2:mem:testdb 用户名sa 密码 空
 
         ServletRegistration.Dynamic servlet = servletContext.addServlet("h2-console", new WebServlet());

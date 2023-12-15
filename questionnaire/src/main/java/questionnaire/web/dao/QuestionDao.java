@@ -4,6 +4,9 @@ import questionnaire.database.QuestionType;
 
 import java.util.List;
 
+/**
+ * 问题Dao接口
+ */
 public interface QuestionDao {
     /**
      * 获取问卷的所有问题列表

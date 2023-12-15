@@ -11,6 +11,9 @@ import questionnaire.web.dao.QuestionResultDao;
 
 import java.util.List;
 
+/**
+ * 答卷Dao的实现类
+ */
 @Repository
 public class QuestionResultDaoImpl implements QuestionResultDao {
     /**
@@ -61,6 +64,9 @@ public class QuestionResultDaoImpl implements QuestionResultDao {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<QuestionTypeResult> readResultsByModel(String parentid) {
         List<QuestionTypeResult> results = null;
