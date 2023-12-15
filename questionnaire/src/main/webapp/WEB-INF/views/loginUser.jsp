@@ -71,11 +71,12 @@
                                 name="password"
                                 class="form-control"
                                 placeholder="Enter Password"
-                                <c:if test="${not empty password}">
-                                    value="${password}"
-                                </c:if>
                         />
-                    </div><input role="button" class="btn btn-primary btn-block" type="submit" value="Login" />
+                    </div>
+                    <c:if test="${not empty err}" >
+                        <label style="color: red">Error managerName or password, check please!</label>
+                    </c:if>
+                    <input role="button" class="btn btn-primary btn-block" type="submit" value="Login" />
                 </form>
 
             </div>

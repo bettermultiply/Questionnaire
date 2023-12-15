@@ -70,7 +70,7 @@
             <div class="col-sm-1"></div>
             <label for="username" class="col-sm-2 control-label">用户名</label>
             <div class="col-sm-6">
-                <sf:input path="userName" type="text" class="form-control custom-input" id="username" placeholder="请输入用户名" />
+                <sf:input path="userName" type="text" class="form-control custom-input" id="username" placeholder="请输入用户名" required="true" />
             </div>
             <c:if test="${not empty duplicateName}" >
                 <label style="color: darkred" >名字<c:out value="${duplicateName}"/>已被占用</label>
@@ -80,7 +80,7 @@
             <div class="col-sm-1"></div>
             <label for="password" class="col-sm-2 control-label">密码</label>
             <div class="col-sm-6">
-                <sf:input path="password" type="password" class="form-control custom-input" id="password" placeholder="请输入密码" />
+                <sf:input path="password" type="password" class="form-control custom-input" id="password" placeholder="请输入密码" required="true" />
             </div>
         </div>
         <div class="form-group">
