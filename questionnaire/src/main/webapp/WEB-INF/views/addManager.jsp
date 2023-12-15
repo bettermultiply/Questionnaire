@@ -54,16 +54,16 @@
     <sf:form method="POST" modelAttribute="manager" class="form-horizontal custom-form" role="form">
         <div class="form-group">
             <div class="col-sm-1"></div>
-            <label for="firstname" class="col-sm-2 control-label">姓</label>
+            <label for="firstname" class="col-sm-2 control-label">名</label>
             <div class="col-sm-6">
-                <sf:input path="firstName" type="text" class="form-control custom-input" id="firstname" placeholder="请输入姓" />
+                <sf:input path="firstName" type="text" class="form-control custom-input" id="firstname" placeholder="请输入名" />
             </div>
         </div>
         <div class="form-group">
             <div class="col-sm-1"></div>
-            <label for="lastname" class="col-sm-2 control-label">名</label>
+            <label for="lastname" class="col-sm-2 control-label">姓</label>
             <div class="col-sm-6">
-                <sf:input path="lastName" type="text" class="form-control custom-input" id="lastname" placeholder="请输入名" />
+                <sf:input path="lastName" type="text" class="form-control custom-input" id="lastname" placeholder="请输入姓" />
             </div>
         </div>
         <div class="form-group">

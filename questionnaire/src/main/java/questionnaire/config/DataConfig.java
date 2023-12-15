@@ -15,7 +15,6 @@ public class DataConfig {
     public DataSource dataSource() {
         return new EmbeddedDatabaseBuilder()
                 .setType(EmbeddedDatabaseType.H2)
-//                .addScript("schema.sql")
                 .setScriptEncoding("UTF-8").build();
 
     }

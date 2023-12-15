@@ -53,14 +53,14 @@
                 <div class="col-sm-1"></div>
                 <label for="firstname" class="col-sm-2 control-label">姓</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control custom-input" id="firstname" name="lastName" placeholder="请输入姓" value="${info.lastName}">
+                    <input type="text" class="form-control custom-input" id="firstname" name="firstName" placeholder="请输入名" value="${info.firstName}">
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-sm-1"></div>
                 <label for="lastname" class="col-sm-2 control-label">名</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control custom-input" id="lastname" name="firstName" placeholder="请输入名" value="${info.firstName}">
+                    <input type="text" class="form-control custom-input" id="lastname" name="lastName" placeholder="请输入姓" value="${info.lastName}">
                 </div>
             </div>
             <div class="form-group">
