@@ -171,10 +171,11 @@ public class ManagerController {
      * @return
      */
     @RequestMapping(value = "/changeuserinfo/{userName}", method = GET)
-    public String showChangeCommonUserInfo(@PathVariable String userName, Model model) {
+    public String showChangeCommonUserInfo(@PathVariable String userName, Model model,String duplicateName) {
         CommonUser commonUser = CommonUserTools.readOneUser(userName);
         if (commonUser != null) {
             model.addAttribute("info", commonUser);
+            model.addAttribute("duplicateName",duplicateName);
         }
         return "changeInfo";
     }
@@ -187,10 +188,11 @@ public class ManagerController {
      * @return
      */
     @RequestMapping(value = "/changeManagerinfo/{userName}", method = GET)
-    public String showChangeManagerInfo(@PathVariable String userName, Model model) {
+    public String showChangeManagerInfo(@PathVariable String userName, Model model,String duplicateName ) {
         Manager manager = ManagerTools.findManagerByUserName(userName);
         if (manager != null) {
             model.addAttribute("info", manager);
+            model.addAttribute("duplicateName",duplicateName);
         }
         return "changeInfo";
     }
@@ -219,7 +221,11 @@ public class ManagerController {
             @RequestParam(value = "email", defaultValue = "") String email,
             @RequestParam(value = "oldName",defaultValue = "") String  oldName,
             Model model) {
-        if(!oldName.equals("admin")) {
+        if(!userName.equals("admin")) {
+            if(ManagerTools.findManagerByUserName(userName) != null){
+                model.addAttribute("duplicateName", userName);
+                return "redirect:/manager/changeManagerinfo/"+oldName;
+            }
             Manager oldManager = ManagerTools.findManagerByUserName(oldName);
             oldManager.setFirstName(firstName);
             oldManager.setLastName(lastName);
@@ -257,6 +263,10 @@ public class ManagerController {
             @RequestParam(value = "email", defaultValue = "") String email,
             @RequestParam(value = "oldName", defaultValue = "") String oldName,
             Model model) {
+        if(CommonUserTools.readOneUser(userName) != null){
+            model.addAttribute("duplicateName", userName);
+            return "redirect:/manager/changeuserinfo/"+oldName;
+        }
         CommonUser oldCommonUser = CommonUserTools.readOneUser(oldName);
         oldCommonUser.setFirstName(firstName);
         oldCommonUser.setLastName(lastName);

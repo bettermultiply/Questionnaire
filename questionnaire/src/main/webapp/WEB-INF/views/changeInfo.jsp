@@ -48,7 +48,7 @@
 <br><br><br><br>
 <div class="container">
     <form  method="post" class="form-horizontal custom-form" role="form">
-        <c:if test="${not empty User}">
+        <c:if test="${not empty info}">
             <div class="form-group">
                 <div class="col-sm-1"></div>
                 <label for="firstname" class="col-sm-2 control-label">姓</label>
@@ -68,6 +68,9 @@
                 <label for="username" class="col-sm-2 control-label">用户名</label>
                 <div class="col-sm-6">
                     <input type="text" class="form-control custom-input" id="username" name="userName" placeholder="请输入用户名" value="${info.userName}" required>
+                    <c:if test="${not empty duplicateName}" >
+                        <label style="color: darkred" >名字<c:out value="${duplicateName}"/>已被占用</label>
+                    </c:if>
                 </div>
             </div>
             <div class="form-group">

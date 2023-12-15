@@ -91,7 +91,6 @@ public class CommonUserController {
                     CommonUser commonUser = CommonUserTools.readOneUser(cookieValue);
                     if(commonUser!=null){
                         model.addAttribute("userName",commonUser.getUserName());
-                        model.addAttribute("password",commonUser.getPassword());
                     }
                 }
             }
