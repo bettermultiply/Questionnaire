@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
- * the class is used to intercept people without manager account
+ * the class is used to filter people without manager account
  */
 public class ManagerFilter implements Filter {
 

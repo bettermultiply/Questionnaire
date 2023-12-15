@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * the class is used to filter request without user account
+ */
 public class UserFilter implements Filter {
 
     @Override
@@ -20,7 +23,7 @@ public class UserFilter implements Filter {
     }
 
     /**
-     * post handle
+     * filter request without user account
      */
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain) throws IOException, ServletException {
@@ -33,9 +36,6 @@ public class UserFilter implements Filter {
         request.getRequestDispatcher("/commonuser/login").forward(request, response);
     }
 
-    /**
-     * after comple
-     */
     @Override
     public void destroy() {
     }

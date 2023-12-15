@@ -99,6 +99,14 @@ public class CommonUserController {
         return "loginUser";
     }
 
+    /**
+     * login
+     * @param userName
+     * @param password
+     * @param session
+     * @param response
+     * @return
+     */
     @RequestMapping(value ="/login",method = POST) // 相应的请求方法
     public String commonUserLogin(@RequestParam(value = "userName", defaultValue = "") String userName,
                                   @RequestParam(value = "password", defaultValue = "") String password, HttpSession session,HttpServletResponse response){
@@ -112,7 +120,11 @@ public class CommonUserController {
         }
     }
 
-
+    /**
+     * logout
+     * @param session
+     * @return
+     */
     @RequestMapping(value = "/logout.do", method = GET)
     public String logOut(HttpSession session) {
         session.invalidate();

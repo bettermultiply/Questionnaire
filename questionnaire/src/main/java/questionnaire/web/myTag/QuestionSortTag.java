@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Set;
 
+/**
+ * sort question
+ */
 public class QuestionSortTag extends SimpleTagSupport {
     private Set<QuestionType> questionSet;
 

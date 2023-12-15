@@ -4,6 +4,9 @@ import javax.servlet.*;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * set the header Cache-Control: no-store for every response
+ */
 public class CacheFilter implements Filter{
 
     @Override

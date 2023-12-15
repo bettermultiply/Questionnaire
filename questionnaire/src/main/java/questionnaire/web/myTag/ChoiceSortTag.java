@@ -9,6 +9,9 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Set;
 
+/**
+ * sort the choice
+ */
 public class ChoiceSortTag extends SimpleTagSupport {
     private Set<Choice> choiceSet;
 

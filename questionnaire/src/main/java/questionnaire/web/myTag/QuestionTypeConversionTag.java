@@ -5,6 +5,9 @@ import questionnaire.database.QuestionType;
 
 import javax.servlet.jsp.tagext.SimpleTagSupport;
 
+/**
+ * convert question type to qChoose
+ */
 public class QuestionTypeConversionTag extends SimpleTagSupport {
     private QuestionType question;
 
