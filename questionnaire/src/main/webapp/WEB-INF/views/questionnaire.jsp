@@ -78,9 +78,8 @@
                     </c:choose>
                 </div>
             </c:forEach>
-
             <c:choose>
-                <c:when test="${questionnaire.isPublished}">
+                <c:when test="${questionnaire.isPublished and questionnaire.isChecked}">
                     <div class="col-md-12 submitButton text-center">
                         <button type="button" class="btn btn-primary" onclick="submitForm()">
                             <img class="icon" src="<c:url value="/resources/images/icons/submit-icon.svg" />" alt="submit icon">
@@ -88,7 +87,7 @@
                         </button>
                     </div>
                 </c:when>
-                <c:when test="${not empty manager}">
+                <c:when test="${not empty manager and empty userPreview}">
                     <div class="col-md-12 submitButton text-center">
                         <a href="<c:url value="/manager/manageQuestionnaire"/>">
                             <button type="button" class="btn btn-primary">
@@ -99,6 +98,7 @@
                     </div>
                 </c:when>
                 <c:otherwise>
+                    <c:if test="${not empty userPreview and questionnaire.user.userName eq userPreview}">
                     <div class="col-md-12 submitButton text-center">
                         <a href="<c:url value="/questionnaire/design/${questionnaire.tableId}"/>">
                             <button type="button" class="btn btn-primary">
@@ -107,6 +107,7 @@
                             </button>
                         </a>
                     </div>
+                    </c:if>
                 </c:otherwise>
             </c:choose>
 

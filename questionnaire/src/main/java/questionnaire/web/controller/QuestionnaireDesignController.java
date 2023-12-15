@@ -197,8 +197,9 @@ public class QuestionnaireDesignController {
     @RequestMapping(value = "/preview/{questionnaireId}", method = RequestMethod.GET)
     public String previewQuestionnaire(@PathVariable("questionnaireId") String questionnaireId, Model model){
         QuestionnaireTable questionnaireTable = questionnaireDao.getOneQuestionnaire(questionnaireId);
+        String  userName=questionnaireTable.getUser().getUserName();
         model.addAttribute("questionnaire", questionnaireTable);
-
+        model.addAttribute("userPreview",userName);
         return "questionnaire";
     }
 
