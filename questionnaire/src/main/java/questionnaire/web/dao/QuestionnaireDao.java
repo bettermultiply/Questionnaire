@@ -69,4 +69,6 @@ public interface QuestionnaireDao {
      * @return 问卷的问题列表和对应的问题选项
      */
     List<QuestionType> getAllQuestionsAndChoices(String questionnaireId);
+
+    List<QuestionnaireTable> readAllUncheckedQuestionnaires();
 }

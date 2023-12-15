@@ -7,7 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import questionnaire.database.*;
 import questionnaire.utils.QRCodeUtils;
-import questionnaire.utils.QuestionnaireTools;
 import questionnaire.web.dao.ChoiceDao;
 import questionnaire.web.dao.QuestionDao;
 import questionnaire.web.dao.QuestionnaireDao;
@@ -61,7 +60,7 @@ public class QuestionnaireAnswerController {
     public String addOneQRCode(@PathVariable("questionnaireId") String questionnaireId,HttpServletRequest request, HttpServletResponse response) {
         String url="http://127.0.0.1:8080/answerQuestionnaire/"+questionnaireId;
         System.out.println(url);
-        QuestionnaireTable answerTable= QuestionnaireTools.readOneQuestionnaire(questionnaireId);
+        QuestionnaireTable answerTable= questionnaireDao.getOneQuestionnaire(questionnaireId);
         BufferedImage image = null;
         String content = answerTable.getTableName();
         try {

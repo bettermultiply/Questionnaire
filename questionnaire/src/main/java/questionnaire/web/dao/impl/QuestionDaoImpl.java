@@ -3,8 +3,6 @@ package questionnaire.web.dao.impl;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
-import questionnaire.database.Choice;
-import questionnaire.database.QChoose;
 import questionnaire.database.QuestionType;
 import questionnaire.utils.SessionFactorySource;
 import questionnaire.web.dao.QuestionDao;
@@ -13,7 +11,7 @@ import java.util.Comparator;
 import java.util.List;
 
 @Repository
-public class questionDaoImpl implements QuestionDao {
+public class QuestionDaoImpl implements QuestionDao {
     /**
      * {@inheritDoc}
      */

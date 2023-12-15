@@ -1,20 +1,18 @@
-package questionnaire.web;
+package questionnaire.web.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import questionnaire.database.CommonUser;
-import questionnaire.utils.CommonUserTools;
+import questionnaire.web.dao.CommonUserDao;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import java.util.Arrays;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -28,6 +26,8 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 @SessionAttributes({ "commonuser" })
 @RequestMapping("/commonuser") // 相应web路径
 public class CommonUserController {
+    @Autowired
+    private CommonUserDao commonUserDao;
 
     /**
      * 普通用户注册
@@ -60,7 +60,7 @@ public class CommonUserController {
                                      @RequestParam(value = "pho", defaultValue = "") String pho,
                                      @RequestParam(value = "email", defaultValue = "") String email,
                                      Model model){
-        if(CommonUserTools.readOneUser(userName)!=null){
+        if(commonUserDao.readOneUser(userName)!=null){
             model.addAttribute("taken", true);
             return "register";
         }
@@ -71,7 +71,7 @@ public class CommonUserController {
         commonUser.setPassword(password);
         commonUser.setPhoneNo(pho);
         commonUser.setEmail(email);
-        CommonUser cUser=CommonUserTools.registerCommonUser(commonUser);
+        CommonUser cUser=commonUserDao.registerCommonUser(commonUser);
         if(cUser!=null){
             return "redirect:/";
         }
@@ -88,7 +88,7 @@ public class CommonUserController {
                 String cookieName = cookie.getName();
                 if("userName".equals(cookieName)){
                     String cookieValue = cookie.getValue();
-                    CommonUser commonUser = CommonUserTools.readOneUser(cookieValue);
+                    CommonUser commonUser = commonUserDao.readOneUser(cookieValue);
                     if(commonUser!=null){
                         model.addAttribute("userName",commonUser.getUserName());
                         model.addAttribute("password",commonUser.getPassword());
@@ -111,7 +111,7 @@ public class CommonUserController {
     public String commonUserLogin(@RequestParam(value = "userName", defaultValue = "") String userName,
                                   @RequestParam(value = "password", defaultValue = "") String password, HttpSession session,HttpServletResponse response){
 
-        CommonUser commonUser = CommonUserTools.verifyUser(userName, password);
+        CommonUser commonUser = commonUserDao.verifyUser(userName, password);
         if(commonUser != null ){
             session.setAttribute("commonUser",commonUser);
             return "redirect:/questionnaire";

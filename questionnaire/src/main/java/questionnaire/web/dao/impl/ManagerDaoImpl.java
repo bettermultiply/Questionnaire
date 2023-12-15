@@ -1,20 +1,19 @@
-package questionnaire.utils;
+package questionnaire.web.dao.impl;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
-import questionnaire.database.CommonUser;
+import org.springframework.stereotype.Repository;
 import questionnaire.database.Manager;
-import questionnaire.database.QuestionType;
+import questionnaire.utils.SessionFactorySource;
+import questionnaire.web.dao.ManagerDao;
 
 import java.util.List;
 
-/**
- * Created by zong chang on 2023/12/11 20:57
- */
-public class ManagerTools {
-
-    public static Manager verifyManager(String username, String password) {
+@Repository
+public class ManagerDaoImpl implements ManagerDao {
+    @Override
+    public Manager verifyManager(String username, String password) {
         Manager manager = null;
         try (Session session = SessionFactorySource.getSessionFactory().openSession()) {
             session.beginTransaction();
@@ -39,7 +38,8 @@ public class ManagerTools {
         return manager;
     }
 
-    public static Manager findManagerByUserName(String username) {
+    @Override
+    public Manager findManagerByUserName(String username) {
         Manager manager = null;
         try (Session session = SessionFactorySource.getSessionFactory().openSession()) {
             session.beginTransaction();
@@ -65,8 +65,8 @@ public class ManagerTools {
         return manager;
     }
 
-
-    public static Manager addManager(Manager manager) {
+    @Override
+    public Manager addManager(Manager manager) {
         try (Session session = SessionFactorySource.getSessionFactory().openSession()) {
             session.beginTransaction();
             session.save(manager);
@@ -77,7 +77,8 @@ public class ManagerTools {
         return manager;
     }
 
-    public static void deleteManager(String managerId) {
+    @Override
+    public void deleteManager(String managerId) {
         try(Session session = SessionFactorySource.getSessionFactory().openSession()){
             session.beginTransaction();
             Manager manager = session.load(Manager.class, managerId);
@@ -92,7 +93,8 @@ public class ManagerTools {
         }
     }
 
-    public static List<Manager> getAllManagers() {
+    @Override
+    public List<Manager> getAllManagers() {
         List<Manager> managers = null;
         try (Session session = SessionFactorySource.getSessionFactory().openSession()) {
             session.beginTransaction();
@@ -115,7 +117,8 @@ public class ManagerTools {
         return managers;
     }
 
-    public static void updateOneManager(Manager manager){
+    @Override
+    public void updateOneManager(Manager manager) {
         try(Session session = SessionFactorySource.getSessionFactory().openSession()){
             session.beginTransaction();
             session.update(manager);
