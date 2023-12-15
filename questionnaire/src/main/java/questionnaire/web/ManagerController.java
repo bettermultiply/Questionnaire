@@ -174,7 +174,7 @@ public class ManagerController {
     public String showChangeCommonUserInfo(@PathVariable String userName, Model model) {
         CommonUser commonUser = CommonUserTools.readOneUser(userName);
         if (commonUser != null) {
-            model.addAttribute("User", commonUser);
+            model.addAttribute("info", commonUser);
         }
         return "changeInfo";
     }
@@ -190,7 +190,7 @@ public class ManagerController {
     public String showChangeManagerInfo(@PathVariable String userName, Model model) {
         Manager manager = ManagerTools.findManagerByUserName(userName);
         if (manager != null) {
-            model.addAttribute("managerinfo", manager);
+            model.addAttribute("info", manager);
         }
         return "changeInfo";
     }
@@ -219,8 +219,6 @@ public class ManagerController {
             @RequestParam(value = "email", defaultValue = "") String email,
             @RequestParam(value = "oldName",defaultValue = "") String  oldName,
             Model model) {
-        System.out.println(userName);
-        System.out.println(oldName);
         if(!oldName.equals("admin")) {
             Manager oldManager = ManagerTools.findManagerByUserName(oldName);
             oldManager.setFirstName(firstName);
