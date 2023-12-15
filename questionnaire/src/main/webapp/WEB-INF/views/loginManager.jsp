@@ -66,7 +66,7 @@
                                 placeholder="Enter Password"
                         />
                     </div>
-                    <c:if test="${not empty error}" >
+                    <c:if test="${not empty err}" >
                         <label style="color: red">Error managerName or password, check please!</label>
                     </c:if>
                     <input class="btn btn-primary btn-block" role="button" type="submit" value="Login" />

@@ -60,7 +60,7 @@ public class ManagerController {
             session.setAttribute("manager", manager);
             return "redirect:/manager/manageManager";
         } else {
-            model.addAttribute("error", "1");
+            model.addAttribute("err", "1");
             return "loginManager";
         }
     }

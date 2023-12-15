@@ -103,19 +103,18 @@ public class CommonUserController {
      * @param userName
      * @param password
      * @param session
-     * @param response
      * @return
      */
     @RequestMapping(value ="/login",method = POST) // 相应的请求方法
     public String commonUserLogin(@RequestParam(value = "userName", defaultValue = "") String userName,
-                                  @RequestParam(value = "password", defaultValue = "") String password, HttpSession session,HttpServletResponse response){
-
+                                  @RequestParam(value = "password", defaultValue = "") String password, HttpSession session,Model model){
         CommonUser commonUser = CommonUserTools.verifyUser(userName, password);
         if(commonUser != null ){
             session.setAttribute("commonUser",commonUser);
             return "redirect:/questionnaire";
         }else {
-            return "redirect:/commonuser/login";
+            model.addAttribute("err", "1");
+            return "loginUser";
         }
     }
 
