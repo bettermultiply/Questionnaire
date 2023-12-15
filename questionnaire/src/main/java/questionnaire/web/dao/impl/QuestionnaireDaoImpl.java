@@ -3,7 +3,6 @@ package questionnaire.web.dao.impl;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
-import questionnaire.database.QuestionType;
 import questionnaire.database.QuestionnaireTable;
 import questionnaire.utils.SessionFactorySource;
 import questionnaire.web.dao.QuestionnaireDao;
@@ -92,14 +91,6 @@ public class QuestionnaireDaoImpl implements QuestionnaireDao {
         } catch (HibernateException e) {
             e.printStackTrace();
         }
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public List<QuestionType> getAllQuestionsAndChoices(String questionnaireId) {
-        return null;
     }
 
     @Override

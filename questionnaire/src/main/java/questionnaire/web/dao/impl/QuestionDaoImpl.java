@@ -10,6 +10,9 @@ import questionnaire.web.dao.QuestionDao;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * 问题Dao的实现类
+ */
 @Repository
 public class QuestionDaoImpl implements QuestionDao {
     /**

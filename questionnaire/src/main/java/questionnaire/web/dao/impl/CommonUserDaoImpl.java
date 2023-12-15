@@ -10,9 +10,15 @@ import questionnaire.web.dao.CommonUserDao;
 
 import java.util.List;
 
+/**
+ * 用户Dao的实现类
+ */
 @Repository
 public class CommonUserDaoImpl implements CommonUserDao {
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public CommonUser verifyCommonUser(String username, String password) {
         CommonUser user = null;
@@ -40,6 +46,9 @@ public class CommonUserDaoImpl implements CommonUserDao {
         return user;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public CommonUser readOneUser(String userName) {
         List<CommonUser> users = null;
@@ -57,6 +66,9 @@ public class CommonUserDaoImpl implements CommonUserDao {
         return users.get(0);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void updateOneUser(CommonUser commonUser) {
         try(Session session = SessionFactorySource.getSessionFactory().openSession()){
@@ -68,6 +80,9 @@ public class CommonUserDaoImpl implements CommonUserDao {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public CommonUser registerCommonUser(CommonUser cUser) {
         try(Session session = SessionFactorySource.getSessionFactory().openSession()){
@@ -84,6 +99,9 @@ public class CommonUserDaoImpl implements CommonUserDao {
         return cUser;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public CommonUser verifyUser(String username, String password) {
         CommonUser cUser = null;
@@ -112,6 +130,9 @@ public class CommonUserDaoImpl implements CommonUserDao {
         return cUser;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<CommonUser> getAllCommonUsers() {
         List<CommonUser> commonUsers=null;

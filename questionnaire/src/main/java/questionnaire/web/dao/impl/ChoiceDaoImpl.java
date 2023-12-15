@@ -9,6 +9,9 @@ import questionnaire.web.dao.ChoiceDao;
 
 import java.util.List;
 
+/**
+ * 选项Dao的实现类
+ */
 @Repository
 public class ChoiceDaoImpl implements ChoiceDao {
     /**

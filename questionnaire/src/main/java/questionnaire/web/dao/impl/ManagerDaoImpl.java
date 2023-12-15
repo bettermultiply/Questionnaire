@@ -10,8 +10,15 @@ import questionnaire.web.dao.ManagerDao;
 
 import java.util.List;
 
+/**
+ * 管理员Dao实现类
+ */
 @Repository
 public class ManagerDaoImpl implements ManagerDao {
+
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Manager verifyManager(String username, String password) {
         Manager manager = null;
@@ -38,6 +45,9 @@ public class ManagerDaoImpl implements ManagerDao {
         return manager;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Manager findManagerByUserName(String username) {
         Manager manager = null;
@@ -65,6 +75,9 @@ public class ManagerDaoImpl implements ManagerDao {
         return manager;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Manager addManager(Manager manager) {
         try (Session session = SessionFactorySource.getSessionFactory().openSession()) {
@@ -77,6 +90,9 @@ public class ManagerDaoImpl implements ManagerDao {
         return manager;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void deleteManager(String managerId) {
         try(Session session = SessionFactorySource.getSessionFactory().openSession()){
@@ -93,6 +109,9 @@ public class ManagerDaoImpl implements ManagerDao {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<Manager> getAllManagers() {
         List<Manager> managers = null;
@@ -117,6 +136,9 @@ public class ManagerDaoImpl implements ManagerDao {
         return managers;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void updateOneManager(Manager manager) {
         try(Session session = SessionFactorySource.getSessionFactory().openSession()){

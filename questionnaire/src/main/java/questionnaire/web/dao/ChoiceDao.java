@@ -2,6 +2,9 @@ package questionnaire.web.dao;
 
 import questionnaire.database.Choice;
 
+/**
+ * 选项Dao接口
+ */
 public interface ChoiceDao {
     /**
      * 添加选项
