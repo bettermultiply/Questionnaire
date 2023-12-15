@@ -58,7 +58,10 @@
                                 name="userName"
                                 class="form-control"
                                 placeholder="Enter UerName"
-                        />
+                                <c:if test="${not empty userName}">
+                                value="${userName}"
+                        </c:if>
+                      />
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
@@ -68,6 +71,9 @@
                                 name="password"
                                 class="form-control"
                                 placeholder="Enter Password"
+                                <c:if test="${not empty password}">
+                                    value="${password}"
+                                </c:if>
                         />
                     </div><input role="button" class="btn btn-primary btn-block" type="submit" value="Login" />
                 </form>

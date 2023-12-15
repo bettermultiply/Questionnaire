@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import questionnaire.database.*;
+import questionnaire.utils.QRCodeUtils;
+import questionnaire.utils.QuestionnaireTools;
 import questionnaire.web.dao.ChoiceDao;
 import questionnaire.web.dao.QuestionDao;
 import questionnaire.web.dao.QuestionnaireDao;
@@ -13,8 +15,16 @@ import questionnaire.web.dao.QuestionResultDao;
 import questionnaire.web.entity.QuestionAnswerForm;
 import questionnaire.web.entity.QuestionnaireAnswerForm;
 
+import javax.imageio.ImageIO;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.HashSet;
+
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 @Controller
 @RequestMapping(value = "/answerQuestionnaire")
@@ -31,9 +41,45 @@ public class QuestionnaireAnswerController {
     @RequestMapping(value = "/{questionnaireId}", method = RequestMethod.GET)
     public String getAnswerQuestionnairePage(@PathVariable("questionnaireId") String questionnaireId, Model model){
         QuestionnaireTable questionnaireTable = questionnaireDao.getOneQuestionnaire(questionnaireId);
+        if (!questionnaireTable.getIsChecked()){
+            return "unChecked";
+        }
         model.addAttribute("questionnaire", questionnaireTable);
 
         return "questionnaire";
+    }
+
+
+    /**
+     * Generate a QR code based on the questionnaire URL and return to the user interface for downloading
+     * @param questionnaireId
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping(value = "/getQRCode/{questionnaireId}", method = GET)
+    public String addOneQRCode(@PathVariable("questionnaireId") String questionnaireId,HttpServletRequest request, HttpServletResponse response) {
+        String url="http://127.0.0.1:8080/answerQuestionnaire/"+questionnaireId;
+        System.out.println(url);
+        QuestionnaireTable answerTable= QuestionnaireTools.readOneQuestionnaire(questionnaireId);
+        BufferedImage image = null;
+        String content = answerTable.getTableName();
+        try {
+            //Write the QR code image to the response in the form of byte stream
+            image = QRCodeUtils.generateQrCodeBack(url, content);
+            ServletOutputStream os = response.getOutputStream();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            ImageIO.write(image, "jpg", baos);
+            byte[] imageBytes = baos.toByteArray();
+            os.write(imageBytes);
+            os.flush();
+            os.close();
+            response.setHeader("Content-Disposition", "attachment");
+            return "success";
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "fail";
     }
 
     @RequestMapping(value = "/api/submitForm", method = RequestMethod.POST)
