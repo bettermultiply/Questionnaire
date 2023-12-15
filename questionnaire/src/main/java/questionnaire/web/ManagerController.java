@@ -54,13 +54,14 @@ public class ManagerController {
      */
     @RequestMapping(value = "/login", method = POST)
     public String processManagerLogin(@RequestParam(value = "userName", defaultValue = "") String userName,
-                                      @RequestParam(value = "password", defaultValue = "") String password, HttpSession session) {
+                                      @RequestParam(value = "password", defaultValue = "") String password, HttpSession session, Model model) {
         Manager manager = ManagerTools.verifyManager(userName, password);
         if (manager != null) {
             session.setAttribute("manager", manager);
             return "redirect:/manager/manageManager";
         } else {
-            return "redirect:/manager/login";
+            model.addAttribute("error", "1");
+            return "loginManager";
         }
     }
 
@@ -275,12 +276,16 @@ public class ManagerController {
      * @return
      */
     @RequestMapping(value = "/checkQue.do", method = POST)
-    public String checkQuestionnaire(@RequestParam(value = "tableId", defaultValue = "") String tableId) {
-        if (!tableId.equals("-1")) {
-            QuestionnaireTable uncheckTable = QuestionnaireTools.readOneQuestionnaire(tableId);
+    public String checkQuestionnaire(@RequestParam(value = "tableId", defaultValue = "") String tableId, @RequestParam(value = "check", defaultValue = "-1") String check) {
+        QuestionnaireTable uncheckTable = QuestionnaireTools.readOneQuestionnaire(tableId);
+
+        if (check.equals("1")) {
             if (!uncheckTable.getIsChecked() && uncheckTable.getIsPublished()) {
                 uncheckTable.setIsChecked(true);
             }
+            QuestionnaireTools.updateQuestionnaire(uncheckTable);
+        } else {
+            uncheckTable.setIsPublished(false);
             QuestionnaireTools.updateQuestionnaire(uncheckTable);
         }
         return "redirect:/manager/manageQuestionnaire";

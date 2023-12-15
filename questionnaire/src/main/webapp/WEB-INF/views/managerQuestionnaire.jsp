@@ -65,20 +65,21 @@
                 <th style="text-align: center">操作</th>
             </tr>
             </thead>
-        <form method="post" action="<c:url value="/manager/checkQue.do"/>">
         <c:forEach var="unCQuestionnaire" items="${uncheckedQuestionnaires}">
             <tr>
                     <td><input type="checkbox" name="cb"></td>
                     <td>${unCQuestionnaire.user.userName}</td>
                     <td>${unCQuestionnaire.tableName}</td>
                     <td>
-                        <button type="submit" name="tableId" value="${unCQuestionnaire.tableId}">通过</button>
-                        <button type="submit" name="tableId" value="-1">不通过</button>
+                        <form method="post" action="<c:url value="/manager/checkQue.do"/>">
+                        <input type="hidden" name="tableId" value="${unCQuestionnaire.tableId}">
+                        <button type="submit" name="check" value="1">通过</button>
+                        <button type="submit" name="check" value="-1">不通过</button>
+                        </form>
                     </td>
                     <td><a href="<c:url value="/manager/preview/${unCQuestionnaire.tableId}"/>" >查看</a></td>
             </tr>
         </c:forEach>
-        </form>
         </c:when><c:otherwise>
         This is a questionnaire wasteland!
         </c:otherwise>
