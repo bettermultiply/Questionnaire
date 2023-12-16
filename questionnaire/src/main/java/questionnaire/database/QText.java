@@ -2,6 +2,9 @@ package questionnaire.database;
 
 import java.util.Set;
 
+/**
+ * Text Question
+ */
 public class QText extends QuestionType{
 
     public QText() {

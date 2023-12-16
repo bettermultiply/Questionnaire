@@ -1,5 +1,8 @@
 package questionnaire.database;
 
+/**
+ * System manager
+ */
 public class Manager {
     private String id;
 

@@ -2,6 +2,9 @@ package questionnaire.database;
 
 import java.util.Set;
 
+/**
+ * Choice of Question
+ */
 public class Choice {
 
 

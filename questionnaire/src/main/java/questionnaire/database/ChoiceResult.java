@@ -1,5 +1,8 @@
 package questionnaire.database;
 
+/**
+ * Result of Every Choice
+ */
 public class ChoiceResult {
 
 

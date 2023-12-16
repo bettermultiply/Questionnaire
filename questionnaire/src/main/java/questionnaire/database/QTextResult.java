@@ -1,5 +1,8 @@
 package questionnaire.database;
 
+/**
+ * Result of Text Question
+ */
 public class QTextResult extends QuestionTypeResult{
 
     private String answer;

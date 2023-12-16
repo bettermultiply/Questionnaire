@@ -5,6 +5,9 @@ import javax.persistence.OneToMany;
 import java.util.Set;
 import java.util.Vector;
 
+/**
+ * Result of Choose Question
+ */
 public class QChooseResult extends QuestionTypeResult{
 
 

@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * User who can use our application and design questionnaire
+ */
 public class CommonUser {
 
     private String userId;

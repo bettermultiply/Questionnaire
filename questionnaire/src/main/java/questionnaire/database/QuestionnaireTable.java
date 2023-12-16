@@ -3,6 +3,9 @@ package questionnaire.database;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * Questionnaire which the user can design by self
+ */
 public class QuestionnaireTable {
 
     private String tableId;

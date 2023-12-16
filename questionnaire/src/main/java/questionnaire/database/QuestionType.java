@@ -2,6 +2,9 @@ package questionnaire.database;
 
 import java.util.Set;
 
+/**
+ * Question which can be added to questionnaire
+ */
 public class QuestionType {
 
     private String questionId;

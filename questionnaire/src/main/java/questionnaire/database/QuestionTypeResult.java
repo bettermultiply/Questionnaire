@@ -1,5 +1,8 @@
 package questionnaire.database;
 
+/**
+ * Result of Question
+ */
 public class QuestionTypeResult {
 
     private String resultId;

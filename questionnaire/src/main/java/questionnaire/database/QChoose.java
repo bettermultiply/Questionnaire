@@ -4,6 +4,9 @@ import java.util.List;
 import java.util.Set;
 import java.util.Vector;
 
+/**
+ * Choose Question
+ */
 public class QChoose extends QuestionType{
 
     /**

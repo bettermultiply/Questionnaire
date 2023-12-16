@@ -4,6 +4,9 @@ package questionnaire.database;
 import javax.persistence.criteria.CriteriaBuilder;
 import java.util.Set;
 
+/**
+ * Result of questionnaire
+ */
 public class QuestionnaireResult {
 
     private String resultId;
