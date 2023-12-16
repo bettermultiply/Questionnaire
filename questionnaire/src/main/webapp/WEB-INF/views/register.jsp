@@ -50,16 +50,6 @@
                 <h1 class="text-center mb-3">User Register</h1>
                 <form method="post">
                     <div class="form-group">
-                        <label for="LastName">姓</label>
-                        <input
-                                type="text"
-                                id="LastName"
-                                name="lastName"
-                                class="form-control"
-                                placeholder="Enter LastName"
-                        />
-                    </div>
-                    <div class="form-group">
                         <label for="FirstName">名</label>
                         <input
                                 type="text"
@@ -67,6 +57,16 @@
                                 name="firstName"
                                 class="form-control"
                                 placeholder="Enter FirstName"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="LastName">姓</label>
+                        <input
+                                type="text"
+                                id="LastName"
+                                name="lastName"
+                                class="form-control"
+                                placeholder="Enter LastName"
                         />
                     </div>
                     <div class="form-group">

@@ -52,16 +52,16 @@
             <c:if test="${not empty commonUser}">
                 <div class="form-group">
                     <div class="col-sm-1"></div>
-                    <label for="firstname" class="col-sm-2 control-label">姓</label>
+                    <label for="firstname" class="col-sm-2 control-label">名</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control custom-input" id="firstname" placeholder="${commonUser.lastName}">
+                        <input type="text" class="form-control custom-input" id="firstname" placeholder="${commonUser.firstName}">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-1"></div>
-                    <label for="lastname" class="col-sm-2 control-label">名</label>
+                    <label for="lastname" class="col-sm-2 control-label">姓</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control custom-input" id="lastname" placeholder="${commonUser.firstName}">
+                        <input type="text" class="form-control custom-input" id="lastname" placeholder="${commonUser.lastName}">
                     </div>
                 </div>
                 <div class="form-group">

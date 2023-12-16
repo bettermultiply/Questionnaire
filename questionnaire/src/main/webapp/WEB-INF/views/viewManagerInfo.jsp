@@ -59,16 +59,16 @@
     <c:if test="${not empty managerinfo}">
         <div class="form-group">
             <div class="col-sm-1"></div>
-            <label for="firstname" class="col-sm-2 control-label">姓</label>
+            <label for="firstname" class="col-sm-2 control-label">名</label>
             <div class="col-sm-6">
-                <input type="text" class="form-control custom-input" id="firstname" placeholder="${managerinfo.lastName}">
+                <input type="text" class="form-control custom-input" id="firstname" placeholder="${managerinfo.firstName}">
             </div>
         </div>
         <div class="form-group">
             <div class="col-sm-1"></div>
-            <label for="lastname" class="col-sm-2 control-label">名</label>
+            <label for="lastname" class="col-sm-2 control-label">姓</label>
             <div class="col-sm-6">
-                <input type="text" class="form-control custom-input" id="lastname" placeholder="${managerinfo.firstName}">
+                <input type="text" class="form-control custom-input" id="lastname" placeholder="${managerinfo.lastName}">
             </div>
         </div>
         <div class="form-group">
