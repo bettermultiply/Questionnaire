@@ -157,7 +157,7 @@ public class QuestionnaireAnswerController {
         }
 
         // 成功提交页面的url,由前端js函数重定向到该页面
-        return "/answerQuestionnaire/successSubmitted";
+        return "/surveySystem/answerQuestionnaire/successSubmitted";
     }
 
     /**

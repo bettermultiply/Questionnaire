@@ -22,7 +22,7 @@ function submitForm() {
         questionIdElement = document.getElementById("questionId" + questionNumber);
     }
 
-    fetch("/answerQuestionnaire/api/submitForm", {
+    fetch("/surveySystem/answerQuestionnaire/api/submitForm", {
         method: "POST",
         headers: {
             "Content-Type" : "application/json"
