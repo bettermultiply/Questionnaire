@@ -74,9 +74,13 @@ public class CountResult extends SimpleTagSupport {
                 }
             }
 
+            Object[] arr = choiceOrder.keySet().toArray();
+            Arrays.sort(arr);
+
             String xData = "";
             String sData = "[";
-            for(int i=1; i<=choices.size(); i++){
+            for(Object i:  arr){
+
                 xData += choiceOrder.get(i) + ",";
                 sData += choiceCount.get(i).toString() + ",";
             }
